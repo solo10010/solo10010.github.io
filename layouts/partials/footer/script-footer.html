@@ -7,6 +7,9 @@
 {{ $highlight := resources.Get "js/highlight.js" -}}
 {{ $highlight := $highlight | js.Build -}}
 
+{{ $solojs := resources.Get "js/solojs.js" -}}
+{{ $solojs := $solojs | js.Build -}}
+
 {{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
 {{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
 
@@ -58,7 +61,7 @@
 {{ end -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
-
+<script src="{{ $solojs.RelPermalink }}" defer></script>
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" defer></script>
