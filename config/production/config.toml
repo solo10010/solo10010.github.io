@@ -1,1 +1,2 @@
-canonifyURLs = false
+baseurl = "https://solo10010.github.io"
+canonifyURLs = true
