@@ -54,6 +54,9 @@
 .docs-links h3:not(:first-child) {
   border-top: 1px solid $gray-200;
 }
+.page-links {
+  margin-top: 40px;
+}
 
 a.docs-link {
   color: $body-color;

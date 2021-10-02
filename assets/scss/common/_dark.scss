@@ -84,7 +84,7 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] body .navbar,
 [data-dark-mode] body .doks-subnavbar {
   background-color: rgba(33, 37, 41, 0.95);
-  border-bottom: 1px solid $border-dark;
+  //border-bottom: 1px solid $border-dark;
 }
 
 [data-dark-mode] body.home .navbar {
@@ -102,10 +102,18 @@ $navbar-dark-active-color:          $link-color-dark;
 [data-dark-mode] body .offcanvas .nav-link:hover,
 [data-dark-mode] body .offcanvas .nav-link:focus {
   color: $link-color-dark;
+  border-bottom: 2px solid $link-color-dark;
+  height:35px;
+}
+[data-dark-mode] body .hom_nav:hover,
+[data-dark-mode] body .hom_nav:focus {
+  margin-top: 2px;
+  border-bottom: 2px solid $link-color-dark;
 }
 
 [data-dark-mode] body .offcanvas .nav-link.active {
   color: $link-color-dark;
+  
 }
 
 [data-dark-mode] body .navbar-light .navbar-brand {
