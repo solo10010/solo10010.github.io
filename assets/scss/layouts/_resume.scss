@@ -1,3 +1,7 @@
+body {
+   font-family: monospace;
+}
+
 // glich effect
 .box {
     display: flex;
@@ -51,3 +55,42 @@
     }
  }
 // end glich effect
+// about present
+.wrapper {
+   //height: 100vh;
+   /*This part is important for centering*/
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: -60px;
+ }
+ 
+ .typing-demo {
+   width: 26em;
+   animation: typing 2.1s steps(32), blink .40s step-end infinite alternate;
+   white-space: nowrap;
+   overflow: hidden;
+   
+   font-family: monospace, inherit;
+   font-size: 0.7em;
+ }
+ 
+ .typing-demo{
+   border-right: 3px solid;
+ }
+
+ @keyframes typing {
+   from {
+     width: 0
+   }
+ }
+     
+ @keyframes blink {
+   50% {
+     border-color: transparent
+   }
+ }
+
+ // presen stop
+
+ 
