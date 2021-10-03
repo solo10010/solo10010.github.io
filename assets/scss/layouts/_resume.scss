@@ -93,4 +93,30 @@ body {
 
  // presen stop
 
- 
+ .test1 {
+    background-color: rgb(41, 41, 41);
+ }
+
+ .test2 {
+    background-color: rgb(55, 70, 118);
+ }
+.title h5{
+   font-size: 100%;
+   text-align: center;
+}
+.title span{
+   color: rgb(18, 199, 169);
+}
+
+ .image_f img{
+   height: 100px;
+   width: 100px;
+   border-radius: 50px;
+   display: block;
+   margin: auto;
+ }
+
+ .about-text p{
+    font-size: 0.7em;
+    margin: auto;
+ }
