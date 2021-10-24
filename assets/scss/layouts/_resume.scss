@@ -107,6 +107,15 @@ body {
    font-size: 100%;
    text-align: center;
 }
+.title_bot {
+   font-size: 0.9em;
+   //text-align: center;
+   margin-left: 80px;
+}
+
+.title_bot span{
+   color: rgb(0, 255, 229);
+}
 .title span{
    color: rgb(18, 199, 169);
 }
@@ -487,4 +496,10 @@ body {
 .knowlege_marker span{
    color: #12C7A9;
    padding-right: 5px;
+}
+
+
+.carusel-custom {
+   //background-color: blue;
+   height: 540px;
 }
