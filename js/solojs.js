@@ -265,4 +265,72 @@
   };
   var chart = new ApexCharts(document.querySelector("#chart5"), options);
   chart.render();
+  var options = {
+    fill: {
+      colors: void 0,
+      opacity: 0.9,
+      type: "solid",
+      gradient: {
+        shade: "dark",
+        type: "horizontal",
+        shadeIntensity: 0.5,
+        gradientToColors: void 0,
+        inverseColors: true,
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 50, 100],
+        colorStops: ["#2E93fA", "#66DA26", "#546E7A", "#E91E63", "#FF9800"]
+      }
+    },
+    chart: {
+      height: "70%",
+      width: "100%",
+      type: "radar"
+    },
+    series: [
+      {
+        name: "Vulnerability",
+        data: [45, 52, 38, 24, 33, 10]
+      }
+    ],
+    labels: ["April", "May", "June", "July", "August", "September"]
+  };
+  var chart = new ApexCharts(document.querySelector("#chart_hackthebox"), options);
+  chart.render();
+  var options = {
+    fill: {
+      colors: void 0,
+      opacity: 0.9,
+      type: "solid",
+      gradient: {
+        shade: "dark",
+        type: "horizontal",
+        shadeIntensity: 0.5,
+        gradientToColors: void 0,
+        inverseColors: true,
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 50, 100],
+        colorStops: ["#2E93fA", "#66DA26", "#546E7A", "#E91E63", "#FF9800"]
+      }
+    },
+    chart: {
+      height: "70%",
+      width: "100%",
+      type: "radar"
+    },
+    series: [
+      {
+        name: "My Reports",
+        data: [45, 52, 38, 24, 33, 10, 40]
+      },
+      {
+        name: "Accepted reports",
+        data: [26, 21, 20, 6, 8, 15, 40]
+      }
+    ],
+    labels: ["XSS", "SSRF", "SSTI", "IDor", "SQl", "CVE", "ErrorLogs"]
+  };
+  var chart = new ApexCharts(document.querySelector("#chart_hackerone"), options);
+  chart.render();
 })();
