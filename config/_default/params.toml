@@ -9,8 +9,8 @@ description = "web devrlop and bagbounty hanter"
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "doks.netlify.app"
-titleHome = "Doks Theme"
+domainTLD = "solo10010.github.io"
+titleHome = "solo10010"
 
 ## Twitter Cards
 twitterSite = "@getdoks"
@@ -21,9 +21,9 @@ twitterCreator = "@henkverlinde"
 schemaType = "Organization"
 schemaName = "Doks"
 schemaAuthor = "Henk Verlinde"
-schemaAuthorTwitter = "https://twitter.com/henkverlinde"
-schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
-schemaAuthorGitHub = "https://github.com/h-enk"
+schemaAuthorTwitter = "https://twitter.com/solo10010"
+schemaAuthorLinkedIn = "https://www.linkedin.com/in/solo10010/"
+schemaAuthorGitHub = "https://github.com/solo10010"
 schemaLocale = "en-US"
 schemaLogo = "logo-doks.png"
 schemaLogoWidth = 512
@@ -31,9 +31,9 @@ schemaLogoHeight = 512
 schemaImage = "doks.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
-schemaTwitter = "https://twitter.com/getdoks"
+schemaTwitter = "https://twitter.com/solo10010"
 schemaLinkedIn = ""
-schemaGitHub = "https://github.com/h-enk/doks"
+schemaGitHub = "https://github.com/solo10010"
 schemaSection = "blog"
 
 ## Sitelinks Search Box

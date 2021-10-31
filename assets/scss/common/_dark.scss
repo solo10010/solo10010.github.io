@@ -22,6 +22,15 @@ $navbar-dark-active-color:          $link-color-dark;
 
 /** Theme styles */
 
+
+[data-dark-mode] body .glitch {
+  color: $gray-200;
+  &:before, &:after {
+    color: $gray-200;
+  }
+}
+
+
 [data-dark-mode] body {
   background: $body-bg-dark;
   color: $body-color-dark;
