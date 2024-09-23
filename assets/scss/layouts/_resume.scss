@@ -525,40 +525,35 @@ body {
 
  
 .ul_anim {
-   
    list-style: none;
    padding: 0;
    margin: 0;
    transition: all 1s;
-   animation: 3s linear 0s infinite roullete;
- }
- 
- #cover {
+   animation: roullete 3s linear infinite;
+}
 
-  display:flex;
+#cover {
    display: flex;
    flex-direction: column;
- }
- 
- .re-star {
+}
+
+.re-star {
    align-items: center;
    justify-content: center;
    font-size: 300%;
    display: flex;
-   //flex-direction: row;
- }
- 
- .suffix {
-   height: 1em;
+}
+
+.suffix {
+   height: 2em; /* Увеличьте высоту, если нужно */
    overflow: hidden;
-   //padding-right: 0.3em;
- }
- 
- @keyframes roullete {
-   from { 
+}
+
+@keyframes roullete {
+   0% {
      transform: translateY(0);
    }
-   to { 
-     transform: translateY(-5.8em);
+   100% {
+     transform: translateY(-12em); /* Увеличьте значение для большего количества элементов */
    }
- }
+}
