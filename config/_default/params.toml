@@ -3,8 +3,8 @@
 ## Homepage
 title = "HOM"
 titleSeparator = "-"
-titleAddition = "My sites docks resume blog wiki"
-description = "web devrlop and bagbounty hanter"
+titleAddition = "Мой сайт Блог и Резюме"
+description = "Системный Администратор ИБ специалист"
 
 ## Open Graph
 images = ["doks.png"]
@@ -51,7 +51,7 @@ lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "Copyright (c) 2021-2022 Solo10010"
+footer = "Copyright (c) 2021-2024 Solo10010"
 
 # Feed
 copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
