@@ -1,0 +1,422 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://solo10010.github.io/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://solo10010.github.io/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><script>(()=>{var b=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,a=localStorage.getItem("theme");b&&a===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),b&&a==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),a==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><link rel=stylesheet href=https://solo10010.github.io/main.c984fc5e2d470530556f8263d4229fb8ff751848a667f3a06c92a4918dcd48114c0a3bae355ef415add2b59f36862aed0acd023f4e69492631b23b5e6308fda3.css integrity="sha512-yYT8Xi1HBTBVb4Jj1CKfuP91GEimZ/OgbJKkkY3NSBFMCjuuNV70Fa3StZ82hirtCs0CP05pSSYxsjteYwj9ow==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>КЕЙС - Оптимизайция сервера 👋 - HOM</title><meta name=description content="Оптимизация сервера и работы сайта в рамках запроса клиента. Админисмтративные единоразовые работы."><link rel=canonical href=https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="КЕЙС - Оптимизайция сервера 👋"><meta property="og:description" content="Оптимизация сервера и работы сайта в рамках запроса клиента. Админисмтративные единоразовые работы."><meta property="og:url" content="https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/"><meta property="og:site_name" content="HOM"><meta property="article:published_time" content="2020-11-04T09:19:42+01:00"><meta property="article:modified_time" content="2020-11-04T09:19:42+01:00"><meta property="og:image" content="https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/say-hello-to-doks.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@getdoks"><meta name=twitter:creator content="@henkverlinde"><meta name=twitter:title content="КЕЙС - Оптимизайция сервера 👋"><meta name=twitter:description content="Оптимизация сервера и работы сайта в рамках запроса клиента. Админисмтративные единоразовые работы."><meta name=twitter:image content="https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/say-hello-to-doks.png"><meta name=twitter:image:alt content="КЕЙС - Оптимизайция сервера 👋"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://solo10010.github.io/#/schema/organization/1","name":"Doks","url":"https://solo10010.github.io/","sameAs":["https://twitter.com/solo10010","https://github.com/solo10010"],"logo":{"@type":"ImageObject","@id":"https://solo10010.github.io/#/schema/image/1","url":"https://solo10010.github.io/logo-doks.png","width":512,"height":512,"caption":"Doks"},"image":{"@id":"https://solo10010.github.io/#/schema/image/1"}},{"@type":"WebSite","@id":"https://solo10010.github.io/#/schema/website/1","url":"https://solo10010.github.io/","name":"HOM","description":"Системный Администратор ИБ специалист","publisher":{"@id":"https://solo10010.github.io/#/schema/organization/1"}},{"@type":"WebPage","@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/","url":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/","name":"КЕЙС - Оптимизайция сервера 👋","description":"Оптимизация сервера и работы сайта в рамках запроса клиента. Админисмтративные единоразовые работы.","isPartOf":{"@id":"https://solo10010.github.io/#/schema/website/1"},"about":{"@id":"https://solo10010.github.io/#/schema/organization/1"},"datePublished":"2020-11-04T09:19:42CET","dateModified":"2020-11-04T09:19:42CET","breadcrumb":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/"]}]},{"@type":"BreadcrumbList","@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://solo10010.github.io","url":"https://solo10010.github.io","name":"Home"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://solo10010.github.io/blog/","url":"https://solo10010.github.io/blog/","name":"Blog"}},{"@type":"ListItem","position":4,"item":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://solo10010.github.io/#/schema/article/1","headline":"КЕЙС - Оптимизайция сервера 👋","description":"Оптимизация сервера и работы сайта в рамках запроса клиента. Админисмтративные единоразовые работы.","isPartOf":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/"},"mainEntityOfPage":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/"},"datePublished":"2020-11-04T09:19:42CET","dateModified":"2020-11-04T09:19:42CET","author":{"@id":"https://solo10010.github.io/#/schema/person/2"},"publisher":{"@id":"https://solo10010.github.io/#/schema/organization/1"},"image":{"@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://solo10010.github.io/#/schema/person/2","name":"Henk Verlinde","sameAs":["https://twitter.com/solo10010","https://www.linkedin.com/in/solo10010/","https://github.com/solo10010"]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://solo10010.github.io/blog/%D0%BA%D0%B5%D0%B9%D1%81-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D0%B9%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/#/schema/image/2","url":"https://solo10010.github.io/doks.png","contentUrl":"https://solo10010.github.io/doks.png","caption":"КЕЙС - Оптимизайция сервера 👋"}]}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://solo10010.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://solo10010.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://solo10010.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://solo10010.github.io/site.webmanifest></head><body class="blog single"><div class="header-bar fixed-top"></div><header style=padding-top:5px;padding-bottom:0 class="navbar navbar-expand-md navbar-light doks-navbar fixed-top"><nav styele class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation"><a class="hom_nav navbar p-0 me-auto" href=https://solo10010.github.io/ aria-label=HOM>HOM</a>
+<button class="btn btn-menu d-block d-md-none order-5" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasDoks aria-controls=offcanvasDoks aria-label="Open main menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="offcanvas offcanvas-start border-0 py-md-1" tabindex=-1 id=offcanvasDoks data-bs-backdrop=true aria-labelledby=offcanvasDoksLabel><div class="header-bar d-md-none"></div><div class="offcanvas-header d-md-none"><h2 class="h5 offcanvas-title ps-2" id=offcanvasDoksLabel><a class=text-dark href=https://solo10010.github.io/>HOM</a></h2><button type=button class="btn-close text-reset me-2" data-bs-dismiss=offcanvas aria-label="Close main menu"></button></div><div class="offcanvas-body px-3"><ul class="nav flex-column flex-md-row ms-md-n3"><li class=nav-item><a style="padding:.5rem 0;margin-left:.6rem" class="nav-link ps-0 py-1" href=https://solo10010.github.io/resume/>RESUME</a></li><li class=nav-item><a style="padding:.5rem 0;margin-left:.6rem" class="nav-link ps-0 py-1" href=https://solo10010.github.io/docs/prologue/introduction/>WIKI</a></li><li class=nav-item><a style="padding:.5rem 0;margin-left:.6rem" class="nav-link ps-0 py-1" href=https://solo10010.github.io/blog/>BLOG</a></li></ul><hr class="text-black-50 my-4 d-md-none"><h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3><ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2"><li class=nav-item><a style=border-bottom:none class="nav-link ps-0 py-1" href=https://github.com/solo10010><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><small class="ms-2 d-md-none">GitHub</small></a></li><li class=nav-item><a style=border-bottom:none class="nav-link ps-0 py-1" href=https://twitter.com/solo10010><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg><small class="ms-2 d-md-none">Twitter</small></a></li></ul></div></div><button id=mode class="btn btn-link order-md-1" type=button aria-label="Toggle user interface mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button></nav></header><div class="wrap container-xxl" role=document><div class=content><div class="row justify-content-center"><div class="col-md-12 col-lg-10 col-xl-8"><article><div class=blog-header><h1>КЕЙС - Оптимизайция сервера 👋</h1><p><small>Posted November 4, 2020 by <a class="stretched-link position-relative" href=https://solo10010.github.io/contributors/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD-%D1%81./>Антон С.</a>&nbsp;&dash;&nbsp;<strong>20&nbsp;min read</strong></small><p></div><p class=lead>Оптимизация - (MySQL/MariaDB) (Apache/Nginx) (Redis, OPcache) Проблемы с очисткой кэша в DLE, Рекомендации по настройке ISPmanager</p><p>Технические характеристики сервера</p><pre><code>Тариф: Cloud 2-8-1000
+CPU: 2
+MEM: 8
+DISK: 10000
+OS: Ubuntu 22.04
+
+Panel: ISP
+ПО: Redis OPcache
+Сайт: http://***gramm.pro/
+</code></pre><p>Описание проблемы:</p><pre><code>Хотели бы воспользоваться услугой &quot;Единоразовые платные работы на сервере&quot;. Нужна ваша помощь в проверке настроек сервера и установке оптимальных параметров (php, apache/nginx, mysql, Redis, OPcache) для его стабильной работы и быстродействия.  
+  
+Проблема в том, что при добавлении админами новостей, именно в момент сохранения новости, начинается резкий прирост количества процессов, использования CPU и ОЗУ вплоть до того, что сайт перестаёт быть доступным и помогает только &quot;насильственная&quot; перезагрузка.  
+  
+Обратились в поддержку движка DLE и получили ответ:  
+&quot;Одно обращение к серверу это один процесс. Загрузка файлов, хоть одного, хоть сразу 100 это тоже всегда одно обращение, потому как отправляет их браузер по очереди. DLE не делает никаких обращений к серверу при загрузке и не генерирует множества обращений к серверу. Более того загружает файлы на сервер не DLE, а браузер соединяется с сервером напрямую. DLE запускается только тогда когда уже все загружено и все на сервере. Поэтому от DLE этот вопрос никак не зависит, и к сожалению со стороны DLE мы вам ничем помочь не можем.  
+  
+В данном случае вам нужно смотреть настройки серверного ПО. Скорее всего некорректно работает либо сборщик мусора на северном ПО, либо некорректная конфигурация сервера и запускаются дочерние потоки не по мере необходимости а сразу. Вам нужно обратится в службу поддержки вашего хостинга для проверки настроек сервера.  
+При сохранении новости работает PHP интерпретатор, взаимодействует с базой данных и т.д. запуская соответствующие внутренние серверные процессы.  
+Помимо всего прочего добавление публикации очищает кеши которые DLE создал до этого для облегчения работы, очищаются они чтобы пользователи увидели актуальную информацию, соответственно если много посетителей в этот момент то обновление большого количества контента потребуется при этом, это влечет безусловно увеличение нагрузки, пока все данные не обновятся и она не начнет поступать из кеша а не из базы данных.  
+Мы не занимаемся настройкой серверов. Универсальных значений и рекомендаций тут не существует в принципе, а эти настройки делаются очень тонко, в зависимости от объема данных в БД, посещаемости, аппаратных данных сервера и так далее, достаточно много нюансов и тонкостей. Вам нужен в данном случае системный администратор. Администрированием серверов занимаются как правило хостинг провайдеры, мы эти не занимаемся, это не наша сфера работы.&quot;  
+  
+На сервере установлен ISPManager.  
+  
+Согласен на &quot;Административные работы&quot;.
+</code></pre><p>Во время иследования сервера и переговоров с клиентом было выяснено что на сервере появляются большое количество процессов apache действия которые к этому приводят создание или редактирование статей с аудио.</p><p>По запросу клиент создал статью на конечной точке http://***gramm.pro/ чтобы мы могли сами воиспроизводить проблему, и передал тестовые файлы которые используются для создания статьи.</p><p>Во время воиспроизведения мы обнаружили что любое редактирование приводит к бесконечному увеличению количества apache процессов до бесконечности и зависания сервера.</p><p>Анализ логов показал узкие места в nginx и Apache. так как nginx идет первым сначало настраиваем его.</p><p>в nginx мы обнаружили большое количесво ошибок nginx связанных с worker_connections</p><pre><code>2024/09/15 12:43:32 [alert] 259727#259727: 768 worker_connections are not enough
+</code></pre><p>Увеличили axRequestWorkers</p><pre><code>MaxRequestWorkers 150 -&gt; MaxRequestWorkers 550
+</code></pre><p>Добавили также буферы</p><pre><code>proxy_buffering on; # по умолчанию
+proxy_buffer_size 4k;
+proxy_buffers 32 4k; # до 132K + ядерные буфера
+proxy_max_temp_file_size 0;
+</code></pre><p>Клиент также сообщал такие подробности</p><pre><code>Если взглянуть на процессы, то видим, что наплодилось более 150 процессов apache2
+
+Ошибка 504 Gateway Time-Out. Приложил показатели сервера.
+</code></pre><p>На стороне Apache была таже проблема с достижением лимитов, положительными оказались следующие настройки</p><pre><code>
+было
+vim /etc/apache2/mods-available/mpm_prefork.conf  
+StartServers 5  
+MinSpareServers 5  
+MaxSpareServers 10  
+MaxRequestWorkers 1024  
+MaxConnectionsPerChild 0
+
+стало
+
+StartServers 10  
+MinSpareServers 10  
+MaxSpareServers 20  
+ServerLimit 2000  
+MaxRequestWorkers 1500  
+MaxConnectionsPerChild 10000
+</code></pre><p>Если резюмировать то при редактировании статьи через веб сервер идет большое количество коннектов. Веб сервера не успевают все обработать.</p><p>Далее так как ограничения повысили, вся нагрузка ложится на mysql</p><p>посмотрели SHOW PROCCESSLIST;</p><p>видим процессы бесконечно растут</p><pre><code>| 6294 | admin                | localhost | vokal02_vokal | Query   |   46 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6295 | admin                | localhost | vokal02_vokal | Query   |   29 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6296 | admin                | localhost | vokal02_vokal | Query   |   26 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6297 | admin                | localhost | vokal02_vokal | Query   |   22 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6298 | admin                | localhost | vokal02_vokal | Query   |   32 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6299 | admin                | localhost | vokal02_vokal | Query   |   19 | Waiting for table level lock | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6301 | admin                | localhost | vokal02_vokal | Query   |    4 | Opening tables               | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6303 | admin                | localhost | vokal02_vokal | Query   |   73 | executing                    | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6304 | admin                | localhost | vokal02_vokal | Sleep   |   73 |                              | NULL                                                                                                 |
+| 6305 | admin                | localhost | vokal02_vokal | Query   |   73 | executing                    | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+| 6307 | admin                | localhost | vokal02_vokal | Query   |   73 | executing                    | SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t |
+</code></pre><p>Сделали лог медленных запросов проанализирвали через percona-tools</p><pre><code># 150ms user time, 10ms system time, 28.94M rss, 34.90M vsz
+# Current date: Fri Sep 20 05:31:11 2024
+# Hostname: fonogramm3
+# Files: /var/log/mysql/mysql-slow.log.1
+# Overall: 811 total, 23 unique, 1.08 QPS, 88.99x concurrency ____________
+# Time range: 2024-09-18T04:55:17 to 2024-09-18T05:07:46
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time         66652s      2s    168s     82s    159s     54s     84s
+# Lock time         44917s       0    159s     55s    151s     56s     52s
+# Rows sent          5.92k       0      60    7.48   36.69   11.90    2.90
+# Rows examine      37.48M       0 228.27k  47.33k 222.42k  89.89k   11.95
+# Query size       396.94k      16   1.15k  501.19  592.07  213.53  537.02
+
+# Profile
+# Rank Query ID                      Response time    Calls R/Call   V/M
+# ==== ============================= ================ ===== ======== =====
+#    1 0x8A2BFDCD9DEA61EDBD2CDFB3... 31009.2110 46.5%   282 109.9617 11.93 SELECT dle_post dle_post_extras
+#    2 0x19650673119F178973630FD0... 18449.5609 27.7%   167 110.4764 21.18 SELECT dle_post dle_post_extras dle_post_extras_cats
+#    3 0x445E7CAF1536030361A9EFB6...  7528.1039 11.3%    93  80.9474  8.96 SELECT dle_post dle_post_extras_cats dle_post_extras
+#    4 0x2430813EE57DC6F686EE6FEA...  5733.1328  8.6%    48 119.4403 11.49 SELECT dle_post dle_post_extras
+#    5 0x4990B5047475FA5BE176D77C...   934.2216  1.4%    86  10.8630  3.39 SELECT dle_post
+#    9 0x651B55F97FA84879F295756D...   350.2628  0.5%    23  15.2288  6.29 SELECT dle_post dle_post_extras_cats
+#   14 0xF07BF8B6438D6CE4DCF8F8EB...   149.8146  0.2%    65   2.3048  0.01 SELECT dle_post dle_post_extras_cats dle_post_extras
+# MISC 0xMISC                         2497.3818  3.7%    47  53.1358   0.0 &lt;16 ITEMS&gt;
+
+# Query 1: 11.75 QPS, 1.29kx concurrency, ID 0x8A2BFDCD9DEA61EDBD2CDFB3EB71656E at byte 461774
+# Scores: V/M = 11.93
+# Time range: 2024-09-18T05:07:22 to 2024-09-18T05:07:46
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         34     282
+# Exec time     46  31009s      3s    161s    110s    151s     36s    107s
+# Lock time     67  30176s      3s    159s    107s    151s     37s    107s
+# Rows sent      4     281       0       1    1.00    0.99    0.06    0.99
+# Rows examine   0     281       0       1    1.00    0.99    0.06    0.99
+# Query size    38 150.88k     546     548  547.86  537.02       0  537.02
+# String:
+# Databases    vokal02_vokal
+# Hosts        localhost
+# Users        admin
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ##
+#  10s+  ################################################################
+# Tables
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post`\G
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post_extras'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post_extras`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT p.id, p.autor, p.date, p.short_story, p.full_story, p.xfields, p.title, p.descr, p.keywords, p.category, p.alt_name, p.comm_num, p.allow_comm, p.allow_main, p.approve, p.fixed, p.allow_br, p.symbol, p.tags, p.metatitle, e.news_read, e.allow_rate, e.rating, e.vote_num, e.votes, e.view_edit, e.disable_index, e.related_ids, e.access, e.editdate, e.editor, e.reason, e.user_id, e.disable_search, e.need_pass, e.allow_rss, e.allow_rss_turbo, e.allow_rss_dzen FROM dle_post p LEFT JOIN dle_post_extras e ON (p.id=e.news_id) WHERE  p.id = '35688'\G
+</code></pre><p>Конфиг mysql</p><p>vim /etc/mysql/mysql.conf.d/mysqld.cnf</p><pre><code>#
+# The MySQL database server configuration file.
+#
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+# Here is entries for some specific programs
+# The following values assume you have at least 32M ram
+
+[mysqld]
+collation-server = utf8_general_ci
+character-set-server = utf8
+local-infile=0
+default-authentication-plugin=mysql_native_password
+innodb_file_per_table = 1
+#
+# * Basic Settings
+#
+user            = mysql
+# pid-file      = /var/run/mysqld/mysqld.pid
+# socket        = /var/run/mysqld/mysqld.sock
+# port          = 3306
+# datadir       = /var/lib/mysql
+
+
+# If MySQL is running as a replication slave, this should be
+# changed. Ref https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmpdir
+# tmpdir                = /tmp
+#
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+bind-address            = 127.0.0.1
+mysqlx-bind-address     = 127.0.0.1
+#
+# * Fine Tuning
+#
+key_buffer_size         = 256M
+max_allowed_packet      = 64M
+# thread_stack          = 256K
+
+# thread_cache_size       = -1
+
+# This replaces the startup script and checks MyISAM tables if needed
+# the first time they are touched
+myisam-recover-options  = BACKUP
+
+max_connections        = 500
+wait_timeout           = 60
+# table_open_cache       = 4000
+
+#
+# * Logging and Replication
+#
+# Both location gets rotated by the cronjob.
+#
+# Log all queries
+# Be aware that this log type is a performance killer.
+# general_log_file        = /var/log/mysql/query.log
+# general_log             = 1
+#
+# Error log - should be very few entries.
+#
+log_error = /var/log/mysql/error.log
+
+#
+# Here you can see queries with especially long duration
+# slow_query_log                = 1
+# slow_query_log_file   = /var/log/mysql/mysql-slow.log
+# long_query_time = 2
+# log-queries-not-using-indexes
+#
+# The following can be used as easy to replay backup logs or for replication.
+# note: if you are setting up a replication slave, see README.Debian about
+#       other settings you may need to change.
+# server-id             = 1
+# log_bin                       = /var/log/mysql/mysql-bin.log
+# binlog_expire_logs_seconds    = 2592000
+max_binlog_size   = 200M
+# binlog_do_db          = include_database_name
+# binlog_ignore_db      = include_database_name
+
+</code></pre><p>Поменяли на</p><pre><code>[mysqld]
+# Кодировка
+collation-server = utf8_general_ci
+character-set-server = utf8
+local-infile=0
+default-authentication-plugin=mysql_native_password
+innodb_file_per_table = 1
+
+# Основные настройки
+user            = mysql
+bind-address            = 127.0.0.1
+mysqlx-bind-address     = 127.0.0.1
+
+# Настройки InnoDB
+innodb_buffer_pool_size = 4G
+innodb_read_io_threads = 8
+innodb_write_io_threads = 8
+innodb_thread_concurrency = 16
+innodb_log_file_size = 1G
+innodb_log_files_in_group = 2
+innodb_lock_wait_timeout = 50
+innodb_flush_method = O_DIRECT
+innodb_buffer_pool_instances = 4
+
+# Настройки кешей и буферов
+key_buffer_size = 64M
+table_open_cache = 2000
+# query_cache_type = 0
+# query_cache_size = 0
+sort_buffer_size = 4M
+thread_cache_size = 100
+
+# Управление соединениями
+max_connections = 300
+wait_timeout = 120
+interactive_timeout = 120
+
+# Логирование
+log_error = /var/log/mysql/error.log
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+long_query_time = 1
+log_queries_not_using_indexes = 1
+
+# Репликация и бинарные логи
+max_binlog_size   = 200M
+#server-id             = 1
+#log_bin                       = /var/log/mysql/mysql-bin.log
+#binlog_expire_logs_seconds    = 2592000
+#binlog_do_db          = include_database_name
+#binlog_ignore_db      = include_database_name
+
+</code></pre><h4 id=почему-это-было-сделано><strong>Почему это было сделано:</strong></h4><ul><li><p><strong><code>innodb_buffer_pool_size = 4G</code></strong>: Этот параметр определяет размер буферного пула InnoDB, который используется для кэширования данных и индексов. Увеличение его размера до 4 ГБ позволяет MySQL хранить больше данных в оперативной памяти, что снижает количество операций чтения с диска и ускоряет выполнение запросов.</p></li><li><p><strong><code>innodb_read_io_threads</code> и <code>innodb_write_io_threads</code> = 8</strong> : Увеличение количества потоков ввода-вывода для чтения и записи улучшает производительность на многоядерных системах, позволяя одновременно обрабатывать больше операций ввода-вывода.</p></li><li><p><strong><code>innodb_thread_concurrency = 16</code></strong>: Этот параметр контролирует количество потоков, которые могут одновременно работать с InnoDB. Значение 16 подходит для серверов с большим количеством ядер процессора, обеспечивая эффективное использование ресурсов.</p></li><li><p><strong><code>innodb_log_file_size = 1G</code> и <code>innodb_log_files_in_group = 2</code></strong>: Увеличение размера лог-файлов InnoDB уменьшает частоту их вращения (flush) и повышает производительность записи. Это особенно полезно при высоких нагрузках на запись.</p></li><li><p><strong><code>innodb_lock_wait_timeout = 50</code></strong>: Увеличение времени ожидания блокировки позволяет транзакциям дольше ждать освобождения заблокированных ресурсов, что может снизить количество ошибок блокировок при интенсивных операциях.</p></li><li><p><strong><code>innodb_flush_method = O_DIRECT</code></strong>: Этот параметр предотвращает двойное кэширование данных в буферах ОС и InnoDB, улучшая производительность за счет более эффективного использования памяти.</p></li><li><p><strong><code>innodb_buffer_pool_instances = 4</code></strong>: Разделение буферного пула на несколько экземпляров снижает конкуренцию между потоками и улучшает многопоточную производительность.</p></li><li><p><strong><code>key_buffer_size = 64M</code></strong>: Поскольку вы используете InnoDB как основной движок хранения, размер кеша ключей для MyISAM таблиц ( <code>key_buffer_size</code>) был уменьшен. Это освобождает память для других важных буферов InnoDB.</p></li><li><p><strong><code>table_open_cache = 2000</code></strong>: Увеличение этого значения позволяет MySQL удерживать больше открытых таблиц в кеше, что уменьшает накладные расходы на открытие и закрытие таблиц, особенно при работе с большим количеством таблиц.</p></li><li><p><strong><code>sort_buffer_size = 4M</code></strong>: Этот буфер используется для операций сортировки. Увеличение его размера позволяет более эффективно выполнять сложные сортировки, но следует учитывать, что этот буфер выделяется на каждое соединение, поэтому слишком большое значение может привести к избыточному потреблению памяти при большом количестве одновременных соединений.</p></li><li><p><strong><code>thread_cache_size = 100</code></strong>: Увеличение этого параметра позволяет MySQL быстрее обрабатывать новые соединения за счет повторного использования существующих потоков, что снижает накладные расходы на создание новых потоков.</p></li></ul><p>Управление соединениями</p><h4 id=почему-это-было-сделано-1><strong>Почему это было сделано:</strong></h4><ul><li><p><strong><code>max_connections = 300</code></strong>: Это значение определяет максимальное количество одновременных подключений к серверу MySQL. Установка этого параметра на 300 позволяет серверу обрабатывать большее количество параллельных запросов без избыточного потребления ресурсов. Однако важно убедиться, что сервер имеет достаточное количество оперативной памяти для поддержки такого количества соединений.</p></li><li><p><strong><code>wait_timeout</code> и <code>interactive_timeout = 120</code></strong>: Увеличение этих значений позволяет соединениям дольше оставаться активными, что полезно для долгих операций. Однако слишком большие значения могут привести к увеличению использования ресурсов, поэтому важно найти баланс между производительностью и эффективным использованием памяти.</p></li></ul><h4 id=почему-это-было-сделано-2><strong>Почему это было сделано:</strong></h4><ul><li><p><strong><code>slow_query_log = 1</code></strong>: Включение лога медленных запросов позволяет отслеживать и анализировать запросы, которые занимают больше времени, чем заданный порог ( <code>long_query_time</code>).</p></li><li><p><strong><code>long_query_time = 1</code></strong>: Установка этого параметра на 1 секунду означает, что все запросы, выполняющиеся дольше одной секунды, будут записываться в медленный лог. Это помогает более детально отслеживать потенциальные проблемы с производительностью.</p></li><li><p><strong><code>log_queries_not_using_indexes = 1</code></strong>: Этот параметр позволяет логировать запросы, которые не используют индексы. Это полезно для выявления и оптимизации запросов, которые могут быть ускорены за счет добавления соответствующих индексов.</p></li></ul><h4 id=почему-это-было-сделано-3><strong>Почему это было сделано:</strong></h4><ul><li><p><strong><code>max_binlog_size = 200M</code></strong>: Установка максимального размера бинарных логов позволяет контролировать размер файлов логов и предотвращать их чрезмерный рост. Это особенно важно для управления дисковым пространством и эффективного резервного копирования.</p></li><li><p><strong>Оставшиеся параметры закомментированы</strong> : Поскольку вы, возможно, не используете репликацию или бинарные логи в данный момент, эти параметры были закомментированы. Если в будущем понадобится настроить репликацию или включить бинарные логи, их можно будет легко активировать и настроить.</p></li></ul><h3 id=почему-изменения-улучшили-производительность><strong>Почему изменения улучшили производительность:</strong></h3><ol><li><p><strong>Устранение ошибок конфигурации</strong> : Удаление неподдерживаемых параметров <code>query_cache_type</code> и <code>query_cache_size</code> позволило MySQL успешно запускаться без ошибок, связанных с некорректными настройками.</p></li><li><p><strong>Оптимизация использования памяти</strong> : Правильное распределение памяти между буферными пулами и кешами позволило более эффективно использовать доступную оперативную память, что снизило нагрузку на систему и уменьшило время выполнения запросов.</p></li><li><p><strong>Увеличение параллелизма</strong> : Настройки, связанные с количеством потоков ввода-вывода и управления потоками, позволили серверу обрабатывать больше одновременных запросов, что увеличило общую пропускную способность.</p></li><li><p><strong>Улучшение логирования и мониторинга</strong> : Включение и настройка медленного лога запросов позволило более эффективно отслеживать и оптимизировать проблемные запросы, что в свою очередь снижает общую нагрузку на сервер.</p></li><li><p><strong>Снижение блокировок таблиц</strong> : Оптимизация настроек InnoDB, таких как размер буферного пула и методы сброса, позволила уменьшить время блокировок и повысить производительность при одновременных операциях.</p></li></ol><h3 id=заключение><strong>Заключение</strong></h3><p>Внесенные изменения в конфигурационный файл <code>my.cnf</code> были направлены на оптимизацию использования ресурсов сервера, улучшение параллельной обработки запросов. Это позволило вашему серверу MySQL работать более стабильно и эффективно, снизив нагрузку и устранив проблемы с блокировками таблиц.</p><p>После внесения и редактирования больше не генерируются бесконечные запросы из за блокировок</p><pre><code> SHOW PROCESSLIST;
++------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+| Id   | User            | Host      | db     | Command | Time | State                  | Info             |
++------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+|    5 | event_scheduler | localhost | NULL   | Daemon  |  300 | Waiting on empty queue | NULL             |
+|   79 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+|   80 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+|   81 | ispmgr          | localhost | ispmgr | Sleep   |  225 |                        | NULL             |
+|   82 | ispmgr          | localhost | ispmgr | Sleep   |   34 |                        | NULL             |
+|  390 | ispmgr          | localhost | ispmgr | Sleep   |  225 |                        | NULL             |
+|  391 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+| 2281 | root            | localhost | NULL   | Query   |    0 | init                   | SHOW PROCESSLIST |
++------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+8 rows in set, 1 warning (0.00 sec)
+
+</code></pre><p>Новый анализ персоны после изменений</p><pre><code># 90ms user time, 30ms system time, 28.98M rss, 34.89M vsz
+# Current date: Fri Sep 20 06:14:21 2024
+# Hostname: fonogramm3
+# Files: /var/log/mysql/mysql-slow.log
+# Overall: 278 total, 22 unique, 0.70 QPS, 0.01x concurrency _____________
+# Time range: 2024-09-20T06:03:51 to 2024-09-20T06:10:28
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time             4s    58us      1s    13ms     5ms   105ms   626us
+# Lock time          740us       0    17us     2us     4us     1us     1us
+# Rows sent          5.57k       0      60   20.50   59.77   23.99    6.98
+# Rows examine     754.74k       0 228.27k   2.71k   1.26k  22.96k   62.76
+# Query size        63.46k      32     603  233.73  563.87  127.40  212.52
+
+# Profile
+# Rank Query ID                        Response time Calls R/Call V/M   It
+# ==== =============================== ============= ===== ====== ===== ==
+#    1 0x19650673119F178973630FD07E...  3.1090 87.3%     3 1.0363  0.01 SELECT dle_post dle_post_extras dle_post_extras_cats
+#    2 0x651B55F97FA84879F295756D0D...  0.2044  5.7%   138 0.0015  0.00 SELECT dle_post dle_post_extras_cats
+#    3 0x1F18CE45F7AB14058C0B37FF1E...  0.1677  4.7%     5 0.0335  0.13 SELECT dle_post dle_post_extras_cats dle_post_extras
+# MISC 0xMISC                           0.0783  2.2%   132 0.0006   0.0 &lt;19 ITEMS&gt;
+
+# Query 1: 0.06 QPS, 0.06x concurrency, ID 0x19650673119F178973630FD07ECA56E4 at byte 57443
+# This item is included in the report because it matches --limit.
+# Scores: V/M = 0.01
+# Time range: 2024-09-20T06:07:16 to 2024-09-20T06:08:07
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          1       3
+# Exec time     87      3s   977ms      1s      1s      1s    89ms   945ms
+# Lock time      0     5us     1us     2us     1us     1us       0     1us
+# Rows sent      0      30      10      10      10      10       0      10
+# Rows examine  90 684.82k 228.27k 228.27k 228.27k 228.27k       0 228.27k
+# Query size     2   1.73k     590     590     590     590       0     590
+# String:
+# Databases    vokal02_vokal
+# Hosts        localhost
+# Users        admin
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms  ################################################################
+#    1s  ################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post`\G
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post_extras'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post_extras`\G
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post_extras_cats'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post_extras_cats`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.title, p.descr, p.keywords, p.category, p.alt_name, p.comm_num, p.allow_comm, p.allow_main, p.approve, p.fixed, p.symbol, p.tags, e.news_read, e.allow_rate, e.rating, e.vote_num, e.votes, e.view_edit, e.disable_index, e.editdate, e.editor, e.reason FROM dle_post p LEFT JOIN dle_post_extras e ON (p.id=e.news_id)  WHERE p.id NOT IN ( SELECT DISTINCT(dle_post_extras_cats.news_id) FROM dle_post_extras_cats WHERE cat_id IN ('3548','3541','7') ) AND approve=1 ORDER BY news_read ASC LIMIT 0,10\G
+
+# Query 2: 0.35 QPS, 0.00x concurrency, ID 0x651B55F97FA84879F295756D0D5656F9 at byte 65406
+# This item is included in the report because it matches --limit.
+# Scores: V/M = 0.00
+# Time range: 2024-09-20T06:03:51 to 2024-09-20T06:10:20
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         49     138
+# Exec time      5   204ms   281us    14ms     1ms     6ms     2ms   925us
+# Lock time     60   446us     1us    10us     3us     4us     1us     2us
+# Rows sent     91   5.07k       1      60   37.60   59.77   22.64   42.48
+# Rows examine   7  56.99k       3   3.83k  422.91   2.62k  748.83  158.58
+# Query size    46  29.25k     215     225  217.07  212.52    1.55  212.52
+# String:
+# Databases    vokal02_vokal
+# Hosts        localhost
+# Users        admin
+# Query_time distribution
+#   1us
+#  10us
+# 100us  ################################################################
+#   1ms  #######################################################
+#  10ms  #
+# 100ms
+#    1s
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post`\G
+#    SHOW TABLE STATUS FROM `vokal02_vokal` LIKE 'dle_post_extras_cats'\G
+#    SHOW CREATE TABLE `vokal02_vokal`.`dle_post_extras_cats`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT p.id FROM dle_post p INNER JOIN (SELECT DISTINCT(dle_post_extras_cats.news_id) FROM dle_post_extras_cats WHERE cat_id IN ('309')) c ON (p.id=c.news_id) WHERE approve=1 ORDER BY fixed desc, title ASC LIMIT 360,60\G
+
+</code></pre><p>как видно запросов более 10 секунд стало значительно меньше, большая часть запросов 100us 1ms, хотя медленные запросы еще остаются.</p><h1 id=отчет-об-оптимизации-сервера>Отчет об оптимизации сервера</h1><h2 id=содержание>Содержание</h2><ol><li><a href=#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0>Спецификация сервера</a></li><li><a href=#%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B>Первоначальное описание проблемы</a></li><li><a href=#%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B>Исследование и результаты</a></li><li><a href=#%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8>Выполненные оптимизации</a><ul><li><a href=#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-nginx>Настройка Nginx</a></li><li><a href=#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-apache>Настройка Apache</a></li><li><a href=#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-mysql>Настройка MySQL</a></li></ul></li><li><a href=#%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D0%B8-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7>Результаты и анализ</a></li><li><a href=#%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5>Заключение</a></li></ol><h2 id=спецификация-сервера>Спецификация сервера</h2><ul><li><strong>Тариф</strong>: Cloud 2-8-1000</li><li><strong>CPU</strong>: 2 ядра</li><li><strong>ОЗУ</strong>: 8 ГБ</li><li><strong>Диск</strong>: 10000 ГБ</li><li><strong>ОС</strong>: Ubuntu 22.04</li><li><strong>Панель управления</strong>: ISP Manager</li><li><strong>Дополнительное ПО</strong>: Redis, OPcache</li><li><strong>Сайт</strong>: http://***gramm.pro/</li></ul><h2 id=первоначальное-описание-проблемы>Первоначальное описание проблемы</h2><p>Сервер испытывал серьезные проблемы с производительностью, особенно когда администраторы добавляли или редактировали новости. Симптомы включали:</p><ol><li>Резкое увеличение количества процессов</li><li>Высокое использование CPU и ОЗУ</li><li>Недоступность сайта</li><li>Необходимость принудительной перезагрузки для восстановления функциональности</li></ol><p>Проблемы были наиболее выражены при сохранении новостей, особенно содержащих аудио контент.</p><h2 id=исследование-и-результаты>Исследование и результаты</h2><h3 id=процессы-apache>Процессы Apache</h3><ul><li>Большое количество процессов Apache (более 150) создавалось во время создания или редактирования статей.</li><li>Эти процессы вызывали истощение ресурсов.</li></ul><h3 id=анализ-mysql>Анализ MySQL</h3><ul><li><code>SHOW PROCESSLIST</code> показал постоянно увеличивающееся количество процессов MySQL.</li><li>Многие процессы находились в состоянии &ldquo;Waiting for table level lock&rdquo;.</li><li>Один и тот же запрос выполнялся многократно одновременно:<pre><code class=language-sql>SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.t ...
+</code></pre></li></ul><h3 id=анализ-медленных-запросов>Анализ медленных запросов</h3><p>Первоначальный анализ с использованием Percona Toolkit показал:</p><ul><li>811 запросов всего, 23 уникальных</li><li>1.08 QPS (запросов в секунду)</li><li>88.99x конкурентность</li><li>Запрос с наивысшим рейтингом (46.5% времени отклика):<pre><code class=language-sql>SELECT p.id, p.autor, p.date, p.short_story, CHAR_LENGTH(p.full_story) as full_story, p.xfields, p.title, p.descr, p.keywords, p.category, p.alt_name, p.comm_num, p.allow_comm, p.allow_main, p.approve, p.fixed, p.allow_br, p.symbol, p.tags, p.metatitle, e.news_read, e.allow_rate, e.rating, e.vote_num, e.votes, e.view_edit, e.disable_index, e.related_ids, e.access, e.editdate, e.editor, e.reason, e.user_id, e.disable_search, e.need_pass, e.allow_rss, e.allow_rss_turbo, e.allow_rss_dzen FROM dle_post p LEFT JOIN dle_post_extras e ON (p.id=e.news_id) WHERE p.id = '35688'
+</code></pre></li></ul><h2 id=выполненные-оптимизации>Выполненные оптимизации</h2><h3 id=настройка-nginx>Настройка Nginx</h3><ul><li>Увеличено <code>worker_connections</code> для решения ошибки &ldquo;768 worker_connections are not enough&rdquo;.</li><li>Добавлены настройки буферизации:<pre><code class=language-nginx>proxy_buffering on;
+proxy_buffer_size 4k;
+proxy_buffers 32 4k;
+proxy_max_temp_file_size 0;
+</code></pre></li></ul><h3 id=настройка-apache>Настройка Apache</h3><p>Изменен файл <code>/etc/apache2/mods-available/mpm_prefork.conf</code>:</p><pre><code class=language-apache>StartServers 10
+MinSpareServers 10
+MaxSpareServers 20
+ServerLimit 2000
+MaxRequestWorkers 1500
+MaxConnectionsPerChild 10000
+</code></pre><h3 id=настройка-mysql>Настройка MySQL</h3><p>Обновлен файл <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>:</p><pre><code class=language-ini>[mysqld]
+# Настройки InnoDB
+innodb_buffer_pool_size = 4G
+innodb_read_io_threads = 8
+innodb_write_io_threads = 8
+innodb_thread_concurrency = 16
+innodb_log_file_size = 1G
+innodb_log_files_in_group = 2
+innodb_lock_wait_timeout = 50
+innodb_flush_method = O_DIRECT
+innodb_buffer_pool_instances = 4
+
+# Настройки кеша и буферов
+key_buffer_size = 64M
+table_open_cache = 2000
+sort_buffer_size = 4M
+thread_cache_size = 100
+
+# Управление соединениями
+max_connections = 300
+wait_timeout = 120
+interactive_timeout = 120
+
+# Логирование
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+long_query_time = 1
+log_queries_not_using_indexes = 1
+
+# Бинарное логирование
+max_binlog_size = 200M
+</code></pre><h2 id=результаты-и-анализ>Результаты и анализ</h2><p>После внедрения оптимизаций:</p><ol><li><p>Проблема с бесконечной генерацией запросов из-за блокировок таблиц была решена.</p></li><li><p>Вывод <code>SHOW PROCESSLIST</code> показал значительное сокращение количества одновременных процессов:</p><pre><code>+------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+| Id   | User            | Host      | db     | Command | Time | State                  | Info             |
++------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+|    5 | event_scheduler | localhost | NULL   | Daemon  |  300 | Waiting on empty queue | NULL             |
+|   79 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+|   80 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+|   81 | ispmgr          | localhost | ispmgr | Sleep   |  225 |                        | NULL             |
+|   82 | ispmgr          | localhost | ispmgr | Sleep   |   34 |                        | NULL             |
+|  390 | ispmgr          | localhost | ispmgr | Sleep   |  225 |                        | NULL             |
+|  391 | ispmgr          | localhost | ispmgr | Sleep   |   45 |                        | NULL             |
+| 2281 | root            | localhost | NULL   | Query   |    0 | init                   | SHOW PROCESSLIST |
++------+-----------------+-----------+--------+---------+------+------------------------+------------------+
+</code></pre></li><li><p>Новый анализ Percona Toolkit показал:</p><ul><li>Уменьшение общего количества запросов (278 против 811 ранее)</li><li>Снижение QPS (0.70 против 1.08 ранее)</li><li>Значительное снижение конкурентности (0.01x против 88.99x ранее)</li><li>Большинство запросов теперь выполняются в диапазоне от 100мкс до 1мс</li></ul></li></ol><h2 id=заключение-1>Заключение</h2><p>Внедренные оптимизации значительно улучшили производительность и стабильность сервера:</p><ol><li><strong>Управление ресурсами</strong>: Улучшено распределение памяти и ресурсов CPU между Nginx, Apache и MySQL.</li><li><strong>Обработка параллельных запросов</strong>: Повышена способность обрабатывать одновременные запросы без перегрузки сервера.</li><li><strong>Оптимизация базы данных</strong>: Настройки MySQL улучшили производительность запросов и уменьшили время блокировок.</li><li><strong>Мониторинг</strong>: Улучшены возможности отслеживания проблемных запросов для дальнейшей оптимизации.</li></ol><p>Рекомендуется продолжать мониторинг производительности сервера и при необходимости выполнять дальнейшие оптимизации.</p></article></div></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Copyright (c) 2021-2024 Solo10010</li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=https://solo10010.github.io/js/solojs.js defer></script>
+<script src=https://solo10010.github.io/js/bootstrap.min.73ca27033146a505b6a0f66b79d99f613a18e778bc9606fd223476d0ebf0fc10508b0d4f5c448b0a946fa1d71fbeffaae9732adc0c2890e61c449217fd6ee1c0.js integrity="sha512-c8onAzFGpQW2oPZredmfYToY53i8lgb9IjR20Ovw/BBQiw1PXESLCpRvodcfvv+q6XMq3AwokOYcRJIX/W7hwA==" crossorigin=anonymous defer></script>
+<script src=https://solo10010.github.io/js/highlight.min.e13cfba4c5524e30386cb9ea71f0f191f39d15b25b222f4b67549689f7c076158f42a2282446044f5cdacc76a6d003efbfa252a84aea0116703803b6339ae35f.js integrity="sha512-4Tz7pMVSTjA4bLnqcfDxkfOdFbJbIi9LZ1SWiffAdhWPQqIoJEYET1zazHam0APvv6JSqErqARZwOAO2M5rjXw==" crossorigin=anonymous defer></script>
+<script src=https://solo10010.github.io/main.min.bfb6b781dd5fd7177a7a9b3ce0bd84f12db95f6aa4e3fc7b339cd57879c38390d1e8d75cf314836a71201ba2fd6a2e26084a956704964c0bb884c26e9eff5ee1.js integrity="sha512-v7a3gd1f1xd6eps84L2E8S25X2qk4/x7M5zVeHnDg5DR6Ndc8xSDanEgG6L9ai4mCEqVZwSWTAu4hMJunv9e4Q==" crossorigin=anonymous defer></script></body><script src=https://cdn.jsdelivr.net/npm/apexcharts></script>
+<script>window.replainSettings={id:'958f1121-9a39-438a-91fd-8cab48dfef53'},function(c){var a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,a.src=c,b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)}('https://widget.replain.cc/dist/client.js')</script></html>
