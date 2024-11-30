@@ -67,8 +67,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pl-1">
         <div class="row p-2 about_contact">
           <div class="col-md-5"><p><span>Имя:</span> Антон</p></div>
-          <div class="col-md-5"><p><span>Лет:</span> 30 years</p></div>
-          <div class="col-md-5"><p><span>работа:</span> Системный Администратор</p></div>
+          <div class="col-md-5"><p><span>Лет:</span> 30 лет</p></div>
+          <div class="col-md-5"><p><span>Должность:</span> Системный Администратор</p></div>
           
           
       </div>
@@ -111,7 +111,7 @@
   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-hidden">
     <!-- void-->
     </div>
-    
+    <!--
     <div class="p-3 col-lg-4 col-md-7 col-sm-12 col-xs-12">
       <div class="d-grid gap-2">
         <a href="https://drive.google.com/file/d/1HQYGWIHpBqQnncArD_OD8mhEwLrwPa-c/view?usp=sharing" target="_blank">
@@ -122,6 +122,7 @@
       </a>
       </div>
   </div>
+  -->
 </div>
 </section>
 
@@ -133,7 +134,7 @@
         
         
           <div class="h5-item">
-            <h5>ОПЫТ РАБОТЫ</h5>
+            <h5 class="title"><span>#</span> ОПЫТ РАБОТЫ</h5>
           </div>
         
       
@@ -185,7 +186,7 @@
         
         
         <div class="h5-item">
-          <h5>ОБРАЗОВАНИЕ</h5>
+          <h5 class="title"><span>#</span> ОБРАЗОВАНИЕ</h5>
         </div>
       
     
@@ -211,7 +212,7 @@
   </div>
 
   </div>
-
+  <div style="height: 80px;"></div>
 </section>
 
   <div class="container" style="">
@@ -222,6 +223,128 @@
 
 <style>
 
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Отступ между карточками */
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column; /* Составляющие карточки располагаются вертикально */
+  justify-content: space-between; /* Выравнивание между текстом и кнопкой */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  max-width: 300px;
+  flex: 1 1 calc(33% - 20px); /* Адаптивное поведение */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 350px; /* Устанавливаем минимальную высоту карточки */
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.case-card h6 {
+  font-size: 18px;
+  
+  margin-bottom: 10px;
+}
+
+.case-card p {
+  font-size: 14px;
+  color: #bbbbbb; /* Светло-серый текст */
+  margin-bottom: 20px;
+  flex-grow: 1; /* Растягиваем текст, чтобы кнопка оставалась внизу */
+}
+
+.case-card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff; /* Белый текст */
+  border: 2px solid #7DD0F5; /* Акцентная граница */
+  border-radius: 6px; /* Лёгкое скругление */
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  align-self: center; /* Центрирование кнопки по горизонтали */
+}
+
+.case-card .btn:hover {
+  background-color: #7DD0F5; /* Инверсия цвета фона */
+  color: #ffffff; /* Белый текст */
+  border-color: #7DD0F5; /* Граница становится фона */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Увеличение тени */
+}
+
+.case-card .btn:active {
+  transform: translateY(2px); /* Эффект нажатия */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.services .title {
+  text-align: center;
+  font-size: 24px;
+  
+  margin-bottom: 30px;
+}
+
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  
+}
+
+.service-list .icon-check {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  mask: url('check-icon.svg') center/contain no-repeat; /* Подключение SVG */
+  -webkit-mask: url('check-icon.svg') center/contain no-repeat;
+  margin-right: 10px;
+}
+
+.service-list li:hover {
+  color: #007bff; /* Изменение цвета текста при наведении */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  flex: 1;
+  margin: 0 10px;
+}
+
+
+
 .slider {
   position: relative;
   width: 100%;
@@ -231,6 +354,13 @@
   text-align: center;
 }
 
+#img-slide {
+  width: 800px;
+  height: 400px;
+  object-fit: cover; /* Обрезает изображение */
+  object-position: center; /* Центрирует изображение */
+  border: 2px solid #333;
+}
 .slide {
   opacity: 0;
   position: absolute;
@@ -272,28 +402,33 @@
 .content a {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background: transparent;
+  color: #007bff;
   text-decoration: none;
+  border: 2px solid #007bff;
   border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .content a:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1); /* Увеличение кнопки */
 }
 
 button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачный фон */
+  color: white; /* Цвет текста */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Полупрозрачная рамка */
   cursor: pointer;
-  font-size: 18px;
-  border-radius: 50%;
+  font-size: 18px; /* Размер текста */
+  border-radius: 50%; /* Круглая форма */
   width: 40px;
   height: 40px;
+  transition: all 0.3s ease; /* Плавная анимация */
 }
 
 button.prev {
@@ -305,7 +440,9 @@ button.next {
 }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8); /* Более тёмный фон */
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Усиление рамки */
+  transform: translateY(-50%) scale(1.1); /* Увеличение кнопки при наведении */
 }
 
 /* Индикатор слайдов */
@@ -340,63 +477,63 @@ button:hover {
 
 <div class="slider">
   <div class="slide active">
-    <img src="https://i.imgur.com/eVJ2j1e.png" alt="ReconWTF">
+    <img  id="img-slide" src="https://i.imgur.com/eVJ2j1e.png" alt="ReconWTF">
     <div class="content">
       <h2>ReconWTF</h2>
       <p>ReconWTF — это инструмент, разработанный для охотников за уязвимостями. Главная задача ReconWTF — собрать максимально доступную информацию с помощью лучших инструментов.</p>
       <span>#Bash #pentest #web #framework #bagbounty #linux #goland #scanner #vulnerability</span>
-      <a href="https://github.com/solo10010/reconWTF" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/reconWTF" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://camo.githubusercontent.com/058cc8b705ef00f0bad3ed98ea362496daa7f8a59d32e13c259da967f8b85964/68747470733a2f2f692e696d6775722e636f6d2f7874367a7a4b462e706e67" alt="solo10010.github.io">
+    <img id="img-slide" src="https://camo.githubusercontent.com/058cc8b705ef00f0bad3ed98ea362496daa7f8a59d32e13c259da967f8b85964/68747470733a2f2f692e696d6775722e636f6d2f7874367a7a4b462e706e67" alt="solo10010.github.io">
     <div class="content">
       <h2>solo10010.github.io</h2>
       <p>Это мой персональный сайт, где находятся моё портфолио, блог и база знаний. Добро пожаловать!</p>
       <span>#HUGO #template docks #javascript #bootstrap5 #npm #git #git pages #ApexCharts.js</span>
-      <a href="https://github.com/solo10010/solo10010.github.io" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/solo10010.github.io" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
   
   <div class="slide">
-    <img src="https://i.imgur.com/5ScNIK1.png" alt="ASpider">
+    <img  id="img-slide" src="https://i.imgur.com/5ScNIK1.png" alt="ASpider">
     <div class="content">
       <h2>ASpider</h2>
       <p>Поиск доменов и активных серверов по данным о системе автономных систем (AS/ASN/IP) — это процесс, при котором используется информация о номере автономной системы (ASN) или IP-адресах для нахождения связанных доменов, хостов и серверов.</p>
       <span>#python3 #requsts #ASN #IP #CIDR #recon #ping</span>
-      <a href="https://github.com/solo10010/ASpider" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/ASpider" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://raw.githubusercontent.com/solo10010/audiobook-web-site/main/logo_sites.png" alt="AudioBook WordPress Site">
+    <img id="img-slide" src="https://raw.githubusercontent.com/solo10010/audiobook-web-site/main/logo_sites.png" alt="AudioBook WordPress Site">
     <div class="content">
       <h2>AudioBook WordPress Site</h2>
       <p>📚 Мой первый сайт на WordPress, созданный в 2014 году. Используется для тестирования и обучения. Включает обновленную кодовую базу, поддерживает современные версии WordPress и PHP.</p>
       <span>#php #wordpress</span>
-      <a href="https://github.com/solo10010/Audiobook-WebSites" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/Audiobook-WebSites" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://raw.githubusercontent.com/solo10010/trash/main/static/image/dahuya%20.png" alt="DHVAdmin">
+    <img id="img-slide" src="https://raw.githubusercontent.com/solo10010/trash/main/static/image/dahuya%20.png" alt="DHVAdmin">
     <div class="content">
       <h2>DHVAdmin</h2>
       <p>DHVAdmin (Администратор Dohua Hosting Viewer) - утилита для быстрой оценки домена, DNS или веб-сервера.</p>
       <span>#BASH #DIG #WHOIS #WHATCMS</span>
-      <a href="https://github.com/solo10010/DHVAdmin" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/DHVAdmin" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://raw.githubusercontent.com/solo10010/ScriptHub/main/ScriptHub.png" alt="ScriptHub">
+    <img id="img-slide" src="https://raw.githubusercontent.com/solo10010/ScriptHub/main/ScriptHub.png" alt="ScriptHub">
     <div class="content">
       <h2>ScriptHub</h2>
       <p>ScriptHub — ваша центральная точка для моментального доступа к полезным скриптам, готовым к выполнению прямо на ваших серверах.</p>
       <span>#BASH #Python #HTML</span>
-      <a href="https://github.com/solo10010/ScriptHub" target="_blank">Подробнее</a>
+      <a href="https://github.com/solo10010/ScriptHub" target="_blank">Подробнее на GitHub</a>
     </div>
   </div>
 
@@ -516,50 +653,75 @@ button:hover {
 </section>
 <div style="height: 80px;"></div>
 
+<section class="cases">
+  <div class="container">
+    <h5 class="title"><span>#</span> КЕЙСЫ</h5>
+    <div class="row">
+      <!-- Карточка 1 -->
+      <div class="case-card">
+        <h6>Оптимизация сервера</h6>
+        <p>Как я увеличил производительность сервера в 2 раза, снизив нагрузку на процессор. Подробности кейса.</p>
+        <a href="https://yourblog.com/case1" class="btn">Читать кейс</a>
+      </div>
+      <!-- Карточка 2 -->
+      <div class="case-card">
+        <h6>Веб-безопасность</h6>
+        <p>Опыт выявления уязвимостей на популярных CMS. Кейсы в деталях.</p>
+        <a href="https://yourblog.com/case2" class="btn">Читать кейс</a>
+      </div>
+      <!-- Карточка 3 -->
+      <div class="case-card">
+        <h6>Сложные проблемы</h6>
+        <p>Восстановление данных после серьёзной атаки на сервер. Все детали работы.</p>
+        <a href="https://yourblog.com/case3" class="btn">Читать кейс</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section>
+<div style="height: 80px;"></div>
+<section class="services">
   <div class="container">
     <div class="row">
       <h5 class="title"><span>#</span> МОИ УСЛУГИ</h5>
-      <div class="col align-items-center knowlege_marker">
-        <ul>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Системное Администратирвоание</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> System Administration</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Проведение тестов на безопасность</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Настройка Оптимизация Веб серверов</li>
-
+      <div class="col">
+        <ul class="service-list">
+          <li>
+            <span class="icon-check"></span> Системное Администрирование
+          </li>
+          <li>
+            <span class="icon-check"></span> System Administration
+          </li>
+          <li>
+            <span class="icon-check"></span> Проведение тестов на безопасность
+          </li>
+          <li>
+            <span class="icon-check"></span> Настройка и Оптимизация Веб серверов
+          </li>
+          <li>
+            <span class="icon-check"></span> Настройка и Оптимизация Веб серверов
+          </li>
         </ul>
-        
       </div>
-      <div class="col align-items-center knowlege_marker">
-        <ul>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Веб Безопасность</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Сети</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Web - Безопасность</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Поддержка сайтов</li>
-          <li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-          </svg></span> Решение проблем любой сложности на серверах.</li>
+      <div class="col">
+        <ul class="service-list">
+          <li>
+            <span class="icon-check"></span> Веб Безопасность
+          </li>
+          <li>
+            <span class="icon-check"></span> Сети
+          </li>
+          <li>
+            <span class="icon-check"></span> Web - Безопасность
+          </li>
+          <li>
+            <span class="icon-check"></span> Поддержка сайтов
+          </li>
+          <li>
+            <span class="icon-check"></span> Решение проблем любой сложности на серверах
+          </li>
         </ul>
-        
       </div>
-      
     </div>
   </div>
 </section>
