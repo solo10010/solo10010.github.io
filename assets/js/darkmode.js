@@ -9,7 +9,7 @@ if (mode !== null) {
     const dark = document.documentElement.toggleAttribute('data-dark-mode');
 
     try {
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      localStorage.setItem('site-theme', dark ? 'dark' : 'light');
     } catch (e) {
       // Без localStorage тема просто не запомнится.
     }
