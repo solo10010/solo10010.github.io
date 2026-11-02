@@ -1,0 +1,68 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Qyran — Offensive Security Platform">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="brandV" x1="120" y1="70" x2="300" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/>
+      <stop offset="0.55" stop-color="#0a0f1c"/>
+      <stop offset="1" stop-color="#0d1526"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 160) rotate(90) scale(150)">
+      <stop stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e293b" stroke-opacity="0.35" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- backdrop -->
+  <rect width="1200" height="320" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="320" rx="20" fill="url(#grid)"/>
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="19.5" fill="none" stroke="#1e293b" stroke-opacity="0.6"/>
+
+  <!-- soft brand glow behind the mark -->
+  <ellipse cx="210" cy="160" rx="150" ry="150" fill="url(#halo)"/>
+
+  <!-- targeting corner brackets (recon motif) -->
+  <g stroke="#06b6d4" stroke-opacity="0.5" stroke-width="2" fill="none">
+    <path d="M40 40 h34 M40 40 v34"/>
+    <path d="M1160 40 h-34 M1160 40 v34"/>
+    <path d="M40 280 h34 M40 280 v-34"/>
+    <path d="M1160 280 h-34 M1160 280 v-34"/>
+  </g>
+
+  <!-- logo mark: diving falcon in a rounded tile -->
+  <g transform="translate(130 70)">
+    <rect width="160" height="160" rx="34" fill="#0b1120" stroke="url(#brandV)" stroke-opacity="0.5" stroke-width="1.5"/>
+    <g transform="translate(16 16) scale(2)">
+      <path d="M32,8 L40,18 Q52,21 62,27 Q49,26.5 43,27 L35,45 L32,60 L29,45 L21,27 Q15,26.5 2,27 Q12,21 24,18 Z" fill="url(#brandV)"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="360" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="104" font-weight="800" letter-spacing="2" fill="url(#brand)">QYRAN</text>
+
+  <!-- tagline -->
+  <text x="364" y="196" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="600" fill="#e2e8f0">Платформа наступательной безопасности</text>
+  <text x="364" y="228" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="400" fill="#94a3b8">Разведка · Перехватывающий прокси · Управление уязвимостями · AI-агенты</text>
+
+  <!-- meta chips -->
+  <g font-family="'SFMono-Regular', Consolas, monospace" font-size="14" fill="#64748b">
+    <rect x="364" y="250" width="146" height="30" rx="8" fill="#0f1830" stroke="#1e293b"/>
+    <text x="380" y="270">FastAPI · React</text>
+    <rect x="522" y="250" width="150" height="30" rx="8" fill="#0f1830" stroke="#1e293b"/>
+    <text x="538" y="270">Docker Compose</text>
+    <rect x="684" y="250" width="160" height="30" rx="8" fill="#0f1830" stroke="#1e293b"/>
+    <text x="700" y="270">mitmproxy → ZAP</text>
+  </g>
+
+  <!-- kazakh accent -->
+  <text x="1160" y="160" text-anchor="end" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#334155">Қыран — беркут</text>
+</svg>

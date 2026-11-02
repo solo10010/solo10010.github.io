@@ -1,0 +1,38 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI-слой Qyran: база знаний превращается в навыки, навыки используют агенты, агенты работают с данными панели">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#140f24"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a78bfa"/></marker>
+  </defs>
+  <rect width="1200" height="520" rx="18" fill="url(#bg)"/>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif">
+    <!-- 1 -->
+    <rect x="40" y="110" width="250" height="300" rx="16" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="65" y="150" font-size="14" font-weight="700" fill="#64748b">ШАГ 1</text>
+    <text x="65" y="182" font-size="22" font-weight="800" fill="#e2e8f0">База знаний</text>
+    <g font-size="15" fill="#94a3b8"><text x="65" y="218">~10 лет заметок</text><text x="65" y="244">4800+ markdown-файлов</text><text x="65" y="270">техники, чеклисты,</text><text x="65" y="294">разборы, вордлисты</text></g>
+    <g fill="#334155"><rect x="65" y="320" width="200" height="10" rx="5"/><rect x="65" y="340" width="160" height="10" rx="5"/><rect x="65" y="360" width="180" height="10" rx="5"/></g>
+    <!-- 2 -->
+    <rect x="340" y="110" width="250" height="300" rx="16" fill="#1a1530" stroke="#a78bfa" stroke-width="2"/>
+    <text x="365" y="150" font-size="14" font-weight="700" fill="#a78bfa">ШАГ 2</text>
+    <text x="365" y="182" font-size="22" font-weight="800" fill="#e2e8f0">Навыки (skills)</text>
+    <g font-size="15" fill="#cbd5e1"><text x="365" y="218">120+ playbook'ов</text><text x="365" y="244">деревья решений</text><text x="365" y="270">payloads и обходы WAF</text><text x="365" y="294">правила безопасности</text><text x="365" y="318">доказательства и отчёт</text></g>
+    <g font-family="'JetBrains Mono',Consolas,monospace" font-size="13" fill="#c4b5fd"><text x="365" y="356">hack-xss · hack-idor</text><text x="365" y="378">hack-ssrf · hack-sqli …</text></g>
+    <!-- 3 -->
+    <rect x="640" y="110" width="250" height="300" rx="16" fill="#1a1530" stroke="#a78bfa" stroke-width="2"/>
+    <text x="665" y="150" font-size="14" font-weight="700" fill="#a78bfa">ШАГ 3</text>
+    <text x="665" y="182" font-size="22" font-weight="800" fill="#e2e8f0">Агенты</text>
+    <g font-size="15" fill="#cbd5e1"><text x="665" y="218">pentester — оркестратор</text><text x="665" y="244">recon · web · api · auth</text><text x="665" y="270">logic · infra · waf · chain</text><text x="665" y="296">triage · verifier · enricher</text></g>
+    <text x="665" y="340" font-size="15" fill="#94a3b8">скептическая проверка</text>
+    <text x="665" y="364" font-size="15" fill="#94a3b8">каждой находки</text>
+    <!-- 4 -->
+    <rect x="940" y="110" width="220" height="300" rx="16" fill="#0d2240" stroke="#3b82f6" stroke-width="2"/>
+    <text x="965" y="150" font-size="14" font-weight="700" fill="#60a5fa">ШАГ 4</text>
+    <text x="965" y="182" font-size="22" font-weight="800" fill="#e2e8f0">Панель</text>
+    <g font-size="15" fill="#cbd5e1"><text x="965" y="218">данные разведки</text><text x="965" y="244">находки и триаж</text><text x="965" y="270">задачи агентов</text><text x="965" y="296">отчёты</text></g>
+    <text x="965" y="340" font-size="15" fill="#94a3b8">MCP-инструменты</text>
+    <text x="965" y="364" font-size="15" fill="#94a3b8">с подтверждением</text>
+  </g>
+  <g stroke="#a78bfa" stroke-width="3" marker-end="url(#arr)"><path d="M292 260 H 334"/><path d="M592 260 H 634"/><path d="M892 260 H 934"/></g>
+  <text x="600" y="62" text-anchor="middle" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="26" font-weight="800" fill="#e2e8f0">Как база знаний стала инструментом</text>
+  <text x="600" y="470" text-anchor="middle" font-family="'JetBrains Mono',Consolas,monospace" font-size="17" fill="#94a3b8">код делает всё, что можно запрограммировать · ИИ анализирует и думает</text>
+</svg>

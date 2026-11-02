@@ -1,0 +1,21 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="wazuh-to-dojo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10b981"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="18" fill="url(#bg)"/>
+  <g transform="translate(110 92)" stroke="url(#brand)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="120" height="136" rx="16"/>
+    <path d="M24 36h72M24 68h72M24 100h44"/>
+  </g>
+  <path d="M250 160h40m0 0-16-16m16 16-16 16" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="330" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="78" font-weight="800" fill="url(#brand)">wazuh-to-dojo</text>
+  <text x="334" y="196" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="600" fill="#e2e8f0">Уязвимости из Wazuh → DefectDojo</text>
+  <text x="334" y="232" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" fill="#94a3b8">Python · Elasticsearch / OpenSearch · Generic Findings Import · cron</text>
+</svg>

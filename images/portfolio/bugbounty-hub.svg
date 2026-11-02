@@ -1,0 +1,20 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BugBounty-Hub">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#1e1b2e"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f43f5e"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="18" fill="url(#bg)"/>
+  <g transform="translate(110 86)" stroke="url(#brand)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="70" cy="86" rx="44" ry="58"/>
+    <path d="M70 28v116M26 64H0m140 0h-26M26 108H0m140 0h-26M48 34 32 10m60 24 16-24"/>
+  </g>
+  <text x="330" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="82" font-weight="800" fill="url(#brand)">BugBounty-Hub</text>
+  <text x="334" y="196" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="600" fill="#e2e8f0">Шаблоны Nuclei и словари для багхантинга</text>
+  <text x="334" y="232" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" fill="#94a3b8">Nuclei templates · Wordlists · используется в reconWTF</text>
+</svg>

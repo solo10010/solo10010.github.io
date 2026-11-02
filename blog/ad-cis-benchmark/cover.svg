@@ -1,0 +1,67 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Active Directory по CIS Benchmark: дерево домена и защищённые политики">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101f"/>
+      <stop offset="1" stop-color="#0b1d33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#14d3b4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.55" r="0.45">
+      <stop stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#1c2a47" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Дерево домена -->
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="24">
+    <text x="80" y="150" fill="#e2e8f0">domain.local</text>
+    <g stroke="#2a3b60" stroke-width="2">
+      <path d="M95 165 V 470"/>
+      <path d="M95 215 H 130"/><path d="M95 285 H 130"/><path d="M95 355 H 130"/><path d="M95 425 H 130"/>
+      <path d="M150 300 V 330 H 180"/>
+    </g>
+    <text x="140" y="223" fill="#94a3b8">Администраторы</text>
+    <text x="140" y="293" fill="#94a3b8">Компьютеры</text>
+    <text x="190" y="338" fill="#64748b" font-size="20">└ по отделам</text>
+    <text x="140" y="363" fill="#94a3b8">Пользователи</text>
+    <text x="140" y="433" fill="#94a3b8">Серверы</text>
+  </g>
+
+  <!-- Список GPO -->
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="20">
+    <rect x="430" y="170" width="300" height="300" rx="16" fill="#111a2e" stroke="#2a3b60" stroke-width="2"/>
+    <text x="455" y="210" fill="#14d3b4">GPO</text>
+    <g fill="#cbd5e1">
+      <text x="455" y="250">00_Базовые</text>
+      <text x="455" y="285">10_LAPS</text>
+      <text x="455" y="320">10_AppLocker</text>
+      <text x="455" y="355">10_BitLocker</text>
+      <text x="455" y="390">11_CIS_L1_*</text>
+      <text x="455" y="425">30_Tiering</text>
+    </g>
+    <g fill="#14d3b4">
+      <circle cx="705" cy="243" r="6"/><circle cx="705" cy="278" r="6"/><circle cx="705" cy="313" r="6"/>
+      <circle cx="705" cy="348" r="6"/><circle cx="705" cy="383" r="6"/><circle cx="705" cy="418" r="6"/>
+    </g>
+  </g>
+
+  <!-- Замок -->
+  <g transform="translate(940 320)">
+    <path d="M-70 -40 v-50 a70 70 0 0 1 140 0 v50" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+    <rect x="-115" y="-45" width="230" height="190" rx="26" fill="#0d2a33" stroke="url(#accent)" stroke-width="5"/>
+    <circle cy="35" r="22" fill="#14d3b4"/>
+    <rect x="-8" y="45" width="16" height="50" rx="8" fill="#14d3b4"/>
+  </g>
+
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#e2e8f0">Active Directory <tspan fill="url(#accent)">· CIS</tspan></text>
+  <text x="80" y="570" font-family="'JetBrains Mono', Consolas, monospace" font-size="24" fill="#94a3b8">PS&gt; gpresult /r <tspan fill="#14d3b4">● hardened</tspan></text>
+</svg>

@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="http2shell: HTTP-запрос превращается в команду Bash">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#14122b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#14d3b4"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#1f2440"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <!-- HTTP-запрос -->
+  <rect x="70" y="170" width="420" height="290" rx="16" fill="#0f1626" stroke="#2a3b60" stroke-width="2"/>
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="21">
+    <text x="95" y="215" fill="#38bdf8">POST <tspan fill="#e2e8f0">/exec HTTP/1.1</tspan></text>
+    <text x="95" y="250" fill="#94a3b8">Authorization: Basic ***</text>
+    <text x="95" y="285" fill="#94a3b8">Content-Type: text/plain</text>
+    <text x="95" y="345" fill="#e2e8f0">uptime &amp;&amp; df -h</text>
+    <text x="95" y="420" fill="#64748b"># n8n · curl · cron</text>
+  </g>
+  <!-- Стрелка через socat -->
+  <path d="M500 315 H 690" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M676 301 l16 14 -16 14" stroke="#14d3b4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="540" y="260" width="110" height="34" rx="8" fill="#111a2e" stroke="#2a3b60"/>
+  <text x="595" y="283" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="18" fill="#94a3b8">socat</text>
+  <!-- Bash -->
+  <rect x="710" y="170" width="420" height="290" rx="16" fill="#0b1324" stroke="url(#accent)" stroke-width="3"/>
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="21">
+    <text x="735" y="215" fill="#14d3b4">#!/usr/bin/env bash</text>
+    <text x="735" y="265" fill="#e2e8f0">HTTP/1.1 200 OK</text>
+    <text x="735" y="305" fill="#94a3b8">up 42 days, load 0.31</text>
+    <text x="735" y="340" fill="#94a3b8">/dev/sda1  50G  21G  42%</text>
+    <text x="735" y="420" fill="#14d3b4">$ <tspan fill="#cbd5e1">_</tspan></text>
+  </g>
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="48" font-weight="800" fill="#e2e8f0">http<tspan fill="url(#accent)">2shell</tspan></text>
+  <text x="70" y="560" font-family="'JetBrains Mono', Consolas, monospace" font-size="20" fill="#64748b">pure bash · basic auth · custom endpoints · <tspan fill="#f59e0b">localhost only</tspan></text>
+</svg>
