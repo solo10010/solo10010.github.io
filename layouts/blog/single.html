@@ -1,14 +1,32 @@
 {{ define "main" }}
-<div class="row justify-content-center">
-  <div class="col-md-12 col-lg-10 col-xl-8">
-    <article>
-      <div class="blog-header">
-        <h1>{{ .Title }}</h1>
-        {{ partial "main/blog-meta.html" . }}
-      </div>
-      <p class="lead">{{ .Params.lead | safeHTML }}</p>
+<div class="post-wrap">
+  <a class="post-back" href="{{ "blog/" | relLangURL }}">← Все статьи</a>
+
+  <article class="post">
+    {{ with .Resources.GetMatch "cover.*" -}}
+      <div class="post-cover"><img src="{{ .RelPermalink }}" alt="" width="1200" height="630"></div>
+    {{- end }}
+    <header class="post-header">
+      {{ partial "main/blog-meta.html" . }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lead }}<p class="post-lead">{{ . | safeHTML }}</p>{{ end }}
+    </header>
+
+    <div class="post-content">
       {{ .Content }}
-    </article>
+    </div>
+  </article>
+
+  <div class="post-footer panel">
+    <div>
+      <div class="section-label mb-1">Автор</div>
+      <strong>Антон Соломатин</strong>
+      <p class="mb-0">Специалист по информационной безопасности</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn-ghost" href="{{ "resume/" | relLangURL }}">Резюме</a>
+      <a class="btn-accent" href="https://t.me/solo10010" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
   </div>
 </div>
 {{ end }}

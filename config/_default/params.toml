@@ -3,36 +3,35 @@
 ## Homepage
 title = "HOM"
 titleSeparator = "-"
-titleAddition = "Мой сайт Блог и Резюме"
-description = "Системный Администратор ИБ специалист"
+titleAddition = "Антон Соломатин — специалист по информационной безопасности"
+description = "Антон Соломатин — специалист по информационной безопасности: SOC, SIEM Wazuh, Active Directory по CIS, Bug Bounty. Резюме, портфолио и блог."
 
 ## Open Graph
-images = ["doks.png"]
-ogLocale = "en_US"
+images = ["og-card.png"]
+ogLocale = "ru_RU"
 domainTLD = "solo10010.github.io"
 titleHome = "solo10010"
 
 ## Twitter Cards
-twitterSite = "@getdoks"
-twitterCreator = "@henkverlinde"
+twitterSite = ""
+twitterCreator = ""
 
 ## JSON-LD
-# schemaType = "Person"
-schemaType = "Organization"
-schemaName = "Doks"
-schemaAuthor = "Henk Verlinde"
-schemaAuthorTwitter = "https://twitter.com/solo10010"
-schemaAuthorLinkedIn = "https://www.linkedin.com/in/solo10010/"
+schemaType = "Person"
+schemaName = "Anton Solomatin"
+schemaAuthor = "Anton Solomatin"
+schemaAuthorTwitter = ""
+schemaAuthorLinkedIn = "https://www.linkedin.com/in/anton-solomatin-b2b89616b/"
 schemaAuthorGitHub = "https://github.com/solo10010"
-schemaLocale = "en-US"
-schemaLogo = "logo-doks.png"
+schemaLocale = "ru-RU"
+schemaLogo = "android-chrome-512x512.png"
 schemaLogoWidth = 512
 schemaLogoHeight = 512
-schemaImage = "doks.png"
-schemaImageWidth = 1280
-schemaImageHeight = 640
-schemaTwitter = "https://twitter.com/solo10010"
-schemaLinkedIn = ""
+schemaImage = "og-card.png"
+schemaImageWidth = 1200
+schemaImageHeight = 630
+schemaTwitter = ""
+schemaLinkedIn = "https://www.linkedin.com/in/anton-solomatin-b2b89616b/"
 schemaGitHub = "https://github.com/solo10010"
 schemaSection = "blog"
 
@@ -40,21 +39,21 @@ schemaSection = "blog"
 siteLinksSearchBox = false
 
 ## Chrome Browser
-themeColor = "#fff"
+themeColor = "#0b1120"
 
 # Images
 quality = 85
 bgColor = "#fff"
-landscapePhotoWidths = [900, 800, 700, 600, 500]
+landscapePhotoWidths = [1600, 1200, 900, 700, 500]
 portraitPhotoWidths = [800, 700, 600, 500]
 lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "Copyright (c) 2021-2024 Solo10010"
+footer = "Copyright (c) 2021-2026 Solo10010"
 
 # Feed
-copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
+copyRight = "Copyright (c) 2021-2026 Anton Solomatin"
 
 # Alert
 alert = false

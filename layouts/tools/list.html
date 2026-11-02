@@ -1,0 +1,156 @@
+{{ define "main" }}
+<div class="tools-wrap">
+  <section class="page-section pb-4">
+    <div class="section-label">Инструменты</div>
+    <h1 class="section-title mb-3">Инструменты для админа и безопасника</h1>
+    <p class="blog-intro">{{ .Params.lead }}</p>
+  </section>
+
+  <nav class="tool-nav" aria-label="Инструменты в браузере">
+    <a class="tool-tab" href="#subnet" data-tool="subnet"><span class="tool-tab-icon">/24</span>Калькулятор подсетей</a>
+    <a class="tool-tab" href="#password" data-tool="password"><span class="tool-tab-icon">***</span>Генератор паролей</a>
+    <a class="tool-tab" href="#mail" data-tool="mail"><span class="tool-tab-icon">@</span>SPF, DMARC, MX</a>
+    <a class="tool-tab" href="#encode" data-tool="encode"><span class="tool-tab-icon">b64</span>Кодировщик и JWT</a>
+    <a class="tool-tab" href="#hash" data-tool="hash"><span class="tool-tab-icon">#</span>Хэши SHA</a>
+    <a class="tool-tab" href="#chmod" data-tool="chmod"><span class="tool-tab-icon">755</span>chmod</a>
+    <a class="tool-tab" href="#time" data-tool="time"><span class="tool-tab-icon">t</span>Unix-время</a>
+  </nav>
+
+  <!-- Калькулятор подсетей -->
+  <section class="panel tool" id="tool-subnet" data-tool="subnet">
+    <h2>Калькулятор подсетей IPv4</h2>
+    <p class="tool-hint">Адрес с префиксом или маской: <code>10.0.0.37/22</code>, <code>192.168.1.10 255.255.255.0</code>.</p>
+    <input class="tool-input" id="subnet-in" value="10.0.0.37/22" spellcheck="false" autocomplete="off">
+    <div class="tool-result" id="subnet-out"></div>
+  </section>
+
+  <!-- Генератор паролей -->
+  <section class="panel tool" id="tool-password" data-tool="password">
+    <h2>Генератор паролей</h2>
+    <p class="tool-hint">Пароли создаются в браузере через криптографический генератор <code>crypto.getRandomValues</code> и никуда не передаются.</p>
+    <div class="tool-row">
+      <label class="tool-field">Длина: <strong id="pw-len-val">20</strong>
+        <input type="range" id="pw-len" min="8" max="64" value="20">
+      </label>
+      <label class="tool-check"><input type="checkbox" id="pw-lower" checked> a–z</label>
+      <label class="tool-check"><input type="checkbox" id="pw-upper" checked> A–Z</label>
+      <label class="tool-check"><input type="checkbox" id="pw-digits" checked> 0–9</label>
+      <label class="tool-check"><input type="checkbox" id="pw-symbols" checked> !@#$</label>
+      <label class="tool-check"><input type="checkbox" id="pw-ambiguous" checked> без похожих (l, 1, O, 0)</label>
+    </div>
+    <div class="tool-output-row">
+      <output class="tool-output mono" id="pw-out"></output>
+      <button class="btn-accent" type="button" id="pw-gen">Ещё</button>
+      <button class="btn-ghost" type="button" data-copy="pw-out">Копировать</button>
+    </div>
+    <div class="tool-meter"><span id="pw-meter"></span></div>
+    <p class="tool-hint" id="pw-entropy"></p>
+  </section>
+
+  <!-- Почта домена -->
+  <section class="panel tool" id="tool-mail" data-tool="mail">
+    <h2>Проверка почты домена: MX, SPF, DMARC</h2>
+    <p class="tool-hint">Записи запрашиваются через DNS-over-HTTPS у Cloudflare — домен уходит только в их DNS-резолвер. Пригодится при разборе фишинга и подмены отправителя.</p>
+    <form class="tool-output-row" id="mail-form">
+      <input class="tool-input" id="mail-in" placeholder="example.com" spellcheck="false" autocomplete="off">
+      <button class="btn-accent" type="submit">Проверить</button>
+    </form>
+    <div class="tool-result" id="mail-out"></div>
+  </section>
+
+  <!-- Кодировщик -->
+  <section class="panel tool" id="tool-encode" data-tool="encode">
+    <h2>Кодировщик и декодер JWT</h2>
+    <p class="tool-hint">Base64, URL, HTML-сущности, hex и разбор JWT — всё локально. Подпись JWT не проверяется.</p>
+    <textarea class="tool-input tool-area mono" id="enc-in" spellcheck="false" placeholder="Вставьте текст или токен">Привет, мир!</textarea>
+    <div class="tool-buttons">
+      <button class="btn-ghost" type="button" data-enc="b64e">Base64 ←</button>
+      <button class="btn-ghost" type="button" data-enc="b64d">Base64 →</button>
+      <button class="btn-ghost" type="button" data-enc="urle">URL ←</button>
+      <button class="btn-ghost" type="button" data-enc="urld">URL →</button>
+      <button class="btn-ghost" type="button" data-enc="htmle">HTML ←</button>
+      <button class="btn-ghost" type="button" data-enc="htmld">HTML →</button>
+      <button class="btn-ghost" type="button" data-enc="hexe">Hex ←</button>
+      <button class="btn-ghost" type="button" data-enc="hexd">Hex →</button>
+      <button class="btn-accent" type="button" data-enc="jwt">Разобрать JWT</button>
+    </div>
+    <p class="tool-hint">← закодировать, → раскодировать</p>
+    <pre class="tool-pre" id="enc-out"></pre>
+    <div class="tool-output-row"><button class="btn-ghost" type="button" data-copy="enc-out">Копировать результат</button></div>
+  </section>
+
+  <!-- Хэши -->
+  <section class="panel tool" id="tool-hash" data-tool="hash">
+    <h2>Хэши SHA-1, SHA-256, SHA-384, SHA-512</h2>
+    <p class="tool-hint">Для текста или файла. Файл хэшируется в браузере и никуда не загружается — удобно сверить контрольную сумму скачанного образа.</p>
+    <textarea class="tool-input tool-area mono" id="hash-in" spellcheck="false" placeholder="Текст для хэширования">hello</textarea>
+    <label class="tool-file">или выберите файл <input type="file" id="hash-file"></label>
+    <div class="tool-result" id="hash-out"></div>
+  </section>
+
+  <!-- chmod -->
+  <section class="panel tool" id="tool-chmod" data-tool="chmod">
+    <h2>Калькулятор chmod</h2>
+    <div class="chmod-grid">
+      <span></span><strong>Чтение</strong><strong>Запись</strong><strong>Выполнение</strong>
+      <strong>Владелец</strong><input type="checkbox" data-bit="256"><input type="checkbox" data-bit="128"><input type="checkbox" data-bit="64">
+      <strong>Группа</strong><input type="checkbox" data-bit="32"><input type="checkbox" data-bit="16"><input type="checkbox" data-bit="8">
+      <strong>Остальные</strong><input type="checkbox" data-bit="4"><input type="checkbox" data-bit="2"><input type="checkbox" data-bit="1">
+    </div>
+    <div class="tool-output-row">
+      <input class="tool-input mono chmod-octal" id="chmod-octal" value="755" maxlength="4" spellcheck="false">
+      <output class="tool-output mono" id="chmod-sym"></output>
+    </div>
+    <p class="tool-hint" id="chmod-note"></p>
+  </section>
+
+  <!-- Unix-время -->
+  <section class="panel tool" id="tool-time" data-tool="time">
+    <h2>Конвертер Unix-времени</h2>
+    <p class="tool-hint">Секунды или миллисекунды в дату и обратно. Сейчас: <code id="time-now"></code></p>
+    <input class="tool-input mono" id="time-in" spellcheck="false" autocomplete="off">
+    <div class="tool-result" id="time-out"></div>
+  </section>
+
+  <!-- Скрипты -->
+  <section class="page-section scripts" id="scripts">
+    <div class="section-label">Скрипты для серверов</div>
+    <h2 class="section-title">Запуск одной строкой</h2>
+    <p class="blog-intro">Проверенные скрипты для диагностики Linux-серверов, которые я годами использовал в поддержке хостинга. Запускаются без сохранения на диск. <strong>Перед запуском чужого кода от root всегда смотрите, что он делает</strong> — ссылка «Код» открывает исходник.</p>
+
+    <div class="script-grid">
+      {{ range site.Data.scripts -}}
+      {{/* Команда всегда ведёт на боевой адрес: её копируют на сервер, а не открывают локально. */ -}}
+      {{ $cmd := .command -}}
+      {{ if not $cmd -}}
+        {{ $url := printf "https://solo10010.github.io/scripts/%s" .file -}}
+        {{ $sudo := cond (eq .root true) "sudo " "" -}}
+        {{ $cmd = cond (eq .runner "python3") (printf "curl -sSL %s | %spython3 -" $url $sudo) (printf "curl -sSL %s | %sbash" $url $sudo) -}}
+      {{ end -}}
+      <article class="panel script-card">
+        <div class="script-top">
+          <span class="tag">{{ .category }}</span>
+          {{ with .file }}<span class="script-file mono">{{ . }}</span>{{ end }}
+        </div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+        {{ with .args }}<p class="script-args"><span>Аргументы:</span> <code>{{ . }}</code></p>{{ end }}
+        <div class="script-cmd">
+          <code class="mono">{{ $cmd }}</code>
+          <button class="script-copy" type="button" data-copy-text="{{ $cmd }}" aria-label="Скопировать команду">Копировать</button>
+        </div>
+        <div class="script-links">
+          {{ with .file }}<a href="{{ printf "scripts/%s" . | relURL }}" target="_blank" rel="noopener">Код</a>{{ end }}
+          {{ with .source }}<a href="{{ . }}" target="_blank" rel="noopener">Источник</a>{{ end }}
+          {{ with .author }}<span>автор: {{ . }}</span>{{ end }}
+          {{ with .license }}<span>{{ . }}</span>{{ end }}
+        </div>
+      </article>
+      {{ end -}}
+    </div>
+  </section>
+</div>
+
+{{ $tools := resources.Get "js/tools.js" | js.Build (dict "minify" true "target" "es2018") | fingerprint -}}
+<script src="{{ $tools.RelPermalink }}" integrity="{{ $tools.Data.Integrity }}" defer></script>
+{{ end }}

@@ -1,0 +1,30 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Защита хостинга от ботов: роботы упираются в щит перед серверами">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#0f1b33"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#14d3b4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#1c2a47"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <!-- Боты -->
+  <defs>
+    <g id="bot">
+      <rect x="-34" y="-30" width="68" height="56" rx="12" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+      <circle cx="-13" cy="-4" r="7" fill="#f43f5e"/><circle cx="13" cy="-4" r="7" fill="#f43f5e"/>
+      <path d="M0 -30 V -44" stroke="#475569" stroke-width="3"/><circle cy="-48" r="5" fill="#f43f5e"/>
+      <rect x="-16" y="12" width="32" height="5" rx="2" fill="#475569"/>
+    </g>
+  </defs>
+  <use href="#bot" x="140" y="180"/><use href="#bot" x="270" y="320"/><use href="#bot" x="150" y="460"/><use href="#bot" x="390" y="200"/><use href="#bot" x="400" y="440"/>
+  <!-- Щит-стена -->
+  <path d="M560 110 Q 620 315 560 520" stroke="url(#accent)" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <g fill="#14d3b4" opacity="0.8"><circle cx="520" cy="200" r="5"/><circle cx="512" cy="320" r="5"/><circle cx="520" cy="440" r="5"/></g>
+  <g stroke="#f43f5e" stroke-width="4" stroke-linecap="round"><path d="M500 185 l-14 -14"/><path d="M492 305 l-16 0"/><path d="M500 455 l-14 14"/></g>
+  <!-- Серверы -->
+  <g fill="#111a2e" stroke="#2a3b60" stroke-width="2">
+    <rect x="700" y="170" width="300" height="70" rx="12"/><rect x="700" y="280" width="300" height="70" rx="12"/><rect x="700" y="390" width="300" height="70" rx="12"/>
+  </g>
+  <g fill="#14d3b4"><circle cx="960" cy="205" r="7"/><circle cx="960" cy="315" r="7"/><circle cx="960" cy="425" r="7"/></g>
+  <g fill="#22304f"><rect x="725" y="197" width="150" height="14" rx="7"/><rect x="725" y="307" width="120" height="14" rx="7"/><rect x="725" y="417" width="140" height="14" rx="7"/></g>
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="44" font-weight="800" fill="#e2e8f0">Защита <tspan fill="#14d3b4">от ботов</tspan></text>
+  <text x="80" y="585" font-family="'JetBrains Mono', Consolas, monospace" font-size="22" fill="#94a3b8">CrowdSec · BitNinja · Imunify360  <tspan fill="#14d3b4">● blocked</tspan></text>
+</svg>

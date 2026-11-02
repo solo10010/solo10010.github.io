@@ -1,24 +1,28 @@
 {{ define "main" }}
-<div class="row justify-content-center">
-  <div class="col-md-12 col-lg-10 col-xl-8">
-    <article>
-      <h1 class="text-center">{{ .Title }}</h1>
-      <div class="text-center">{{ .Content }}</div>
-			<div class="card-list">
-				{{ $paginator := .Paginate (.Data.Pages) -}}
-				{{ range $paginator.Pages -}}
-					<div class="card">
-						<div class="card-body">
-							<h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
-							<p>{{ .Params.lead | safeHTML }}</p>
-							{{ partial "main/blog-meta.html" . -}}
-						</div>
-					</div>
-				{{ end -}}
-				{{ $.Scratch.Set "paginator" true }}
-				{{ template "_internal/pagination.html" . }}
-			</div>
-    </article>
+<div class="blog-wrap">
+  <section class="page-section pb-4">
+    <div class="section-label">Блог</div>
+    <h1 class="section-title mb-3">Статьи и кейсы</h1>
+    <p class="blog-intro">Заметки из практики: администрирование серверов, информационная безопасность, расследования и автоматизация.</p>
+  </section>
+
+  {{ $paginator := .Paginate (.Data.Pages) -}}
+  <div class="post-grid">
+    {{ range $paginator.Pages -}}
+      <a class="panel post-card" href="{{ .RelPermalink }}">
+        {{ with .Resources.GetMatch "cover.*" -}}
+          <div class="post-card-cover"><img src="{{ .RelPermalink }}" alt="" loading="lazy" width="1200" height="630"></div>
+        {{- end }}
+        <div class="post-card-body">
+          {{ partial "main/blog-meta.html" . -}}
+          <h2>{{ .Params.title }}</h2>
+          {{ with .Params.lead }}<p>{{ . | safeHTML }}</p>{{ end }}
+          <span class="panel-link">Читать статью →</span>
+        </div>
+      </a>
+    {{ end -}}
   </div>
+  {{ $.Scratch.Set "paginator" true }}
+  {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}

@@ -1,0 +1,74 @@
+{{/* Блок активности на GitHub. Данные — data/github.json, их обновляет scripts/github-stats.js при каждой сборке. */}}
+{{ with .Site.Data.github -}}
+{{ $months := slice "января" "февраля" "марта" "апреля" "мая" "июня" "июля" "августа" "сентября" "октября" "ноября" "декабря" -}}
+<section class="page-section gh">
+  <div class="container-xxl">
+    <div class="gh-head">
+      <div>
+        <div class="section-label">Открытый код</div>
+        <h2 class="section-title">Активность на GitHub</h2>
+      </div>
+      <a class="btn-ghost" href="{{ .url }}" target="_blank" rel="noopener">Профиль на GitHub →</a>
+    </div>
+
+    {{ with .contributions -}}
+    <div class="panel gh-calendar">
+      <div class="gh-calendar-top">
+        <div class="gh-total"><strong>{{ lang.NumFmt 0 .total "-|,| " "|" }}</strong> вкладов за последний год</div>
+        <div class="gh-legend" aria-hidden="true">меньше <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> больше</div>
+      </div>
+      <div class="gh-scroll">
+        <div class="gh-graph" style="--weeks: {{ len .weeks }}">
+          <div class="gh-months">
+            {{- range .months }}<span style="grid-column: {{ add .week 1 }}">{{ .label }}</span>{{ end -}}
+          </div>
+          <div class="gh-days">
+            {{- range .weeks }}{{ range . -}}
+              {{- if . -}}
+                {{- $d := time .date -}}
+                <i class="l{{ .level }}" title="{{ $d.Day }} {{ index $months (sub (int ($d.Format "1")) 1) }}: {{ .count }}"></i>
+              {{- else -}}<i class="gh-empty"></i>{{- end -}}
+            {{- end }}{{ end -}}
+          </div>
+        </div>
+      </div>
+      <div class="gh-stats">
+        <div class="stat"><div class="stat-value">{{ .activeDays }}</div><div class="stat-label">активных дней из 365</div></div>
+        <div class="stat"><div class="stat-value">{{ .longestStreak }}</div><div class="stat-label">дней подряд — рекордная серия</div></div>
+        {{ $best := time .bestDay.date -}}
+        <div class="stat"><div class="stat-value">{{ .bestDay.count }}</div><div class="stat-label">вкладов за лучший день, {{ $best.Day }} {{ index $months (sub (int ($best.Format "1")) 1) }}</div></div>
+        <div class="stat"><div class="stat-value">{{ $.Site.Data.github.stars }}</div><div class="stat-label">звёзд у {{ $.Site.Data.github.repos }} открытых репозиториев</div></div>
+      </div>
+    </div>
+    {{- end }}
+
+    <div class="gh-repos">
+      {{ range .top -}}{{ $repo := . -}}
+      <a class="panel hoverable gh-repo" href="{{ .url }}" target="_blank" rel="noopener">
+        <div class="gh-repo-name">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.07 1.05A2.5 2.5 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.09a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+          {{ .name }}
+        </div>
+        <p class="gh-repo-desc">{{ .description }}</p>
+        <div class="gh-repo-meta">
+          {{ with .language }}<span><i class="gh-dot" style="background: {{ $repo.color }}"></i>{{ . }}</span>{{ end }}
+          <span title="Звёзды">★ {{ .stars }}</span>
+          {{ if .forks }}<span title="Форки">⑂ {{ .forks }}</span>{{ end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+
+    <div class="panel gh-langs">
+      <div class="gh-langs-title">Языки в открытых репозиториях</div>
+      <div class="gh-langs-bar">
+        {{- range .languages }}<span style="width: {{ .pct }}%; background: {{ .color }}" title="{{ .name }} {{ .pct }}%"></span>{{ end -}}
+      </div>
+      <ul class="gh-langs-list">
+        {{- range .languages }}<li><i class="gh-dot" style="background: {{ .color }}"></i>{{ .name }} <span>{{ .pct }}%</span></li>{{ end -}}
+      </ul>
+    </div>
+    <p class="gh-updated">Данные GitHub обновляются автоматически раз в сутки · последнее обновление {{ with time .updated }}{{ .Day }} {{ index $months (sub (int (.Format "1")) 1) }} {{ .Year }}{{ end }}</p>
+  </div>
+</section>
+{{- end }}

@@ -30,17 +30,11 @@
       {{ end -}}
       "name": "{{ .Site.Params.schemaName }}",
       "url": {{ print $baseURL }},
-      "sameAs": [
-        {{ with .Site.Params.schemaTwitter -}}
-        {{ . }}
-        {{ end -}}
-        {{ with .Site.Params.schemaLinkedIn -}}
-        , {{ . }}
-        {{ end -}}
-        {{ with .Site.Params.schemaGitHub -}}
-        , {{ . }}
-        {{ end -}}
-      ],
+      {{ $sameAs := slice -}}
+      {{ range slice .Site.Params.schemaTwitter .Site.Params.schemaLinkedIn .Site.Params.schemaGitHub -}}
+        {{ with . }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+      {{ end -}}
+      "sameAs": {{ $sameAs }},
       {{ if eq .Site.Params.schemaType "Organization" -}}
         "logo": {
           "@type": "ImageObject",
@@ -177,17 +171,11 @@
           "@type": "Person",
           "@id": {{ print $baseURL "#/schema/person/2" }},
           "name": {{ .Site.Params.schemaAuthor }},
-          "sameAs": [
-            {{ with .Site.Params.schemaAuthorTwitter -}}
-            {{ . }}
-            {{ end -}}
-            {{ with .Site.Params.schemaAuthorLinkedIn -}}
-            , {{ . }}
-            {{ end -}}
-            {{ with .Site.Params.schemaAuthorGitHub -}}
-            , {{ . }}
-            {{ end -}}
-          ]
+          {{ $authorSameAs := slice -}}
+          {{ range slice .Site.Params.schemaAuthorTwitter .Site.Params.schemaAuthorLinkedIn .Site.Params.schemaAuthorGitHub -}}
+            {{ with . }}{{ $authorSameAs = $authorSameAs | append . }}{{ end -}}
+          {{ end -}}
+          "sameAs": {{ $authorSameAs }}
         }
       ]
     },

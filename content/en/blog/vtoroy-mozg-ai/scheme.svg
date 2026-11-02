@@ -1,0 +1,42 @@
+<svg width="1200" height="480" viewBox="0 0 1200 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема второго мозга">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="480" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#141a30"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14d3b4"/></marker>
+  </defs>
+  <rect width="1200" height="480" rx="18" fill="url(#bg)"/>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif" text-anchor="middle">
+    <!-- NotebookLM -->
+    <rect x="40" y="110" width="300" height="230" rx="16" fill="#12233a" stroke="#38bdf8" stroke-width="2"/>
+    <text x="190" y="152" font-size="22" font-weight="800" fill="#e2e8f0">NotebookLM</text>
+    <text x="190" y="178" font-size="15" fill="#7dd3fc">библиотека источников</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="70" y="200" width="240" height="36" rx="8" fill="#16243c"/><text x="190" y="224">PDF и стандарты</text>
+      <rect x="70" y="244" width="240" height="36" rx="8" fill="#16243c"/><text x="190" y="268">документация вендоров</text>
+      <rect x="70" y="288" width="240" height="36" rx="8" fill="#16243c"/><text x="190" y="312">статьи и видео</text>
+    </g>
+    <!-- Агент -->
+    <rect x="450" y="80" width="300" height="290" rx="16" fill="#0d2a33" stroke="#14d3b4" stroke-width="2"/>
+    <text x="600" y="122" font-size="22" font-weight="800" fill="#e2e8f0">AI-агент</text>
+    <text x="600" y="148" font-size="15" fill="#99f6e4">исполнитель</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="480" y="168" width="240" height="36" rx="8" fill="#123540"/><text x="600" y="192">правила хранилища</text>
+      <rect x="480" y="212" width="240" height="36" rx="8" fill="#123540"/><text x="600" y="236">память и фокус</text>
+      <rect x="480" y="256" width="240" height="36" rx="8" fill="#123540"/><text x="600" y="280">навыки по требованию</text>
+      <rect x="480" y="300" width="240" height="36" rx="8" fill="#123540"/><text x="600" y="324">команды сессии</text>
+    </g>
+    <!-- Obsidian -->
+    <rect x="860" y="110" width="300" height="230" rx="16" fill="#1d1533" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="1010" y="152" font-size="22" font-weight="800" fill="#e2e8f0">Obsidian</text>
+    <text x="1010" y="178" font-size="15" fill="#c4b5fd">итоговая база</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="890" y="200" width="240" height="36" rx="8" fill="#261d40"/><text x="1010" y="224">PARA и карты</text>
+      <rect x="890" y="244" width="240" height="36" rx="8" fill="#261d40"/><text x="1010" y="268">мой опыт и выжимки</text>
+      <rect x="890" y="288" width="240" height="36" rx="8" fill="#261d40"/><text x="1010" y="312">git: история и откат</text>
+    </g>
+    <text x="395" y="208" font-size="14" fill="#94a3b8">MCP</text>
+    <text x="805" y="208" font-size="14" fill="#94a3b8">файлы</text>
+  </g>
+  <g stroke="#14d3b4" stroke-width="3" marker-end="url(#a)"><path d="M340 225 H 444"/><path d="M750 225 H 854"/></g>
+  <path d="M1010 340 C 1010 430 600 440 600 376" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a)"/>
+  <text x="820" y="440" text-anchor="middle" font-family="'JetBrains Mono',Consolas,monospace" font-size="15" fill="#94a3b8">агент ищет ответы в моей же базе</text>
+</svg>

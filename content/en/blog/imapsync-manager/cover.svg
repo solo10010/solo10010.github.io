@@ -1,0 +1,38 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="imapsync-manager: перенос писем со старого сервера на новый">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#0f1b33"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#14d3b4"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#1c2a47"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <!-- Старый сервер -->
+  <g transform="translate(110 190)">
+    <rect width="250" height="250" rx="18" fill="#111a2e" stroke="#2a3b60" stroke-width="2"/>
+    <text x="125" y="45" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="20" fill="#94a3b8">old IMAP</text>
+    <g fill="#1e293b" stroke="#475569" stroke-width="2">
+      <rect x="40" y="75" width="170" height="40" rx="8"/><rect x="40" y="130" width="170" height="40" rx="8"/><rect x="40" y="185" width="170" height="40" rx="8"/>
+    </g>
+  </g>
+  <!-- Новый сервер -->
+  <g transform="translate(840 190)">
+    <rect width="250" height="250" rx="18" fill="#0d2a33" stroke="url(#accent)" stroke-width="3"/>
+    <text x="125" y="45" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="20" fill="#14d3b4">new IMAP</text>
+    <g fill="#0f3a40" stroke="#14d3b4" stroke-width="2">
+      <rect x="40" y="75" width="170" height="40" rx="8"/><rect x="40" y="130" width="170" height="40" rx="8"/><rect x="40" y="185" width="170" height="40" rx="8"/>
+    </g>
+  </g>
+  <!-- Летящие письма -->
+  <path d="M380 315 C 520 200, 680 200, 820 315" stroke="url(#accent)" stroke-width="4" stroke-dasharray="12 10"/>
+  <g stroke="#14d3b4" stroke-width="3" fill="#111a2e">
+    <g transform="translate(470 235)"><rect width="70" height="48" rx="6"/><path d="M4 6 L35 30 L66 6" fill="none"/></g>
+    <g transform="translate(610 205)"><rect width="70" height="48" rx="6"/><path d="M4 6 L35 30 L66 6" fill="none"/></g>
+  </g>
+  <!-- Сверка -->
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="21">
+    <text x="420" y="420" fill="#94a3b8">SOURCE 5.14 MB · 10 folders</text>
+    <text x="420" y="455" fill="#94a3b8">DEST   5.14 MB · 10 folders</text>
+    <text x="420" y="495" fill="#14d3b4">&lt;-&gt; SUCCESS</text>
+  </g>
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="46" font-weight="800" fill="#e2e8f0">imapsync<tspan fill="url(#accent)">-manager</tspan></text>
+  <text x="110" y="585" font-family="'JetBrains Mono', Consolas, monospace" font-size="20" fill="#64748b">$ ./sync.sh --file listmail.txt --migrate</text>
+</svg>

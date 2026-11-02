@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Шпаргалка администратора Plesk">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#0b1a2e"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#13243a"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <!-- Терминал -->
+  <rect x="70" y="150" width="640" height="410" rx="16" fill="#0a1424" stroke="#24405f" stroke-width="2"/>
+  <rect x="70" y="150" width="640" height="46" rx="16" fill="#13223a"/><rect x="70" y="180" width="640" height="16" fill="#13223a"/>
+  <g><circle cx="102" cy="173" r="8" fill="#f43f5e"/><circle cx="130" cy="173" r="8" fill="#f59e0b"/><circle cx="158" cy="173" r="8" fill="#14d3b4"/></g>
+  <text x="390" y="179" text-anchor="middle" font-family="'JetBrains Mono',Consolas,monospace" font-size="16" fill="#64748b">root@srv: ~</text>
+  <g font-family="'JetBrains Mono',Consolas,monospace" font-size="20">
+    <text x="100" y="240" fill="#14d3b4"># <tspan fill="#cbd5e1">plesk repair all -y</tspan></text>
+    <text x="100" y="275" fill="#64748b">  Checking Plesk database... [OK]</text>
+    <text x="100" y="320" fill="#14d3b4"># <tspan fill="#cbd5e1">postqueue -p | tail -1</tspan></text>
+    <text x="100" y="355" fill="#f59e0b">-- 18432 Kbytes in 2817 Requests.</text>
+    <text x="100" y="400" fill="#14d3b4"># <tspan fill="#cbd5e1">df -h /var</tspan></text>
+    <text x="100" y="435" fill="#f43f5e">/dev/sda2  500G  497G  3G  99%</text>
+    <text x="100" y="480" fill="#14d3b4"># <tspan fill="#cbd5e1">truncate -s 0 access_log</tspan></text>
+    <text x="100" y="520" fill="#14d3b4"># <tspan fill="#e2e8f0">█</tspan></text>
+  </g>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif" font-weight="800" text-anchor="end">
+    <text x="1130" y="100" font-size="60" fill="#e2e8f0">Plesk</text>
+    <text x="1130" y="150" font-size="32" font-weight="600" fill="#14d3b4">шпаргалка админа</text>
+  </g>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="22" text-anchor="end" fill="#94a3b8">
+    <text x="1130" y="280">repair · базы · бэкапы</text>
+    <text x="1130" y="320">почта и спам</text>
+    <text x="1130" y="360">место на диске</text>
+    <text x="1130" y="400">зависшие задачи</text>
+    <text x="1130" y="440">PHP · CSF · Fail2Ban</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="solo10010.github.io">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12c7a9"/>
+      <stop offset="1" stop-color="#7dd0f5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="18" fill="url(#bg)"/>
+  <g transform="translate(100 92)" stroke="url(#brand)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="170" height="136" rx="14"/>
+    <path d="M0 34h170M38 70l-18 18 18 18M78 70l18 18-18 18M110 106h34"/>
+  </g>
+  <text x="330" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="70" font-weight="800" fill="url(#brand)">solo10010.github.io</text>
+  <text x="334" y="196" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="27" font-weight="600" fill="#e2e8f0">Резюме · Портфолио · Блог</text>
+  <text x="334" y="232" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" fill="#94a3b8">Hugo · Doks · Bootstrap 5 · GitHub Pages · GitHub Actions</text>
+</svg>

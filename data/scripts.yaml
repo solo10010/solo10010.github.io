@@ -1,0 +1,65 @@
+# Каталог скриптов раздела «Инструменты» (бывший ScriptHub).
+# Файлы лежат в static/scripts/ и запускаются одной строкой без сохранения на диск.
+# runner: bash | python3 — как передавать скрипт интерпретатору.
+
+- file: measure.py
+  title: Реальное потребление RAM и SWAP
+  category: Диагностика
+  runner: python3
+  description: Считает PSS и SWAP PSS всех процессов и показывает, сколько памяти на самом деле занимает каждый пользователь и приложение. Подробный отчёт сохраняет в /tmp/ram.csv.
+  root: true
+
+- file: ps_mem.py
+  title: ps_mem — память по процессам
+  category: Диагностика
+  runner: python3
+  description: Точный отчёт о памяти процессов с учётом разделяемых страниц. Удобно, чтобы рассчитать pm.max_children для PHP-FPM или лимиты воркеров веб-сервера.
+  args: "-p PID · -s · -t · -w N · -S"
+  root: true
+  source: https://github.com/pixelb/ps_mem
+  author: Pádraig Brady
+  license: LGPLv2
+
+- file: topdiskconsumer.sh
+  title: Кто занял диск
+  category: Диагностика
+  runner: bash
+  description: Отчёт о самых больших каталогах и файлах, удалённых, но ещё открытых файлах и старых файлах. Запускайте в любом каталоге нужной файловой системы.
+  args: "--help · -l N · -t · -o · -d · -m · -u"
+  source: https://github.com/klazarsk/storagetoolkit
+  author: Kimberly Lazarski, Red Hat
+  license: GPLv3+
+
+- file: tuning-mysql.sh
+  title: MySQL Tuning Primer
+  category: Производительность
+  runner: bash
+  description: Проверяет статистику MySQL/MariaDB и подсказывает, какие параметры буферов, кэшей и соединений стоит поменять. Хорошая отправная точка перед ручной настройкой.
+  source: https://github.com/BMDan/tuning-primer.sh
+  author: Matthew Montgomery, Dan Reif
+  license: GPL-2.0
+
+- file: lbsa.sh
+  title: LBSA — базовый аудит безопасности Linux
+  category: Безопасность
+  runner: bash
+  description: Проверяет конфигурацию Linux на типичные слабые места и ничего не меняет в системе. Подходит для запуска по cron, чтобы замечать изменения.
+  root: true
+  source: http://wiki.metawerx.net/wiki/LBSA
+  author: Neale Rudd
+  license: GPL-3.0
+
+- file: gtfonow.py
+  title: GTFONow — проверка повышения привилегий
+  category: Пентест и CTF
+  runner: python3
+  description: Ищет неправильно настроенные SUID/SGID-бинарники, capabilities и правила sudo, через которые можно повысить привилегии. Для CTF и пентеста только своих систем или с разрешения владельца.
+  source: https://github.com/Frissi0n/GTFONow
+  author: Frissi0n
+
+- title: LinPEAS
+  category: Пентест и CTF
+  description: Большой набор проверок путей повышения привилегий в Linux, Unix и macOS. Скачивается из официальных релизов проекта.
+  command: "curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh | sh"
+  source: https://github.com/peass-ng/PEASS-ng
+  author: Carlos Polop
