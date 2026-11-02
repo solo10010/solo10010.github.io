@@ -14,7 +14,7 @@
     </div>
     <div class="hero-visual text-center">
       <div class="avatar-ring">
-        <img src="https://i.imgur.com/AxKTgiI.png" alt="Антон Соломатин">
+        <picture><source srcset="{{ "images/avatar.webp" | relURL }}" type="image/webp"><img src="{{ "images/avatar.jpg" | relURL }}" alt="Антон Соломатин" width="600" height="600"></picture>
         <span class="status-badge">Открыт к предложениям</span>
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="panel">
       <div class="grid-4">
         <div class="stat">
-          <div class="stat-value">5 лет</div>
+          <div class="stat-value">{{ partial "main/since.html" (dict "since" site.Params.dates.it "mode" "years") }}</div>
           <div class="stat-label">в IT, от L1 до ИБ</div>
         </div>
         <div class="stat">
@@ -40,7 +40,7 @@
           <div class="stat-label">групповых политик по CIS</div>
         </div>
         <div class="stat">
-          <div class="stat-value">19 лет</div>
+          <div class="stat-value">{{ partial "main/since.html" (dict "since" site.Params.dates.security "mode" "age") }}</div>
           <div class="stat-label">увлечения ИБ</div>
         </div>
       </div>

@@ -17,19 +17,19 @@
     <div class="panel">
       <div class="about-card">
         <div class="avatar-ring">
-          <img src="https://i.imgur.com/AxKTgiI.png" alt="Антон Соломатин">
+          <picture><source srcset="{{ "images/avatar.webp" | relURL }}" type="image/webp"><img src="{{ "images/avatar.jpg" | relURL }}" alt="Антон Соломатин" width="600" height="600"></picture>
         </div>
         <div>
           <div class="section-label">Обо мне</div>
           <h2 class="section-title mb-3">Антон Соломатин</h2>
-          <p>Специалист по информационной безопасности с опытом системного администрирования. Около 5 лет в хостинг-компании: прошёл путь от первой линии поддержки до специалиста по ИБ и выстроил информационную безопасность компании с нуля — от домена Active Directory по CIS Benchmark до собственного SOC-контура на Wazuh.</p>
+          <p>Специалист по информационной безопасности с опытом системного администрирования. {{ partial "main/since.html" (dict "since" site.Params.dates.it "mode" "years") }} работы в хостинг-компании: прошёл путь от первой линии поддержки до специалиста по ИБ и выстроил информационную безопасность компании с нуля — от домена Active Directory по CIS Benchmark до собственного SOC-контура на Wazuh.</p>
           <p class="mb-0">Информационной безопасностью увлекаюсь со школы. Знаю инфраструктуру изнутри, поэтому понимаю, как атакуют и как защищать. В свободное время занимаюсь Bug Bounty, решаю CTF и пишу собственные инструменты для ИБ. Люблю Linux, свободное ПО, сложные задачи и автоматизацию всего, что можно автоматизировать.</p>
         </div>
       </div>
 
       <div class="info-grid">
         <div class="info-item"><span class="info-key">Должность</span><span class="info-value">Специалист по ИБ</span></div>
-        <div class="info-item"><span class="info-key">Возраст</span><span class="info-value">32 года</span></div>
+        <div class="info-item"><span class="info-key">Возраст</span><span class="info-value">{{ partial "main/since.html" (dict "since" site.Params.dates.birth "mode" "age") }}</span></div>
         <div class="info-item"><span class="info-key">Город</span><span class="info-value">Караганда, Казахстан</span></div>
         <div class="info-item wide"><span class="info-key">E-mail</span><a class="info-value" href="mailto:tohac2011@gmail.com">tohac2011@gmail.com</a></div>
         <div class="info-item wide">
@@ -65,7 +65,7 @@
     <div class="timeline">
       <div class="tl-item current">
         <div class="panel">
-          <div class="tl-date">февраль 2024 — настоящее время</div>
+          <div class="tl-date">февраль 2024 — настоящее время · {{ partial "main/since.html" (dict "since" site.Params.dates.currentRole "mode" "duration") }}</div>
           <h3>Специалист по информационной безопасности</h3>
           <div class="tl-org">Хостинг-провайдер, Караганда</div>
           <p>Выстроил информационную безопасность компании с нуля: от локальной сети офиса до собственного SOC-контура.</p>

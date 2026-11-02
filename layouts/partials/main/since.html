@@ -1,0 +1,23 @@
+{{/*
+  Возраст или стаж от даты. При сборке выводит готовое значение, а js/live-dates.js
+  пересчитывает его в браузере на сегодняшний день — цифры не устаревают, даже если сайт давно не пересобирали.
+  Параметры: since — дата "2006-01-02"; mode — age (полных лет), years (округлённо лет), duration (N г. M мес.).
+*/}}
+{{- $d := time .since -}}
+{{- $mode := .mode | default "age" -}}
+{{- $months := add (mul (sub now.Year $d.Year) 12) (sub (int (now.Format "1")) (int ($d.Format "1"))) -}}
+{{- if lt now.Day $d.Day }}{{ $months = sub $months 1 }}{{ end -}}
+{{- $n := div $months 12 -}}
+{{- if eq $mode "years" }}{{ $n = div (add $months 6) 12 }}{{ end -}}
+{{- $word := "лет" -}}
+{{- if and (eq (mod $n 10) 1) (ne (mod $n 100) 11) }}{{ $word = "год" -}}
+{{- else if and (ge (mod $n 10) 2) (le (mod $n 10) 4) (or (lt (mod $n 100) 12) (gt (mod $n 100) 14)) }}{{ $word = "года" }}{{ end -}}
+<span data-since="{{ .since }}" data-mode="{{ $mode }}">
+  {{- if eq $mode "duration" -}}
+    {{- $y := div $months 12 }}{{ $m := mod $months 12 -}}
+    {{- if gt $y 0 }}{{ $y }} г.{{ end }}{{ if and (gt $y 0) (gt $m 0) }} {{ end }}{{ if or (gt $m 0) (eq $y 0) }}{{ $m }} мес.{{ end -}}
+  {{- else -}}
+    {{- $n }} {{ $word -}}
+  {{- end -}}
+</span>
+{{- /* убираем перевод строки */ -}}

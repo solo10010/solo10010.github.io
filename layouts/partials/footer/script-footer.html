@@ -7,8 +7,8 @@
 {{ $highlight := resources.Get "js/highlight.js" -}}
 {{ $highlight := $highlight | js.Build -}}
 
-{{ $solojs := resources.Get "js/solojs.js" -}}
-{{ $solojs := $solojs | js.Build -}}
+{{ $contact := resources.Get "js/contact-widget.js" | js.Build (dict "minify" true) | fingerprint -}}
+{{ $dates := resources.Get "js/live-dates.js" | js.Build (dict "minify" true) | fingerprint -}}
 
 {{ $katex := resources.Get "js/vendor/katex/dist/katex.js" -}}
 {{ $katexAutoRender := resources.Get "js/vendor/katex/dist/contrib/auto-render.js" -}}
@@ -61,7 +61,8 @@
 {{ end -}}
 
 {{ $js := $slice | resources.Concat "main.js" -}}
-<script src="{{ $solojs.RelPermalink }}" defer></script>
+<script src="{{ $contact.RelPermalink }}" integrity="{{ $contact.Data.Integrity }}" defer></script>
+<script src="{{ $dates.RelPermalink }}" integrity="{{ $dates.Data.Integrity }}" defer></script>
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" defer></script>

@@ -50,10 +50,10 @@ lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "Copyright (c) 2021-2026 Solo10010"
+footer = "Copyright (c) 2021-{year} Solo10010"
 
 # Feed
-copyRight = "Copyright (c) 2021-2026 Anton Solomatin"
+copyRight = "Copyright (c) 2021-{year} Anton Solomatin"
 
 # Alert
 alert = false
@@ -79,3 +79,10 @@ editPage = false
   collapsibleSidebar = true
   multilingualMode = false
   docsVersioning = false # Not yet functional
+
+# Даты для автоматического расчёта возраста и стажа (partials/main/since.html, js/live-dates.js)
+[dates]
+  birth = "1994-02-19"
+  it = "2021-12-01"
+  security = "2007-01-01"
+  currentRole = "2024-02-01"

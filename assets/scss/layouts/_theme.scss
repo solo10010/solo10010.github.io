@@ -493,6 +493,12 @@ a.panel:hover,
   padding: 6px;
   background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent));
 
+  picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -1945,5 +1951,198 @@ html {
 
   .tool-k {
     padding-bottom: 0.2rem;
+  }
+}
+
+/* ---------- Подсказка виджета обратной связи ---------- */
+
+.contact-nudge {
+  position: fixed;
+  right: 20px;
+  bottom: 102px;
+  z-index: 2147000001;
+  display: flex;
+  align-items: flex-start;
+  width: calc(100vw - 40px);
+  max-width: 300px;
+  border: 1px solid var(--border);
+  border-radius: 16px 16px 4px 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  transform-origin: bottom right;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+:root body .contact-nudge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.85rem 0.4rem 0.85rem 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+
+  strong {
+    font-size: 0.92rem;
+  }
+
+  span {
+    color: var(--muted);
+  }
+}
+
+:root body .contact-nudge-close {
+  flex-shrink: 0;
+  padding: 0.35rem 0.65rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-nudge {
+    transition: none;
+  }
+}
+
+/* ---------- Пасхалка «автору больше 100 лет» ---------- */
+
+.status-badge.is-offline::before {
+  background: #64748b !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.rip-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147000020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(3, 7, 15, 0.78);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.rip-modal {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  color: var(--text);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.3s ease;
+
+  .is-visible & {
+    transform: none;
+  }
+
+  h2 {
+    margin: 1.25rem 1.5rem 0.5rem;
+    font-size: 1.35rem;
+  }
+
+  p {
+    margin: 0 1.5rem 0.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  strong {
+    color: var(--text);
+  }
+}
+
+.rip-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+
+  span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #f43f5e;
+  }
+
+  span:nth-child(2) { background: #f59e0b; }
+  span:nth-child(3) { background: #14d3b4; }
+
+  code {
+    margin-left: auto;
+    background: none;
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+}
+
+:root body .rip-term {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 0;
+  background: #07101f;
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.rip-prompt { color: #14d3b4; }
+.rip-dot { color: #64748b; }
+.rip-dead { color: #f43f5e; font-weight: 700; }
+
+.rip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.25rem 1.5rem 0.5rem;
+}
+
+:root body .rip-count {
+  min-height: 1.4em;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rip-overlay,
+  .rip-modal {
+    transition: none;
   }
 }
