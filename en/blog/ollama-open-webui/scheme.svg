@@ -1,0 +1,33 @@
+<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Local LLM diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="460" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#101a2e"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14d3b4"/></marker>
+  </defs>
+  <rect width="1200" height="460" rx="18" fill="url(#bg)"/>
+  <rect x="300" y="60" width="860" height="330" rx="18" stroke="#14d3b4" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="320" y="92" font-family="'JetBrains Mono',Consolas,monospace" font-size="17" fill="#14d3b4">your server · data never leaves</text>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif">
+    <rect x="40" y="180" width="200" height="100" rx="14" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="140" y="222" text-anchor="middle" font-size="20" font-weight="700" fill="#e2e8f0">User</text>
+    <text x="140" y="250" text-anchor="middle" font-size="15" fill="#94a3b8">browser / VPN</text>
+
+    <rect x="350" y="170" width="220" height="120" rx="14" fill="#0d2240" stroke="#3b82f6" stroke-width="2"/>
+    <text x="460" y="214" text-anchor="middle" font-size="21" font-weight="800" fill="#e2e8f0">Open WebUI</text>
+    <text x="460" y="242" text-anchor="middle" font-size="15" fill="#94a3b8">chat, history, documents</text>
+    <text x="460" y="266" text-anchor="middle" font-size="14" fill="#64748b">127.0.0.1:3000</text>
+
+    <rect x="640" y="170" width="220" height="120" rx="14" fill="#0d2a33" stroke="#14d3b4" stroke-width="2"/>
+    <text x="750" y="214" text-anchor="middle" font-size="21" font-weight="800" fill="#e2e8f0">Ollama</text>
+    <text x="750" y="242" text-anchor="middle" font-size="15" fill="#94a3b8">pulls and runs models</text>
+    <text x="750" y="266" text-anchor="middle" font-size="14" fill="#64748b">127.0.0.1:11434</text>
+
+    <g font-size="15">
+      <rect x="930" y="120" width="200" height="56" rx="12" fill="#16213a"/><text x="1030" y="154" text-anchor="middle" fill="#cbd5e1">llama3.1 : 8b</text>
+      <rect x="930" y="202" width="200" height="56" rx="12" fill="#16213a"/><text x="1030" y="236" text-anchor="middle" fill="#cbd5e1">qwen2.5 : 7b</text>
+      <rect x="930" y="284" width="200" height="56" rx="12" fill="#16213a"/><text x="1030" y="318" text-anchor="middle" fill="#cbd5e1">a code model</text>
+    </g>
+    <text x="640" y="350" font-size="15" fill="#94a3b8">CPU · or GPU (CUDA) for speed</text>
+  </g>
+  <g stroke="#14d3b4" stroke-width="3" marker-end="url(#a)"><path d="M240 230 H 344"/><path d="M570 230 H 634"/><path d="M860 215 L 924 150"/><path d="M860 230 H 924"/><path d="M860 245 L 924 310"/></g>
+  <g font-family="'JetBrains Mono',Consolas,monospace" font-size="15" fill="#f43f5e"><text x="40" y="420">✗ 0.0.0.0:11434 without authentication — never do this</text></g>
+</svg>
