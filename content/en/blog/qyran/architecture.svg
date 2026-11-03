@@ -1,0 +1,81 @@
+<svg width="1200" height="640" viewBox="0 0 1200 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Qyran architecture: UI and API, MongoDB, workers, scanners, proxy and AI layer in Docker Compose">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="640" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1200" height="640" rx="18" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="592" rx="16" stroke="#1e293b" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="48" y="58" font-family="'JetBrains Mono',Consolas,monospace" font-size="18" fill="#64748b">docker compose up</text>
+
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif">
+    
+    <rect x="60" y="270" width="150" height="90" rx="14" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="135" y="308" text-anchor="middle" font-size="20" font-weight="700" fill="#e2e8f0">Bug hunter</text>
+    <text x="135" y="334" text-anchor="middle" font-size="15" fill="#94a3b8">browser</text>
+
+    <!-- API + UI -->
+    <rect x="290" y="250" width="220" height="130" rx="16" fill="#0d2240" stroke="url(#acc)" stroke-width="3"/>
+    <text x="400" y="292" text-anchor="middle" font-size="22" font-weight="800" fill="#e2e8f0">api</text>
+    <text x="400" y="320" text-anchor="middle" font-size="15" fill="#94a3b8">FastAPI + React UI</text>
+    <text x="400" y="344" text-anchor="middle" font-size="15" fill="#94a3b8">projects, findings, reports</text>
+
+    <!-- MongoDB -->
+    <g transform="translate(600 255)">
+      <path d="M0 22 v86 c0 14 48 24 110 24 s110 -10 110 -24 v-86" fill="#0f2a22" stroke="#22c55e" stroke-width="3"/>
+      <ellipse cx="110" cy="22" rx="110" ry="24" fill="#123b2e" stroke="#22c55e" stroke-width="3"/>
+      <text x="110" y="85" text-anchor="middle" font-size="22" font-weight="800" fill="#e2e8f0">MongoDB</text>
+      <text x="110" y="110" text-anchor="middle" font-size="14" fill="#94a3b8">data + job queues</text>
+    </g>
+
+    
+    <rect x="290" y="80" width="520" height="110" rx="14" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="310" y="112" font-size="16" font-weight="700" fill="#38bdf8">Orchestration</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="310" y="128" width="150" height="44" rx="10" fill="#16213a"/><text x="385" y="156" text-anchor="middle">worker</text>
+      <rect x="474" y="128" width="160" height="44" rx="10" fill="#16213a"/><text x="554" y="156" text-anchor="middle">recon-orchestrator</text>
+      <rect x="648" y="128" width="148" height="44" rx="10" fill="#16213a"/><text x="722" y="156" text-anchor="middle">scheduler</text>
+    </g>
+
+    
+    <rect x="880" y="80" width="270" height="250" rx="14" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="900" y="112" font-size="16" font-weight="700" fill="#f59e0b">Scanners and tools</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="900" y="128" width="230" height="38" rx="9" fill="#16213a"/><text x="1015" y="153" text-anchor="middle">hack-tools: subfinder, httpx…</text>
+      <rect x="900" y="174" width="110" height="38" rx="9" fill="#16213a"/><text x="955" y="199" text-anchor="middle">nuclei</text>
+      <rect x="1020" y="174" width="110" height="38" rx="9" fill="#16213a"/><text x="1075" y="199" text-anchor="middle">OWASP ZAP</text>
+      <rect x="900" y="220" width="110" height="38" rx="9" fill="#16213a"/><text x="955" y="245" text-anchor="middle">OpenVAS</text>
+      <rect x="1020" y="220" width="110" height="38" rx="9" fill="#16213a"/><text x="1075" y="245" text-anchor="middle">Metasploit</text>
+      <rect x="900" y="266" width="230" height="38" rx="9" fill="#16213a"/><text x="1015" y="291" text-anchor="middle">js-analysis (microservice)</text>
+    </g>
+
+    
+    <rect x="290" y="450" width="380" height="120" rx="14" fill="#111a2e" stroke="#334155" stroke-width="2"/>
+    <text x="310" y="482" font-size="16" font-weight="700" fill="#a78bfa">Intercepting proxy</text>
+    <g font-size="15" fill="#cbd5e1">
+      <rect x="310" y="500" width="150" height="44" rx="10" fill="#16213a"/><text x="385" y="528" text-anchor="middle">mitmproxy</text>
+      <rect x="500" y="500" width="150" height="44" rx="10" fill="#16213a"/><text x="575" y="528" text-anchor="middle">→ ZAP upstream</text>
+    </g>
+
+    <!-- AI -->
+    <rect x="760" y="420" width="390" height="160" rx="14" fill="#1a1530" stroke="#a78bfa" stroke-width="2"/>
+    <text x="780" y="452" font-size="16" font-weight="700" fill="#c4b5fd">AI layer</text>
+    <g font-size="15" fill="#cbd5e1">
+      <text x="780" y="482">opencode · any model provider</text>
+      <text x="780" y="508">32 agents · 120+ skills</text>
+      <text x="780" y="534">MCP tools with approval</text>
+      <text x="780" y="560">Obsidian knowledge base (read-only)</text>
+    </g>
+  </g>
+
+  
+  <g stroke="#475569" stroke-width="2.5" marker-end="url(#arr)">
+    <path d="M210 315 H 284"/>
+    <path d="M510 315 H 594"/>
+    <path d="M550 196 V 246"/>
+    <path d="M810 135 H 874"/>
+    <path d="M400 384 V 444"/>
+    <path d="M670 510 H 754"/>
+    <path d="M820 380 C 820 400, 880 400, 900 414"/>
+  </g>
+</svg>

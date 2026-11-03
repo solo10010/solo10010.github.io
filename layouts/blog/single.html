@@ -10,6 +10,7 @@
       {{ partial "main/blog-meta.html" . }}
       <h1>{{ .Title }}</h1>
       {{ with .Params.lead }}<p class="post-lead">{{ . | safeHTML }}</p>{{ end }}
+      {{ if and (ne .Lang "ru") .IsTranslated }}{{ range where .Translations "Lang" "ru" }}<p class="post-translated">{{ i18n "translationNote" }} <a href="{{ .RelPermalink }}" hreflang="ru" lang="ru">Русская версия</a></p>{{ end }}{{ end }}
     </header>
 
     <div class="post-content">

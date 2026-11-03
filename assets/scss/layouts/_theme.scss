@@ -2165,3 +2165,10 @@ html {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
+
+/* Пометка о переводе в английских статьях */
+:root body .post-translated {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}

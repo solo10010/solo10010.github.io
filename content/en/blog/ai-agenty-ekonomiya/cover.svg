@@ -1,0 +1,34 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cutting AI agent costs">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#14161f"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f43f5e"/><stop offset="1" stop-color="#7f1d2d"/></linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#14d3b4"/><stop offset="1" stop-color="#0b5f52"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#1a2236"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  
+  <g>
+    <path d="M110 520 H 620" stroke="#334155" stroke-width="3"/>
+    <rect x="150" y="150" width="140" height="370" rx="10" fill="url(#bar)"/>
+    <rect x="410" y="478" width="140" height="42" rx="10" fill="url(#bar2)"/>
+    <g font-family="'JetBrains Mono',Consolas,monospace" text-anchor="middle">
+      <text x="220" y="130" font-size="34" font-weight="700" fill="#fda4af">$200</text>
+      <text x="480" y="458" font-size="34" font-weight="700" fill="#99f6e4">≈ $1</text>
+      <text x="220" y="565" font-size="19" fill="#94a3b8">agent as is</text>
+      <text x="480" y="565" font-size="19" fill="#94a3b8">code + right model</text>
+    </g>
+    <path d="M300 300 C 350 300 380 340 390 410" stroke="#14d3b4" stroke-width="3" stroke-dasharray="8 8"/>
+    <path d="M379 398 L 391 416 L 401 396" stroke="#14d3b4" stroke-width="3"/>
+  </g>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif">
+    <text x="1130" y="110" text-anchor="end" font-size="52" font-weight="800" fill="#e2e8f0">AI agents</text>
+    <text x="1130" y="170" text-anchor="end" font-size="44" font-weight="800" fill="#14d3b4">without overspending</text>
+  </g>
+  <g font-family="'JetBrains Mono',Consolas,monospace" font-size="22">
+    <text x="720" y="270" fill="#14d3b4">✓ <tspan fill="#cbd5e1">routine in code</tspan></text>
+    <text x="720" y="320" fill="#14d3b4">✓ <tspan fill="#cbd5e1">model fits the task</tspan></text>
+    <text x="720" y="370" fill="#14d3b4">✓ <tspan fill="#cbd5e1">short context</tspan></text>
+    <text x="720" y="420" fill="#14d3b4">✓ <tspan fill="#cbd5e1">budget and deadline</tspan></text>
+    <text x="720" y="470" fill="#14d3b4">✓ <tspan fill="#cbd5e1">cost per unit of work</tspan></text>
+  </g>
+</svg>
