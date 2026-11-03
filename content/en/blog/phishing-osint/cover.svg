@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phishing OSINT: a hooked email and a graph of related infrastructure">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#1a1530"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#221c38"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  
+  <path d="M290 60 V 250" stroke="#64748b" stroke-width="4"/>
+  <path d="M290 250 v60 a50 50 0 0 1 -100 0 v-20" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M182 300 l8 -16 8 16" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(150 340)">
+    <rect width="280" height="190" rx="16" fill="#1e1833" stroke="url(#accent)" stroke-width="4"/>
+    <path d="M10 12 L140 110 L270 12" stroke="url(#accent)" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="70" y="140" width="140" height="28" rx="8" fill="#f59e0b"/>
+    <text x="140" y="160" text-anchor="middle" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1530">Open document</text>
+  </g>
+  
+  <g stroke="#3a3260" stroke-width="2">
+    <path d="M700 315 L860 200"/><path d="M700 315 L880 330"/><path d="M700 315 L850 450"/>
+    <path d="M860 200 L1020 160"/><path d="M880 330 L1040 300"/><path d="M880 330 L1030 420"/><path d="M850 450 L1000 520"/>
+  </g>
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="17">
+    <circle cx="700" cy="315" r="34" fill="#2a1520" stroke="#f43f5e" stroke-width="3"/><text x="700" y="321" text-anchor="middle" fill="#fda4af">URL</text>
+    <circle cx="860" cy="200" r="26" fill="#1e1833" stroke="#f59e0b" stroke-width="2"/><text x="860" y="155" text-anchor="middle" fill="#cbd5e1">whois</text>
+    <circle cx="880" cy="330" r="26" fill="#1e1833" stroke="#f59e0b" stroke-width="2"/><text x="880" y="285" text-anchor="middle" fill="#cbd5e1">IP</text>
+    <circle cx="850" cy="450" r="26" fill="#1e1833" stroke="#f59e0b" stroke-width="2"/><text x="850" y="505" text-anchor="middle" fill="#cbd5e1">TLS</text>
+    <circle cx="1020" cy="160" r="16" fill="#1e1833" stroke="#64748b" stroke-width="2"/>
+    <circle cx="1040" cy="300" r="16" fill="#1e1833" stroke="#64748b" stroke-width="2"/>
+    <circle cx="1030" cy="420" r="16" fill="#1e1833" stroke="#64748b" stroke-width="2"/>
+    <circle cx="1000" cy="520" r="16" fill="#1e1833" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <path d="M440 400 C 540 400, 580 315, 666 315" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="44" font-weight="800" fill="#f1f5f9">Phishing <tspan fill="url(#accent)">· OSINT</tspan></text>
+  <text x="560" y="585" font-family="'JetBrains Mono', Consolas, monospace" font-size="22" fill="#a1a1b5">spf=fail  dkim=none  <tspan fill="#f43f5e">dmarc=fail</tspan></text>
+</svg>

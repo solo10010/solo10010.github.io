@@ -32,7 +32,7 @@ My path in offensive security went through bug bounty, Hack The Box, PortSwigger
 
 ### First attempt — ReconWTF
 
-My first attempt at automation was **[ReconWTF](/blog/reconwtf/)** (in Russian), a Bash framework that ran 30+ tools in a chain. It worked, but hit a ceiling:
+My first attempt at automation was **[ReconWTF](/en/blog/reconwtf/)**, a Bash framework that ran 30+ tools in a chain. It worked, but hit a ceiling:
 
 - the results were text files that still had to be parsed by hand;
 - no database, no history, no comparison between runs;
