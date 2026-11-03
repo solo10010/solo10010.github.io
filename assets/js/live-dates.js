@@ -101,3 +101,11 @@ function showRip(years) {
 if (age >= 100 || preview) {
   setTimeout(() => showRip(preview && age < 100 ? 101 : age), 1200);
 }
+
+/* ---------- Мобильное меню ---------- */
+// Bootstrap 5.2+ отменяет переход по ссылке с data-bs-dismiss, поэтому у пунктов меню его нет,
+// а панель закрываем сами — важно для якоря #portfolio на той же странице.
+document.querySelectorAll('#siteMenu a[data-site-menu-link]').forEach((link) => link.addEventListener('click', () => {
+  const close = document.querySelector('#siteMenu button[data-bs-dismiss="offcanvas"]');
+  if (close) close.click();
+}));

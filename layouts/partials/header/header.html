@@ -48,7 +48,7 @@
       {{ range .Site.Menus.main -}}
         {{- $url := .URL | relLangURL -}}
         {{- $active := and (not (in .URL "#")) (hasPrefix $here $url) -}}
-        <li><a class="{{ if $active }}active{{ end }}" href="{{ $url }}" data-bs-dismiss="offcanvas">{{ .Name }}</a></li>
+        <li><a class="{{ if $active }}active{{ end }}" href="{{ $url }}" data-site-menu-link>{{ .Name }}</a></li>
       {{ end -}}
     </ul>
     <div class="site-offcanvas-social">
