@@ -1,4 +1,6 @@
 <meta property="og:locale" content="{{ .Site.Params.ogLocale }}">
+{{ range .Translations }}<meta property="og:locale:alternate" content="{{ .Site.Params.ogLocale }}">
+{{ end -}}
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
@@ -34,24 +36,11 @@
   {{ .Scratch.Set "title" .Title -}}
 {{ end -}}
 
-{{ with $.Params.images -}}
-  {{ range first 6 . -}}
-  <meta property="og:image" content="{{ $.Permalink }}{{ . }}">
-  {{ end -}}
-{{ else -}}
-  {{ $images := $.Resources.ByType "image" -}}
-  {{ $featured := $images.GetMatch "*feature*" -}}
-  {{ if not $featured -}}
-    {{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}
-  {{ end -}}
-  {{ with $featured -}}
-    <meta property="og:image" content="{{ $featured.Permalink }}"/>
-  {{ else -}}
-    {{ with $.Site.Params.images -}}
-      <meta property="og:image" content="{{ index . 0 | absURL }}"/>
-      <meta property="og:image:alt" content="{{ $.Site.Params.title }}">
-    {{ end -}}
-  {{ end -}}
+{{ with partial "head/share-image.html" . -}}
+<meta property="og:image" content="{{ . }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ $.Title }}">
 {{ end -}}
 
 {{ with $.Site.Params.images -}}

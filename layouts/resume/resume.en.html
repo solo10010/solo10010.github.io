@@ -1,0 +1,344 @@
+{{ define "main" }}
+<section class="resume-hero">
+  <div class="box">
+    <h1 class="glitch" data-text="RESUME">RESUME</h1>
+  </div>
+  <div class="wrapper text-center justify-content-center">
+    <div class="typing-demo">Information security and SOC.</div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+<div class="container-xxl">
+
+  <!-- About -->
+  <section class="page-section">
+    <div class="panel">
+      <div class="about-card">
+        <div class="avatar-ring">
+          <picture><source srcset="{{ "images/avatar.webp" | relURL }}" type="image/webp"><img src="{{ "images/avatar.jpg" | relURL }}" alt="Anton Solomatin" width="600" height="600"></picture>
+        </div>
+        <div>
+          <div class="section-label">About me</div>
+          <h2 class="section-title mb-3">Anton Solomatin</h2>
+          <p>Information security specialist with a system administration background. {{ partial "main/since.html" (dict "since" site.Params.dates.it "mode" "years") }} at a hosting company: I went from first-line support to security specialist and built the company's security program from scratch — from an Active Directory domain hardened by CIS Benchmark to an in-house SOC on Wazuh.</p>
+          <p class="mb-0">I've been into security since school. I know infrastructure from the inside, so I understand both how attacks work and how to defend against them. In my spare time I do bug bounty, solve CTFs and build my own security tools. I love Linux, free software, hard problems and automating everything that can be automated.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item"><span class="info-key">Position</span><span class="info-value">Security Specialist</span></div>
+        <div class="info-item"><span class="info-key">Age</span><span class="info-value">{{ partial "main/since.html" (dict "since" site.Params.dates.birth "mode" "age") }}</span></div>
+        <div class="info-item"><span class="info-key">Location</span><span class="info-value">Karaganda, Kazakhstan</span></div>
+        <div class="info-item wide"><span class="info-key">E-mail</span><a class="info-value" href="mailto:tohac2011@gmail.com">tohac2011@gmail.com</a></div>
+        <div class="info-item wide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-label="WhatsApp"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+          <span class="info-value">+7 (775) 945-36-32</span>
+        </div>
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-label="Telegram"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/></svg>
+          <a class="info-value" href="https://t.me/solo10010" target="_blank" rel="noopener">@solo10010</a>
+        </div>
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-label="Instagram"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+          <a class="info-value" href="https://www.instagram.com/solo10010/" target="_blank" rel="noopener">solo10010</a>
+        </div>
+      </div>
+
+      <div class="profile-links">
+        <a href="https://www.linkedin.com/in/anton-solomatin-b2b89616b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/solo10010" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://hackerone.com/solo10010" target="_blank" rel="noopener">HackerOne</a>
+        <a href="https://bugcrowd.com/h/solo10010" target="_blank" rel="noopener">Bugcrowd</a>
+        <a href="https://profile.hackthebox.com/profile/01a19cec-a5eb-71f9-8681-15a44b96b695" target="_blank" rel="noopener">Hack The Box</a>
+        <a href="https://www.root-me.org/t0haC" target="_blank" rel="noopener">Root-Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience and education -->
+  <section class="page-section">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">From support desk to security</h2>
+
+    <div class="timeline">
+      <div class="tl-item current">
+        <div class="panel">
+          <div class="tl-date">February 2024 — present · {{ partial "main/since.html" (dict "since" site.Params.dates.currentRole "mode" "duration") }}</div>
+          <h3>Information Security Specialist</h3>
+          <div class="tl-org">Hosting provider, Karaganda</div>
+          <p>Built the company's information security from scratch: from the office network to an in-house SOC.</p>
+          <ul>
+            <li>Built the corporate Active Directory domain: 2 domain controllers, ~100 users and workstations.</li>
+            <li>Hardened workstations to CIS Benchmark Level 1: BitLocker, AppLocker, LAPS, LSA Protection, USB blocking, honeypots.</li>
+            <li>Automated software deployment and configuration for every department — about 150 group policies.</li>
+            <li>Rolled out centrally managed Kaspersky endpoint protection.</li>
+            <li>Deployed a fault-tolerant, load-balanced Wazuh SIEM cluster — 300+ agents, integrated with Suricata and DefectDojo.</li>
+            <li>Built Qalqan — an internal vulnerability triage and SOC workflow panel.</li>
+            <li>Investigate incidents — compromised websites and servers, email account takeovers, phishing — and run security audits.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="panel">
+          <div class="tl-date">February 2023 — January 2024</div>
+          <h3>System Administrator (L2)</h3>
+          <div class="tl-org">Hosting provider</div>
+          <ul>
+            <li>Ran hosting, virtualization, servers and the company's core services.</li>
+            <li>Monitoring (Zabbix, Nagios), handling load spikes and DDoS attacks.</li>
+            <li>Automation with Bash, Python, Ansible and Puppet; trained colleagues on Ansible.</li>
+            <li>Added Python (Django/Flask) and Node.js support to the hosting platform; built a mailbox migration service.</li>
+            <li>Managed infrastructure for major clients in Kazakhstan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="panel">
+          <div class="tl-date">December 2021 — January 2023</div>
+          <h3>System Administrator (L1)</h3>
+          <div class="tl-org">Hosting provider</div>
+          <ul>
+            <li>Customer technical support: calls, chats, tickets.</li>
+            <li>Configured web servers, databases, AD and custom setups; migrations of any complexity.</li>
+            <li>For about two years resolved every ticket without escalating to higher support lines.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label mt-5">Education</div>
+    <div class="timeline mt-3">
+      <div class="tl-item">
+        <div class="panel">
+          <div class="tl-date">2011 — 2013</div>
+          <h3>Lingva Technical College</h3>
+          <div class="tl-org">College · Computer Engineering and Software</div>
+          <p class="mb-0">Computer engineering and software, specialization: systems engineer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="page-section" id="portfolio">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-grid">
+      <article class="panel project-card hoverable">
+        <div class="project-cover contain"><img src="{{ "images/portfolio/qyran.svg" | relURL }}" alt="Qyran" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">personal project · closed source</span>
+          <h3>Qyran — offensive security platform</h3>
+          <p>Self-hosted platform for security audits and bug bounty: perimeter recon, an intercepting proxy, scanning and vulnerability tracking, reports and continuous monitoring. An AI assistant built on 120+ in-house testing playbooks.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">nuclei</span><span class="tag">AI agents</span></div>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn-accent" href="{{ partial "main/post-url.html" "blog/qyran" }}">Read about the project →</a>
+            <a class="btn-ghost" href="mailto:tohac2011@gmail.com?subject=Qyran%20demo">Demo on request</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover contain"><img src="{{ "images/portfolio/qalqan.svg" | relURL }}" alt="Qalqan" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">Internal project</span>
+          <h3>Qalqan — vulnerability triage panel for SOC</h3>
+          <p>Collects software inventory and vulnerabilities from servers, enriches them with CVSS, EPSS, CISA KEV and exploit data, and filters out false positives caused by vendor backports. Work orders, reports and a read-only AI assistant.</p>
+          <div class="project-tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">osquery</span><span class="tag">MCP</span><span class="tag">SOC</span></div>
+          <a class="btn-ghost align-self-start" href="mailto:tohac2011@gmail.com?subject=Qalqan%20demo">Demo on request</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover contain"><img src="{{ "images/portfolio/wazuh-to-dojo.svg" | relURL }}" alt="wazuh-to-dojo" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>wazuh-to-dojo</h3>
+          <p>Exports vulnerabilities from Wazuh (Elasticsearch/OpenSearch) to DefectDojo via the Generic Findings Import API. Supports rescans and cron runs.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Wazuh</span><span class="tag">DefectDojo</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/wazuh-to-dojo" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover"><img src="https://i.imgur.com/eVJ2j1e.png" alt="ReconWTF" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>ReconWTF</h3>
+          <p>Installs and runs a curated toolset to map the attack surface of websites, portals and organizations.</p>
+          <div class="project-tags"><span class="tag">Bash</span><span class="tag">Recon</span><span class="tag">Bug Bounty</span><span class="tag">Go</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/reconWTF" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover contain"><img src="{{ "images/portfolio/bugbounty-hub.svg" | relURL }}" alt="BugBounty-Hub" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>BugBounty-Hub</h3>
+          <p>A collection of Nuclei templates and wordlists for bug bounty and security testing. Used in reconWTF.</p>
+          <div class="project-tags"><span class="tag">Nuclei</span><span class="tag">Wordlists</span><span class="tag">Recon</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/BugBounty-Hub" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover"><img src="https://i.imgur.com/5ScNIK1.png" alt="ASpider" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>ASpider</h3>
+          <p>Reverse domain lookup by A records for AS/ASN/CIDR/IP lists: finds domains and servers tied to an autonomous system or range.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">ASN</span><span class="tag">Recon</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/ASpider" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover"><img src="https://raw.githubusercontent.com/solo10010/ScriptHub/main/ScriptHub.png" alt="ScriptHub" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>ScriptHub</h3>
+          <p>Handy server scripts: copy, paste into the terminal — task automated.</p>
+          <div class="project-tags"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">HTML</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/ScriptHub" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover"><img src="https://raw.githubusercontent.com/solo10010/trash/main/static/image/dahuya%20.png" alt="DHVAdmin" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>DHVAdmin</h3>
+          <p>An assistant for hosting sysadmins and support staff to quickly assess a domain, its DNS and web server.</p>
+          <div class="project-tags"><span class="tag">Bash</span><span class="tag">DNS</span><span class="tag">WHOIS</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/DHVAdmin" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="panel project-card hoverable">
+        <div class="project-cover contain"><img src="{{ "images/portfolio/site.svg" | relURL }}" alt="solo10010.github.io" loading="lazy"></div>
+        <div class="project-body">
+          <span class="project-badge">open source</span>
+          <h3>solo10010.github.io</h3>
+          <p>This website: resume, portfolio and blog built with Hugo and deployed automatically via GitHub Actions.</p>
+          <div class="project-tags"><span class="tag">Hugo</span><span class="tag">Bootstrap 5</span><span class="tag">GitHub Pages</span></div>
+          <a class="btn-ghost align-self-start" href="https://github.com/solo10010/solo10010.github.io" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="page-section">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Stack and tools</h2>
+
+    <div class="skill-grid">
+      <div class="panel">
+        <h3>Defense and SOC</h3>
+        <span class="tag">SIEM</span><span class="tag">Wazuh</span><span class="tag">Suricata</span><span class="tag">SOC</span><span class="tag">Incident response</span><span class="tag">Vulnerability management</span><span class="tag">DefectDojo</span><span class="tag">OpenCVE</span><span class="tag">Kaspersky Endpoint Security</span><span class="tag">CrowdSec</span><span class="tag">BitNinja</span><span class="tag">Imunify360</span><span class="tag">CSF / iptables</span><span class="tag">DDoS protection</span>
+      </div>
+      <div class="panel">
+        <h3>Windows and Active Directory</h3>
+        <span class="tag">Active Directory</span><span class="tag">GPO</span><span class="tag">CIS Benchmark</span><span class="tag">AppLocker</span><span class="tag">BitLocker</span><span class="tag">LAPS</span>
+      </div>
+      <div class="panel">
+        <h3>Offensive</h3>
+        <span class="tag">Bug Bounty</span><span class="tag">Pentest</span><span class="tag">Recon</span><span class="tag">OSINT</span><span class="tag">Nuclei</span><span class="tag">CTF</span>
+      </div>
+      <div class="panel">
+        <h3>Infrastructure</h3>
+        <span class="tag">Linux</span><span class="tag">Nginx</span><span class="tag">Apache</span><span class="tag">HAProxy</span><span class="tag">Mail servers</span><span class="tag">DNS</span><span class="tag">MySQL / Percona</span><span class="tag">KVM</span><span class="tag">Proxmox</span><span class="tag">Virtualizor</span><span class="tag">Plesk</span><span class="tag">ISPmanager</span><span class="tag">Zabbix</span><span class="tag">Nagios</span><span class="tag">Traefik</span><span class="tag">FortiGate</span>
+      </div>
+      <div class="panel">
+        <h3>Automation and development</h3>
+        <span class="tag">Bash</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">Ansible</span><span class="tag">Puppet</span><span class="tag">Docker / Compose</span><span class="tag">Portainer</span><span class="tag">Git</span><span class="tag">AI agents / MCP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case studies -->
+  <section class="page-section">
+    <div class="section-label">Case studies</div>
+    <h2 class="section-title">From practice</h2>
+
+    <div class="grid-3">
+      <div class="panel hoverable d-flex flex-column">
+        <h3>Building a SOC on Wazuh</h3>
+        <p class="flex-grow-1">A fault-tolerant SIEM cluster for 300+ agents, HAProxy load balancing, Suricata and DefectDojo integration, and securing the SOC itself.</p>
+        <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/soc-wazuh-s-nulya" }}">Read the case →</a>
+      </div>
+      <div class="panel hoverable d-flex flex-column">
+        <h3>Active Directory by CIS Benchmark</h3>
+        <p class="flex-grow-1">Building a domain from scratch and hardening workstations: CIS Level 1 group policies, LAPS, AppLocker, BitLocker and regular audits.</p>
+        <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/ad-cis-benchmark" }}">Read the case →</a>
+      </div>
+      <div class="panel hoverable d-flex flex-column">
+        <h3>Investigating an email compromise</h3>
+        <p class="flex-grow-1">A week of hidden access to corporate mailboxes, silent forwarding via Sieve and groundwork for BEC fraud: a log-based timeline and lessons learned.</p>
+        <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/bec-vzlom-pochty" }}">Read the case →</a>
+      </div>
+      <div class="panel hoverable d-flex flex-column">
+        <h3>SIEM noise</h3>
+        <p class="flex-grow-1">Millions of alerts a day, three rules producing 90% of them. How to turn a firehose into an incident queue.</p>
+        <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/siem-shum-alertov" }}">Read the case →</a>
+      </div>
+      <div class="panel hoverable d-flex flex-column">
+        <h3>Server optimization</h3>
+        <p class="flex-grow-1">A site crashed every time an editor saved a post. Tracing nginx → Apache → MySQL, table locks, and queries cut from 82 seconds to 13 ms.</p>
+        <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/kases_optimization_server" }}">Read the case →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="page-section">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">How I can help</h2>
+
+    <div class="service-grid">
+      {{ range slice "Security audits of servers and websites" "Incident investigation and post-breach recovery" "SIEM / SOC rollout (Wazuh, Suricata)" "Linux, Windows and Active Directory hardening by CIS" "Linux server administration" "Web server and database tuning" "DDoS and bot protection" "Automation: Ansible, Bash, Python" }}
+      <div class="service-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>{{ . }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div id="cover col">
+      <div class="re-star">
+        <div class="prefix">ALWAYS</div>
+        <div class="suffix">
+          <ul class="ul_anim">
+            <li>CREATE</li>
+            <li>LEARN</li>
+            <li>ACHIEVE</li>
+            <li>THINK</li>
+            <li>REFLECT</li>
+            <li>BUILD</li>
+            <li>GROW</li>
+            <li>DO</li>
+            <li>OVERCOME</li>
+            <li>EXPLORE</li>
+            <li>APPLY</li>
+            <li>SHARE</li>
+            <li>STUDY</li>
+            <li>INSPIRE</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{{ end }}
+
+{{ define "sidebar-footer" }}
+{{ end }}

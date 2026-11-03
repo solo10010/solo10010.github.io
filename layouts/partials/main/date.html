@@ -1,0 +1,7 @@
+{{- /* Дата на языке страницы: «2 ноября 2026» / «November 2, 2026». Принимает time.Time. */ -}}
+{{- $month := i18n (printf "month%d" (int (.Format "1"))) -}}
+{{- if eq site.Language.Lang "en" -}}
+{{ $month }} {{ .Day }}, {{ .Year }}
+{{- else -}}
+{{ .Day }} {{ $month }} {{ .Year }}
+{{- end -}}

@@ -1,0 +1,149 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-prompt"><span>solo10010@hom</span>:~$ whoami</div>
+      <h1>{{ .Title }}</h1>
+      <div class="hero-role">Information Security Specialist</div>
+      <p class="hero-lead">{{ .Params.lead | safeHTML }}</p>
+      <div class="hero-actions">
+        <a class="btn-accent" href="{{ "resume/" | relLangURL }}">Resume →</a>
+        <a class="btn-ghost" href="https://t.me/solo10010" target="_blank" rel="noopener">Message on Telegram</a>
+        <a class="btn-ghost" href="https://github.com/solo10010" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-visual text-center">
+      <div class="avatar-ring">
+        <picture><source srcset="{{ "images/avatar.webp" | relURL }}" type="image/webp"><img src="{{ "images/avatar.jpg" | relURL }}" alt="Anton Solomatin" width="600" height="600"></picture>
+        <span class="status-badge">Open to opportunities</span>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+<section class="page-section">
+  <div class="container-xxl">
+    <div class="panel">
+      <div class="grid-4">
+        <div class="stat">
+          <div class="stat-value">{{ partial "main/since.html" (dict "since" site.Params.dates.it "mode" "years") }}</div>
+          <div class="stat-label">in IT, from L1 support to security</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2</div>
+          <div class="stat-label">in-house security platforms: Qyran and Qalqan</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">{{ len (where .Sites.First.RegularPages "Section" "blog") }}</div>
+          <div class="stat-label">hands-on articles in the blog</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">{{ partial "main/since.html" (dict "since" site.Params.dates.security "mode" "age") }}</div>
+          <div class="stat-label">into security</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container-xxl">
+    <div class="section-label">What I do</div>
+    <h2 class="section-title">I defend, build and stress-test</h2>
+    <div class="grid-3">
+      <div>
+        <div class="panel hoverable h-100">
+          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <h3>SOC and SIEM</h3>
+          <p>A fault-tolerant Wazuh cluster, Suricata, DefectDojo, vulnerability and alert triage, incident investigations.</p>
+        </div>
+      </div>
+      <div>
+        <div class="panel hoverable h-100">
+          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg></div>
+          <h3>Infrastructure hardening</h3>
+          <p>Active Directory and workstations by CIS Benchmark, Linux server hardening, DDoS protection and automation.</p>
+        </div>
+      </div>
+      <div>
+        <div class="panel hoverable h-100">
+          <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+          <h3>Offensive and bug bounty</h3>
+          <p>Hunting vulnerabilities on HackerOne and Bugcrowd, CTFs, and Qyran — my own recon and audit platform.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ partial "main/github-stats.html" . }}
+
+<section class="page-section">
+  <div class="container-xxl">
+    <div class="section-label">Sections</div>
+    <h2 class="section-title">Where next</h2>
+    <div class="grid-4">
+      <div>
+        <a class="panel d-block h-100" href="{{ "resume/" | relLangURL }}">
+          <h3>Resume</h3>
+          <p>Experience, skills, project portfolio and case studies.</p>
+          <span class="panel-link">Open →</span>
+        </a>
+      </div>
+      <div>
+        <a class="panel d-block h-100" href="{{ "blog/" | relLangURL }}">
+          <h3>Blog</h3>
+          <p>Articles and case studies from sysadmin and security practice.</p>
+          <span class="panel-link">Read →</span>
+        </a>
+      </div>
+      <div>
+        <a class="panel d-block h-100" href="{{ "tools/" | relLangURL }}">
+          <h3>Tools</h3>
+          <p>Subnets, passwords, SPF and DMARC, JWT, hashes and server scripts.</p>
+          <span class="panel-link">Open →</span>
+        </a>
+      </div>
+      <div>
+        <a class="panel d-block h-100" href="https://github.com/solo10010" target="_blank" rel="noopener">
+          <h3>GitHub</h3>
+          <p>Open-source tools for security, bug hunting and automation.</p>
+          <span class="panel-link">Go →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div id="cover col">
+    <div class="re-star">
+      <div class="prefix">ALWAYS</div>
+      <div class="suffix">
+        <ul class="ul_anim">
+          <li>CREATE</li>
+          <li>LEARN</li>
+          <li>ACHIEVE</li>
+          <li>THINK</li>
+          <li>REFLECT</li>
+          <li>BUILD</li>
+          <li>GROW</li>
+          <li>DO</li>
+          <li>OVERCOME</li>
+          <li>EXPLORE</li>
+          <li>APPLY</li>
+          <li>SHARE</li>
+          <li>STUDY</li>
+          <li>INSPIRE</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="motto mt-5">Create, grow, achieve. Think, learn, defend! Sharpen your skills, strengthen your defenses and find vulnerabilities before attackers do.</p>
+</section>
+{{ end }}
+
+{{ define "sidebar-footer" }}
+{{ end }}

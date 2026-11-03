@@ -1,9 +1,9 @@
 ---
-title: "Резюме"
-description: "Резюме Антона Соломатина: специалист по информационной безопасности, SOC, SIEM Wazuh, Active Directory по CIS, Bug Bounty. Опыт, навыки, портфолио и кейсы."
-lead: "Резюме: опыт, навыки, портфолио и кейсы."
+title: "Resume"
+description: "Resume of Anton Solomatin, information security specialist: SOC, Wazuh SIEM, Active Directory by CIS Benchmark, bug bounty. Experience, skills, portfolio and case studies."
+lead: "Resume: experience, skills, portfolio and case studies."
 date: 2020-10-06T08:47:36+00:00
-lastmod: 2026-11-02T00:00:00+00:00
+lastmod: 2026-11-03T00:00:00+00:00
 draft: false
 images: []
 ---

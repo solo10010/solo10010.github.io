@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="post-wrap">
-  <a class="post-back" href="{{ "blog/" | relLangURL }}">← Все статьи</a>
+  <a class="post-back" href="{{ "blog/" | relLangURL }}">{{ i18n "allArticles" }}</a>
 
   <article class="post">
     {{ with .Resources.GetMatch "cover.*" -}}
@@ -19,13 +19,13 @@
 
   <div class="post-footer panel">
     <div>
-      <div class="section-label mb-1">Автор</div>
-      <strong>Антон Соломатин</strong>
-      <p class="mb-0">Специалист по информационной безопасности</p>
+      <div class="section-label mb-1">{{ i18n "author" }}</div>
+      <strong>{{ i18n "authorName" }}</strong>
+      <p class="mb-0">{{ i18n "authorRole" }}</p>
     </div>
     <div class="hero-actions">
-      <a class="btn-ghost" href="{{ "resume/" | relLangURL }}">Резюме</a>
-      <a class="btn-accent" href="https://t.me/solo10010" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn-ghost" href="{{ "resume/" | relLangURL }}">{{ i18n "resume" }}</a>
+      <a class="btn-accent" href="https://t.me/solo10010" target="_blank" rel="noopener">{{ i18n "writeTelegram" }}</a>
     </div>
   </div>
 </div>

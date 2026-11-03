@@ -1,12 +1,18 @@
 {{ define "main" }}
 <div class="blog-wrap">
   <section class="page-section pb-4">
-    <div class="section-label">Блог</div>
-    <h1 class="section-title mb-3">Статьи и кейсы</h1>
-    <p class="blog-intro">Заметки из практики: администрирование серверов, информационная безопасность, расследования и автоматизация.</p>
+    <div class="section-label">{{ i18n "blog" }}</div>
+    <h1 class="section-title mb-3">{{ i18n "blogTitle" }}</h1>
+    <p class="blog-intro">{{ i18n "blogIntro" }}</p>
   </section>
 
-  {{ $paginator := .Paginate (.Data.Pages) -}}
+  {{- /* В английском блоге, пока статья не переведена, показываем русскую с пометкой. */ -}}
+  {{ $pages := .Data.Pages -}}
+  {{ if ne .Lang "ru" -}}
+    {{ $ruOnly := where (where .Sites.First.RegularPages "Section" "blog") "IsTranslated" false -}}
+    {{ $pages = ($pages | union $ruOnly).ByDate.Reverse -}}
+  {{ end -}}
+  {{ $paginator := .Paginate $pages -}}
   <div class="post-grid">
     {{ range $paginator.Pages -}}
       <a class="panel post-card" href="{{ .RelPermalink }}">
@@ -15,9 +21,10 @@
         {{- end }}
         <div class="post-card-body">
           {{ partial "main/blog-meta.html" . -}}
+          {{ if ne .Lang $.Lang }}<span class="tag post-lang" lang="en">{{ i18n "inRussian" }}</span>{{ end -}}
           <h2>{{ .Params.title }}</h2>
           {{ with .Params.lead }}<p>{{ . | safeHTML }}</p>{{ end }}
-          <span class="panel-link">Читать статью →</span>
+          <span class="panel-link">{{ i18n "readArticle" }}</span>
         </div>
       </a>
     {{ end -}}

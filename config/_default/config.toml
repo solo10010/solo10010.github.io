@@ -5,18 +5,18 @@ disableHugoGeneratorInject = true
 enableEmoji = true
 enableGitInfo = false
 enableRobotsTXT = true
-languageCode = "en-US"
 paginate = 24
 rssLimit = 10
 
-# Multilingual
-defaultContentLanguage = "en"
-disableLanguages = ["de", "nl"]
-# defaultContentLanguageInSubdir = true
+# Multilingual: русский в корне, английский под /en/
+defaultContentLanguage = "ru"
+defaultContentLanguageInSubdir = false
+# Страницы авторов (taxonomy contributors) не нужны — автор один
+disableKinds = ["taxonomy", "term"]
 
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "REDIRECTS", "HEADERS"]
+home = ["HTML", "RSS"]
 section = ["HTML", "RSS", "SITEMAP"]
 
 # remove .{ext} from text/netlify
@@ -58,7 +58,6 @@ rel  = "sitemap"
   priority = 0.5
 
 [taxonomies]
-  contributor = "contributors"
 
 [permalinks]
   blog = "/blog/:title/"

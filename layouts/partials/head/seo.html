@@ -34,6 +34,18 @@
   <link rel="canonical" href="{{ .Permalink }}">
 {{ end -}}
 
+{{- /* Языковые версии страницы для поисковиков; x-default — русская версия */ -}}
+{{ if .IsTranslated -}}
+  {{ range .AllTranslations -}}
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{ end -}}
+  {{ range where .AllTranslations "Lang" "ru" -}}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{ end -}}
+{{ end -}}
+{{ $redirect := resources.Get "js/lang-redirect.js" | minify -}}
+<script>{{ $redirect.Content | safeJS }}</script>
+
 {{ partial "head/opengraph.html" . }}
 {{ partial "head/twitter_cards.html" . }}
 

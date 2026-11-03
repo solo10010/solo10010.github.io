@@ -1,7 +1,7 @@
 ---
-title: "Инструменты"
-description: "Бесплатные инструменты для сисадмина и специалиста по ИБ: калькулятор подсетей, генератор паролей, chmod, кодировщики и JWT, хэши, проверка SPF и DMARC домена, а также каталог скриптов для серверов с запуском одной строкой."
-lead: "Утилиты, которыми я сам пользуюсь каждый день. Работают прямо в браузере — ничего не отправляется на сервер. Ниже — скрипты для диагностики серверов, которые запускаются одной строкой."
+title: "Tools"
+description: "Free tools for sysadmins and security engineers: subnet calculator, password generator, chmod, encoders and JWT decoder, SHA hashes, SPF and DMARC checker, plus one-line server scripts."
+lead: "Utilities I use every day. They run right in your browser — nothing is sent to a server. Below are server diagnostic scripts you can run with a single line."
 date: 2026-11-03T00:00:00+05:00
 lastmod: 2026-11-03T00:00:00+05:00
 draft: false

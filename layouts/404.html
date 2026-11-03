@@ -2,11 +2,11 @@
 <section class="page-section text-center">
   <div class="error-code">404</div>
   <p class="hero-prompt mt-3"><span>solo10010@hom</span>:~$ cat page<br>cat: page: No such file or directory</p>
-  <h1 class="mt-4">Страница не найдена</h1>
-  <p class="text-muted">Такой страницы нет или она была перемещена.</p>
+  <h1 class="mt-4">{{ i18n "notFoundTitle" }}</h1>
+  <p class="text-muted">{{ i18n "notFoundText" }}</p>
   <div class="hero-actions justify-content-center mt-4">
-    <a class="btn-accent" href="{{ "/" | relLangURL }}">На главную</a>
-    <a class="btn-ghost" href="{{ "resume/" | relLangURL }}">Резюме</a>
+    <a class="btn-accent" href="{{ "/" | relLangURL }}">{{ i18n "toHome" }}</a>
+    <a class="btn-ghost" href="{{ "resume/" | relLangURL }}">{{ i18n "resume" }}</a>
   </div>
 </section>
 {{ end }}

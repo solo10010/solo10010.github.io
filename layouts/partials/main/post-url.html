@@ -1,0 +1,5 @@
+{{- /* Адрес статьи блога на языке страницы; если перевода нет — русская версия. Параметр: путь вида "blog/qyran". */ -}}
+{{- $url := "" -}}
+{{- with site.GetPage . }}{{ $url = .RelPermalink }}{{ end -}}
+{{- if not $url }}{{ range where site.Home.AllTranslations "Lang" "ru" }}{{ with .Site.GetPage $ }}{{ $url = .RelPermalink }}{{ end }}{{ end }}{{ end -}}
+{{- $url -}}

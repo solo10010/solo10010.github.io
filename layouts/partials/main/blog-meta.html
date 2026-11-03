@@ -1,2 +1,1 @@
-{{ $months := slice "января" "февраля" "марта" "апреля" "мая" "июня" "июля" "августа" "сентября" "октября" "ноября" "декабря" -}}
-<p class="post-meta">{{ .PublishDate.Day }} {{ index $months (sub (int (.PublishDate.Format "1")) 1) }} {{ .PublishDate.Year }}{{ with .Params.contributors }} · {{ delimit . ", " }}{{ end }} · {{ .ReadingTime }} мин чтения</p>
+<p class="post-meta">{{ partial "main/date.html" .PublishDate }}{{ with .Params.contributors }} · {{ delimit . ", " }}{{ end }} · {{ .ReadingTime }} {{ i18n "minRead" }}</p>

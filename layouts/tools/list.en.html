@@ -1,0 +1,156 @@
+{{ define "main" }}
+<div class="tools-wrap">
+  <section class="page-section pb-4">
+    <div class="section-label">Tools</div>
+    <h1 class="section-title mb-3">Tools for sysadmins and security engineers</h1>
+    <p class="blog-intro">{{ .Params.lead }}</p>
+  </section>
+
+  <nav class="tool-nav" aria-label="Browser tools">
+    <a class="tool-tab" href="#subnet" data-tool="subnet"><span class="tool-tab-icon">/24</span>Subnet calculator</a>
+    <a class="tool-tab" href="#password" data-tool="password"><span class="tool-tab-icon">***</span>Password generator</a>
+    <a class="tool-tab" href="#mail" data-tool="mail"><span class="tool-tab-icon">@</span>SPF, DMARC, MX</a>
+    <a class="tool-tab" href="#encode" data-tool="encode"><span class="tool-tab-icon">b64</span>Encoder and JWT</a>
+    <a class="tool-tab" href="#hash" data-tool="hash"><span class="tool-tab-icon">#</span>SHA hashes</a>
+    <a class="tool-tab" href="#chmod" data-tool="chmod"><span class="tool-tab-icon">755</span>chmod</a>
+    <a class="tool-tab" href="#time" data-tool="time"><span class="tool-tab-icon">t</span>Unix time</a>
+  </nav>
+
+  <!-- Subnet calculator -->
+  <section class="panel tool" id="tool-subnet" data-tool="subnet">
+    <h2>IPv4 subnet calculator</h2>
+    <p class="tool-hint">An address with a prefix or a mask: <code>10.0.0.37/22</code>, <code>192.168.1.10 255.255.255.0</code>.</p>
+    <input class="tool-input" id="subnet-in" value="10.0.0.37/22" spellcheck="false" autocomplete="off">
+    <div class="tool-result" id="subnet-out"></div>
+  </section>
+
+  <!-- Password generator -->
+  <section class="panel tool" id="tool-password" data-tool="password">
+    <h2>Password generator</h2>
+    <p class="tool-hint">Passwords are generated in your browser with the cryptographic <code>crypto.getRandomValues</code> and never leave it.</p>
+    <div class="tool-row">
+      <label class="tool-field">Length: <strong id="pw-len-val">20</strong>
+        <input type="range" id="pw-len" min="8" max="64" value="20">
+      </label>
+      <label class="tool-check"><input type="checkbox" id="pw-lower" checked> a–z</label>
+      <label class="tool-check"><input type="checkbox" id="pw-upper" checked> A–Z</label>
+      <label class="tool-check"><input type="checkbox" id="pw-digits" checked> 0–9</label>
+      <label class="tool-check"><input type="checkbox" id="pw-symbols" checked> !@#$</label>
+      <label class="tool-check"><input type="checkbox" id="pw-ambiguous" checked> no look-alikes (l, 1, O, 0)</label>
+    </div>
+    <div class="tool-output-row">
+      <output class="tool-output mono" id="pw-out"></output>
+      <button class="btn-accent" type="button" id="pw-gen">New</button>
+      <button class="btn-ghost" type="button" data-copy="pw-out">Copy</button>
+    </div>
+    <div class="tool-meter"><span id="pw-meter"></span></div>
+    <p class="tool-hint" id="pw-entropy"></p>
+  </section>
+
+  <!-- Domain mail -->
+  <section class="panel tool" id="tool-mail" data-tool="mail">
+    <h2>Domain mail check: MX, SPF, DMARC</h2>
+    <p class="tool-hint">Records are fetched via Cloudflare's DNS-over-HTTPS — the domain only goes to their DNS resolver. Handy when investigating phishing and sender spoofing.</p>
+    <form class="tool-output-row" id="mail-form">
+      <input class="tool-input" id="mail-in" placeholder="example.com" spellcheck="false" autocomplete="off">
+      <button class="btn-accent" type="submit">Check</button>
+    </form>
+    <div class="tool-result" id="mail-out"></div>
+  </section>
+
+  <!-- Encoder -->
+  <section class="panel tool" id="tool-encode" data-tool="encode">
+    <h2>Encoder and JWT decoder</h2>
+    <p class="tool-hint">Base64, URL, HTML entities, hex and JWT decoding — all local. The JWT signature is not verified.</p>
+    <textarea class="tool-input tool-area mono" id="enc-in" spellcheck="false" placeholder="Paste text or a token">Hello, world!</textarea>
+    <div class="tool-buttons">
+      <button class="btn-ghost" type="button" data-enc="b64e">Base64 ←</button>
+      <button class="btn-ghost" type="button" data-enc="b64d">Base64 →</button>
+      <button class="btn-ghost" type="button" data-enc="urle">URL ←</button>
+      <button class="btn-ghost" type="button" data-enc="urld">URL →</button>
+      <button class="btn-ghost" type="button" data-enc="htmle">HTML ←</button>
+      <button class="btn-ghost" type="button" data-enc="htmld">HTML →</button>
+      <button class="btn-ghost" type="button" data-enc="hexe">Hex ←</button>
+      <button class="btn-ghost" type="button" data-enc="hexd">Hex →</button>
+      <button class="btn-accent" type="button" data-enc="jwt">Decode JWT</button>
+    </div>
+    <p class="tool-hint">← encode, → decode</p>
+    <pre class="tool-pre" id="enc-out"></pre>
+    <div class="tool-output-row"><button class="btn-ghost" type="button" data-copy="enc-out">Copy result</button></div>
+  </section>
+
+  <!-- Hashes -->
+  <section class="panel tool" id="tool-hash" data-tool="hash">
+    <h2>SHA-1, SHA-256, SHA-384, SHA-512 hashes</h2>
+    <p class="tool-hint">For text or a file. Files are hashed in your browser and never uploaded — handy for verifying a downloaded image checksum.</p>
+    <textarea class="tool-input tool-area mono" id="hash-in" spellcheck="false" placeholder="Text to hash">hello</textarea>
+    <label class="tool-file">or choose a file <input type="file" id="hash-file"></label>
+    <div class="tool-result" id="hash-out"></div>
+  </section>
+
+  <!-- chmod -->
+  <section class="panel tool" id="tool-chmod" data-tool="chmod">
+    <h2>chmod calculator</h2>
+    <div class="chmod-grid">
+      <span></span><strong>Read</strong><strong>Write</strong><strong>Execute</strong>
+      <strong>Owner</strong><input type="checkbox" data-bit="256"><input type="checkbox" data-bit="128"><input type="checkbox" data-bit="64">
+      <strong>Group</strong><input type="checkbox" data-bit="32"><input type="checkbox" data-bit="16"><input type="checkbox" data-bit="8">
+      <strong>Others</strong><input type="checkbox" data-bit="4"><input type="checkbox" data-bit="2"><input type="checkbox" data-bit="1">
+    </div>
+    <div class="tool-output-row">
+      <input class="tool-input mono chmod-octal" id="chmod-octal" value="755" maxlength="4" spellcheck="false">
+      <output class="tool-output mono" id="chmod-sym"></output>
+    </div>
+    <p class="tool-hint" id="chmod-note"></p>
+  </section>
+
+  <!-- Unix time -->
+  <section class="panel tool" id="tool-time" data-tool="time">
+    <h2>Unix time converter</h2>
+    <p class="tool-hint">Seconds or milliseconds to a date and back. Now: <code id="time-now"></code></p>
+    <input class="tool-input mono" id="time-in" spellcheck="false" autocomplete="off">
+    <div class="tool-result" id="time-out"></div>
+  </section>
+
+  <!-- Scripts -->
+  <section class="page-section scripts" id="scripts">
+    <div class="section-label">Server scripts</div>
+    <h2 class="section-title">One-line runs</h2>
+    <p class="blog-intro">Proven Linux server diagnostic scripts I used for years in hosting support. They run without being saved to disk. <strong>Always check what third-party code does before running it as root</strong> — the “Code” link opens the source.</p>
+
+    <div class="script-grid">
+      {{ range site.Data.scripts -}}
+      
+      {{ $cmd := .command -}}
+      {{ if not $cmd -}}
+        {{ $url := printf "https://solo10010.github.io/scripts/%s" .file -}}
+        {{ $sudo := cond (eq .root true) "sudo " "" -}}
+        {{ $cmd = cond (eq .runner "python3") (printf "curl -sSL %s | %spython3 -" $url $sudo) (printf "curl -sSL %s | %sbash" $url $sudo) -}}
+      {{ end -}}
+      <article class="panel script-card">
+        <div class="script-top">
+          <span class="tag">{{ .category_en | default .category }}</span>
+          {{ with .file }}<span class="script-file mono">{{ . }}</span>{{ end }}
+        </div>
+        <h3>{{ .title_en | default .title }}</h3>
+        <p>{{ .description_en | default .description }}</p>
+        {{ with .args }}<p class="script-args"><span>Arguments:</span> <code>{{ . }}</code></p>{{ end }}
+        <div class="script-cmd">
+          <code class="mono">{{ $cmd }}</code>
+          <button class="script-copy" type="button" data-copy-text="{{ $cmd }}" aria-label="Copy command">Copy</button>
+        </div>
+        <div class="script-links">
+          {{ with .file }}<a href="{{ printf "scripts/%s" . | relURL }}" target="_blank" rel="noopener">Code</a>{{ end }}
+          {{ with .source }}<a href="{{ . }}" target="_blank" rel="noopener">Source</a>{{ end }}
+          {{ with .author }}<span>author: {{ . }}</span>{{ end }}
+          {{ with .license }}<span>{{ . }}</span>{{ end }}
+        </div>
+      </article>
+      {{ end -}}
+    </div>
+  </section>
+</div>
+
+{{ $tools := resources.Get "js/tools.js" | js.Build (dict "minify" true "target" "es2018") | fingerprint -}}
+<script src="{{ $tools.RelPermalink }}" integrity="{{ $tools.Data.Integrity }}" defer></script>
+{{ end }}

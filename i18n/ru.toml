@@ -1,0 +1,113 @@
+# Строки интерфейса. Английские — в en.toml с теми же ключами.
+
+[toggleTheme]
+other = "Переключить тему"
+[openMenu]
+other = "Открыть меню"
+[closeMenu]
+other = "Закрыть меню"
+[switchLang]
+other = "English version"
+[langShort]
+other = "EN"
+
+[blog]
+other = "Блог"
+[blogTitle]
+other = "Статьи и кейсы"
+[blogIntro]
+other = "Заметки из практики: администрирование серверов, информационная безопасность, расследования и автоматизация."
+[readArticle]
+other = "Читать статью →"
+[allArticles]
+other = "← Все статьи"
+[author]
+other = "Автор"
+[authorName]
+other = "Антон Соломатин"
+[authorRole]
+other = "Специалист по информационной безопасности"
+[resume]
+other = "Резюме"
+[writeTelegram]
+other = "Написать в Telegram"
+[minRead]
+other = "мин чтения"
+[openFullSize]
+other = "Открыть в полном размере"
+[inRussian]
+other = ""
+[translationNote]
+other = ""
+
+[notFoundTitle]
+other = "Страница не найдена"
+[notFoundText]
+other = "Такой страницы нет или она была перемещена."
+[toHome]
+other = "На главную"
+
+[ghLabel]
+other = "Открытый код"
+[ghTitle]
+other = "Активность на GitHub"
+[ghProfile]
+other = "Профиль на GitHub →"
+[ghContribLastYear]
+other = "вкладов за последний год"
+[ghLess]
+other = "меньше"
+[ghMore]
+other = "больше"
+[ghActiveDays]
+other = "активных дней из 365"
+[ghStreak]
+other = "дней подряд — рекордная серия"
+[ghBestDay]
+other = "вкладов за лучший день,"
+[ghStars]
+other = "звёзд у {{ .Count }} открытых репозиториев"
+[ghStarsTitle]
+other = "Звёзды"
+[ghForksTitle]
+other = "Форки"
+[ghLangs]
+other = "Языки в открытых репозиториях"
+[ghUpdated]
+other = "Данные GitHub обновляются автоматически раз в сутки · последнее обновление"
+
+[yearsOne]
+other = "год"
+[yearsFew]
+other = "года"
+[yearsMany]
+other = "лет"
+[durYears]
+other = "г."
+[durMonths]
+other = "мес."
+
+[month1]
+other = "января"
+[month2]
+other = "февраля"
+[month3]
+other = "марта"
+[month4]
+other = "апреля"
+[month5]
+other = "мая"
+[month6]
+other = "июня"
+[month7]
+other = "июля"
+[month8]
+other = "августа"
+[month9]
+other = "сентября"
+[month10]
+other = "октября"
+[month11]
+other = "ноября"
+[month12]
+other = "декабря"

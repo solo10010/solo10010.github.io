@@ -2146,3 +2146,22 @@ html {
     transition: none;
   }
 }
+
+/* ---------- Переключатель языка ---------- */
+
+:root body .site-lang {
+  width: auto;
+  min-width: 2.5rem;
+  padding: 0 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+
+/* Пометка «In Russian» на непереведённых статьях в английском блоге */
+.post-lang {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}

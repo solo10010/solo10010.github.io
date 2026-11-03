@@ -1,21 +1,20 @@
 {{/* Блок активности на GitHub. Данные — data/github.json, их обновляет scripts/github-stats.js при каждой сборке. */}}
 {{ with .Site.Data.github -}}
-{{ $months := slice "января" "февраля" "марта" "апреля" "мая" "июня" "июля" "августа" "сентября" "октября" "ноября" "декабря" -}}
 <section class="page-section gh">
   <div class="container-xxl">
     <div class="gh-head">
       <div>
-        <div class="section-label">Открытый код</div>
-        <h2 class="section-title">Активность на GitHub</h2>
+        <div class="section-label">{{ i18n "ghLabel" }}</div>
+        <h2 class="section-title">{{ i18n "ghTitle" }}</h2>
       </div>
-      <a class="btn-ghost" href="{{ .url }}" target="_blank" rel="noopener">Профиль на GitHub →</a>
+      <a class="btn-ghost" href="{{ .url }}" target="_blank" rel="noopener">{{ i18n "ghProfile" }}</a>
     </div>
 
     {{ with .contributions -}}
     <div class="panel gh-calendar">
       <div class="gh-calendar-top">
-        <div class="gh-total"><strong>{{ lang.NumFmt 0 .total "-|,| " "|" }}</strong> вкладов за последний год</div>
-        <div class="gh-legend" aria-hidden="true">меньше <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> больше</div>
+        <div class="gh-total"><strong>{{ lang.NumFmt 0 .total "-|,| " "|" }}</strong> {{ i18n "ghContribLastYear" }}</div>
+        <div class="gh-legend" aria-hidden="true">{{ i18n "ghLess" }} <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> {{ i18n "ghMore" }}</div>
       </div>
       <div class="gh-scroll">
         <div class="gh-graph" style="--weeks: {{ len .weeks }}">
@@ -26,18 +25,18 @@
             {{- range .weeks }}{{ range . -}}
               {{- if . -}}
                 {{- $d := time .date -}}
-                <i class="l{{ .level }}" title="{{ $d.Day }} {{ index $months (sub (int ($d.Format "1")) 1) }}: {{ .count }}"></i>
+                <i class="l{{ .level }}" title="{{ partial "main/date.html" $d }}: {{ .count }}"></i>
               {{- else -}}<i class="gh-empty"></i>{{- end -}}
             {{- end }}{{ end -}}
           </div>
         </div>
       </div>
       <div class="gh-stats">
-        <div class="stat"><div class="stat-value">{{ .activeDays }}</div><div class="stat-label">активных дней из 365</div></div>
-        <div class="stat"><div class="stat-value">{{ .longestStreak }}</div><div class="stat-label">дней подряд — рекордная серия</div></div>
+        <div class="stat"><div class="stat-value">{{ .activeDays }}</div><div class="stat-label">{{ i18n "ghActiveDays" }}</div></div>
+        <div class="stat"><div class="stat-value">{{ .longestStreak }}</div><div class="stat-label">{{ i18n "ghStreak" }}</div></div>
         {{ $best := time .bestDay.date -}}
-        <div class="stat"><div class="stat-value">{{ .bestDay.count }}</div><div class="stat-label">вкладов за лучший день, {{ $best.Day }} {{ index $months (sub (int ($best.Format "1")) 1) }}</div></div>
-        <div class="stat"><div class="stat-value">{{ $.Site.Data.github.stars }}</div><div class="stat-label">звёзд у {{ $.Site.Data.github.repos }} открытых репозиториев</div></div>
+        <div class="stat"><div class="stat-value">{{ .bestDay.count }}</div><div class="stat-label">{{ i18n "ghBestDay" }} {{ partial "main/date.html" $best }}</div></div>
+        <div class="stat"><div class="stat-value">{{ $.Site.Data.github.stars }}</div><div class="stat-label">{{ i18n "ghStars" (dict "Count" $.Site.Data.github.repos) }}</div></div>
       </div>
     </div>
     {{- end }}
@@ -52,15 +51,15 @@
         <p class="gh-repo-desc">{{ .description }}</p>
         <div class="gh-repo-meta">
           {{ with .language }}<span><i class="gh-dot" style="background: {{ $repo.color }}"></i>{{ . }}</span>{{ end }}
-          <span title="Звёзды">★ {{ .stars }}</span>
-          {{ if .forks }}<span title="Форки">⑂ {{ .forks }}</span>{{ end }}
+          <span title="{{ i18n "ghStarsTitle" }}">★ {{ .stars }}</span>
+          {{ if .forks }}<span title="{{ i18n "ghForksTitle" }}">⑂ {{ .forks }}</span>{{ end }}
         </div>
       </a>
       {{- end }}
     </div>
 
     <div class="panel gh-langs">
-      <div class="gh-langs-title">Языки в открытых репозиториях</div>
+      <div class="gh-langs-title">{{ i18n "ghLangs" }}</div>
       <div class="gh-langs-bar">
         {{- range .languages }}<span style="width: {{ .pct }}%; background: {{ .color }}" title="{{ .name }} {{ .pct }}%"></span>{{ end -}}
       </div>
@@ -68,7 +67,7 @@
         {{- range .languages }}<li><i class="gh-dot" style="background: {{ .color }}"></i>{{ .name }} <span>{{ .pct }}%</span></li>{{ end -}}
       </ul>
     </div>
-    <p class="gh-updated">Данные GitHub обновляются автоматически раз в сутки · последнее обновление {{ with time .updated }}{{ .Day }} {{ index $months (sub (int (.Format "1")) 1) }} {{ .Year }}{{ end }}</p>
+    <p class="gh-updated">{{ i18n "ghUpdated" }} {{ partial "main/date.html" (time .updated) }}</p>
   </div>
 </section>
 {{- end }}

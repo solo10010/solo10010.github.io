@@ -1,32 +1,20 @@
-[[docs]]
-  name = "Prologue"
-  weight = 10
-  identifier = "prologue"
-  url = "/docs/prologue/"
-
-[[docs]]
-  name = "Help"
-  weight = 60
-  identifier = "help"
-  url = "/docs/help/"
-
 [[main]]
-  name = "Резюме"
+  name = "Resume"
   url = "/resume/"
   weight = 10
 
 [[main]]
-  name = "Портфолио"
+  name = "Portfolio"
   url = "/resume/#portfolio"
   weight = 15
 
 [[main]]
-  name = "Блог"
+  name = "Blog"
   url = "/blog/"
   weight = 20
 
 [[main]]
-  name = "Инструменты"
+  name = "Tools"
   url = "/tools/"
   weight = 30
 

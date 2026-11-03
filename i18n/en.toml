@@ -1,2 +1,113 @@
-[get-started]
-   other = "Get Started"
+# Interface strings. Russian ones are in ru.toml under the same keys.
+
+[toggleTheme]
+other = "Toggle theme"
+[openMenu]
+other = "Open menu"
+[closeMenu]
+other = "Close menu"
+[switchLang]
+other = "Русская версия"
+[langShort]
+other = "RU"
+
+[blog]
+other = "Blog"
+[blogTitle]
+other = "Articles and case studies"
+[blogIntro]
+other = "Notes from practice: server administration, information security, incident investigations and automation."
+[readArticle]
+other = "Read article →"
+[allArticles]
+other = "← All articles"
+[author]
+other = "Author"
+[authorName]
+other = "Anton Solomatin"
+[authorRole]
+other = "Information Security Specialist"
+[resume]
+other = "Resume"
+[writeTelegram]
+other = "Message on Telegram"
+[minRead]
+other = "min read"
+[openFullSize]
+other = "Open full size"
+[inRussian]
+other = "In Russian"
+[translationNote]
+other = "Translated from Russian by the author."
+
+[notFoundTitle]
+other = "Page not found"
+[notFoundText]
+other = "This page doesn't exist or has been moved."
+[toHome]
+other = "Home"
+
+[ghLabel]
+other = "Open source"
+[ghTitle]
+other = "GitHub activity"
+[ghProfile]
+other = "GitHub profile →"
+[ghContribLastYear]
+other = "contributions in the last year"
+[ghLess]
+other = "less"
+[ghMore]
+other = "more"
+[ghActiveDays]
+other = "active days out of 365"
+[ghStreak]
+other = "days in a row — longest streak"
+[ghBestDay]
+other = "contributions on the best day,"
+[ghStars]
+other = "stars across {{ .Count }} public repositories"
+[ghStarsTitle]
+other = "Stars"
+[ghForksTitle]
+other = "Forks"
+[ghLangs]
+other = "Languages in public repositories"
+[ghUpdated]
+other = "GitHub data refreshes automatically every day · last updated"
+
+[yearsOne]
+other = "year"
+[yearsFew]
+other = "years"
+[yearsMany]
+other = "years"
+[durYears]
+other = "yr"
+[durMonths]
+other = "mo"
+
+[month1]
+other = "January"
+[month2]
+other = "February"
+[month3]
+other = "March"
+[month4]
+other = "April"
+[month5]
+other = "May"
+[month6]
+other = "June"
+[month7]
+other = "July"
+[month8]
+other = "August"
+[month9]
+other = "September"
+[month10]
+other = "October"
+[month11]
+other = "November"
+[month12]
+other = "December"

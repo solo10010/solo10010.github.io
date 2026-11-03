@@ -8,7 +8,10 @@ function monthsSince(iso, now = new Date()) {
   return months;
 }
 
+const EN = document.documentElement.lang.toLowerCase().startsWith('en');
+
 function plural(n, one, few, many) {
+  if (EN) return n === 1 ? one : many;
   const n10 = n % 10, n100 = n % 100;
   if (n10 === 1 && n100 !== 11) return one;
   if (n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
@@ -18,10 +21,10 @@ function plural(n, one, few, many) {
 function format(months, mode) {
   if (mode === 'duration') {
     const y = Math.floor(months / 12), m = months % 12;
-    return [y > 0 ? `${y} г.` : '', m > 0 || y === 0 ? `${m} мес.` : ''].filter(Boolean).join(' ');
+    return [y > 0 ? `${y} ${EN ? 'yr' : 'г.'}` : '', m > 0 || y === 0 ? `${m} ${EN ? 'mo' : 'мес.'}` : ''].filter(Boolean).join(' ');
   }
   const n = mode === 'years' ? Math.floor((months + 6) / 12) : Math.floor(months / 12);
-  return `${n} ${plural(n, 'год', 'года', 'лет')}`;
+  return `${n} ${EN ? plural(n, 'year', 'years', 'years') : plural(n, 'год', 'года', 'лет')}`;
 }
 
 document.querySelectorAll('[data-since]').forEach((el) => {
@@ -48,7 +51,7 @@ function showRip(years) {
   const badge = document.querySelector('.status-badge');
   if (badge) {
     badge.classList.add('is-offline');
-    badge.textContent = 'Больше не открыт к предложениям';
+    badge.textContent = EN ? 'No longer open to opportunities' : 'Больше не открыт к предложениям';
   }
 
   let respects = 0;
@@ -56,7 +59,23 @@ function showRip(years) {
 
   const overlay = document.createElement('div');
   overlay.className = 'rip-overlay';
-  overlay.innerHTML = `
+  overlay.innerHTML = EN ? `
+    <div class="rip-modal" role="dialog" aria-modal="true" aria-labelledby="rip-title">
+      <div class="rip-bar"><span></span><span></span><span></span><code>root@hom: ~</code></div>
+      <pre class="rip-term"><span class="rip-prompt">$</span> systemctl status anton.service
+<span class="rip-dot">●</span> anton.service — Anton Solomatin, security specialist
+     Loaded: loaded (/earth/kazakhstan/karaganda; enabled)
+     Active: <span class="rip-dead">inactive (dead)</span>
+     Uptime: ${years} years — suspiciously long for a human</pre>
+      <h2 id="rip-title">Looks like the author is no longer online</h2>
+      <p>By the script's math, Anton is now <strong>${years} years</strong> old. Either he found a vulnerability in aging and fixed it under NDA, or the site has outlived its creator.</p>
+      <p>Wazuh is still collecting alerts, the articles still teach people to close ports, and the feedback widget keeps sending messages to a Telegram nobody reads.</p>
+      <div class="rip-actions">
+        <button type="button" class="btn-accent rip-f">Press F to pay respects</button>
+        <button type="button" class="btn-ghost rip-close">Close</button>
+      </div>
+      <p class="rip-count" aria-live="polite"></p>
+    </div>` : `
     <div class="rip-modal" role="dialog" aria-modal="true" aria-labelledby="rip-title">
       <div class="rip-bar"><span></span><span></span><span></span><code>root@hom: ~</code></div>
       <pre class="rip-term"><span class="rip-prompt">$</span> systemctl status anton.service
@@ -80,7 +99,7 @@ function showRip(years) {
   const payRespects = () => {
     respects += 1;
     try { localStorage.setItem('rip-respects', respects); } catch (e) { /* не важно */ }
-    count.textContent = `F ×${respects}. Уважение засчитано.`;
+    count.textContent = EN ? `F ×${respects}. Respect paid.` : `F ×${respects}. Уважение засчитано.`;
   };
   const close = () => {
     overlay.classList.remove('is-visible');
@@ -101,6 +120,12 @@ function showRip(years) {
 if (age >= 100 || preview) {
   setTimeout(() => showRip(preview && age < 100 ? 101 : age), 1200);
 }
+
+/* ---------- Выбор языка ---------- */
+// Клик по переключателю запоминает язык — автоматический переход больше не срабатывает.
+document.querySelectorAll('a[data-lang]').forEach((link) => link.addEventListener('click', () => {
+  try { localStorage.setItem('site-lang', link.dataset.lang); } catch (e) { /* не запомнится — не страшно */ }
+}));
 
 /* ---------- Мобильное меню ---------- */
 // Bootstrap 5.2+ отменяет переход по ссылке с data-bs-dismiss, поэтому у пунктов меню его нет,

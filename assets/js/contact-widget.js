@@ -57,10 +57,21 @@ const WIDGET_CSS = `
   .app .unreaded-count .corner { display: none !important; }
 `;
 
-const TEXTS = {
+const EN = document.documentElement.lang.toLowerCase().startsWith('en');
+const TEXTS = EN ? {
+  title: 'Anton Solomatin',
+  description: 'replies arrive right here, usually within a day',
+  placeholder: 'Type a message…',
+  nudgeTitle: 'Have a question or an offer?',
+  nudgeText: 'Write right here — it goes straight to my Telegram.',
+  nudgeClose: 'Hide hint',
+} : {
   title: 'Антон Соломатин',
   description: 'ответ придёт сюда же, обычно в течение дня',
   placeholder: 'Напишите сообщение…',
+  nudgeTitle: 'Есть вопрос или предложение?',
+  nudgeText: 'Напишите прямо здесь — сообщение придёт мне в Telegram.',
+  nudgeClose: 'Скрыть подсказку',
 };
 
 function isDark() {
@@ -164,9 +175,9 @@ function showNudge() {
   bubble.className = 'contact-nudge';
   bubble.setAttribute('role', 'status');
   bubble.innerHTML = '<button type="button" class="contact-nudge-text">'
-    + '<strong>Есть вопрос или предложение?</strong>'
-    + '<span>Напишите прямо здесь — сообщение придёт мне в Telegram.</span></button>'
-    + '<button type="button" class="contact-nudge-close" aria-label="Скрыть подсказку">×</button>';
+    + `<strong>${TEXTS.nudgeTitle}</strong>`
+    + `<span>${TEXTS.nudgeText}</span></button>`
+    + `<button type="button" class="contact-nudge-close" aria-label="${TEXTS.nudgeClose}">×</button>`;
   document.body.appendChild(bubble);
   requestAnimationFrame(() => bubble.classList.add('is-visible'));
 

@@ -28,7 +28,7 @@
 
 {{ if gt $image.Width site.Params.smallLimit -}}
   <figure class="figure">
-    <a href="{{ $image.Permalink }}" target="_blank" rel="noopener" title="Открыть в полном размере">
+    <a href="{{ $image.Permalink }}" target="_blank" rel="noopener" title="{{ i18n "openFullSize" }}">
       <img class="figure-img img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.Permalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}">
     </a>
     <noscript><img class="figure-img img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.Permalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Text }}"></noscript>

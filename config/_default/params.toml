@@ -8,7 +8,6 @@ description = "Антон Соломатин — специалист по ин�
 
 ## Open Graph
 images = ["og-card.png"]
-ogLocale = "ru_RU"
 domainTLD = "solo10010.github.io"
 titleHome = "solo10010"
 
@@ -23,7 +22,6 @@ schemaAuthor = "Anton Solomatin"
 schemaAuthorTwitter = ""
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/anton-solomatin-b2b89616b/"
 schemaAuthorGitHub = "https://github.com/solo10010"
-schemaLocale = "ru-RU"
 schemaLogo = "android-chrome-512x512.png"
 schemaLogoWidth = 512
 schemaLogoHeight = 512

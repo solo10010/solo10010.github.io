@@ -9,13 +9,18 @@
 {{- if lt now.Day $d.Day }}{{ $months = sub $months 1 }}{{ end -}}
 {{- $n := div $months 12 -}}
 {{- if eq $mode "years" }}{{ $n = div (add $months 6) 12 }}{{ end -}}
-{{- $word := "лет" -}}
-{{- if and (eq (mod $n 10) 1) (ne (mod $n 100) 11) }}{{ $word = "год" -}}
-{{- else if and (ge (mod $n 10) 2) (le (mod $n 10) 4) (or (lt (mod $n 100) 12) (gt (mod $n 100) 14)) }}{{ $word = "года" }}{{ end -}}
+{{- $word := i18n "yearsMany" -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- if eq $n 1 }}{{ $word = i18n "yearsOne" }}{{ end -}}
+{{- else if and (eq (mod $n 10) 1) (ne (mod $n 100) 11) -}}
+  {{- $word = i18n "yearsOne" -}}
+{{- else if and (ge (mod $n 10) 2) (le (mod $n 10) 4) (or (lt (mod $n 100) 12) (gt (mod $n 100) 14)) -}}
+  {{- $word = i18n "yearsFew" -}}
+{{- end -}}
 <span data-since="{{ .since }}" data-mode="{{ $mode }}">
   {{- if eq $mode "duration" -}}
     {{- $y := div $months 12 }}{{ $m := mod $months 12 -}}
-    {{- if gt $y 0 }}{{ $y }} г.{{ end }}{{ if and (gt $y 0) (gt $m 0) }} {{ end }}{{ if or (gt $m 0) (eq $y 0) }}{{ $m }} мес.{{ end -}}
+    {{- if gt $y 0 }}{{ $y }} {{ i18n "durYears" }}{{ end }}{{ if and (gt $y 0) (gt $m 0) }} {{ end }}{{ if or (gt $m 0) (eq $y 0) }}{{ $m }} {{ i18n "durMonths" }}{{ end -}}
   {{- else -}}
     {{- $n }} {{ $word -}}
   {{- end -}}
