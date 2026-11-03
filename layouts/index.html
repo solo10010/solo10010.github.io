@@ -32,12 +32,16 @@
           <div class="stat-label">в IT, от L1 до ИБ</div>
         </div>
         <div class="stat">
-          <div class="stat-value">300+</div>
-          <div class="stat-label">агентов в SIEM Wazuh</div>
+          <div class="stat-value">2</div>
+          <div class="stat-label">собственные платформы ИБ: Qyran и Qalqan</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~150</div>
-          <div class="stat-label">групповых политик по CIS</div>
+          {{- $posts := len (where .Sites.First.RegularPages "Section" "blog") -}}
+          {{- $word := "статей" -}}
+          {{- if and (eq (mod $posts 10) 1) (ne (mod $posts 100) 11) }}{{ $word = "статья" -}}
+          {{- else if and (ge (mod $posts 10) 2) (le (mod $posts 10) 4) (or (lt (mod $posts 100) 12) (gt (mod $posts 100) 14)) }}{{ $word = "статьи" }}{{ end }}
+          <div class="stat-value">{{ $posts }}</div>
+          <div class="stat-label">{{ $word }} из практики в блоге</div>
         </div>
         <div class="stat">
           <div class="stat-value">{{ partial "main/since.html" (dict "since" site.Params.dates.security "mode" "age") }}</div>
