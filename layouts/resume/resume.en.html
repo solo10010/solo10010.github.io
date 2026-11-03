@@ -71,11 +71,11 @@
           <p>Built the company's information security from scratch: from the office network to an in-house SOC.</p>
           <ul>
             <li>Built the corporate Active Directory domain: 2 domain controllers, ~100 users and workstations.</li>
-            <li>Hardened workstations to CIS Benchmark Level 1: BitLocker, AppLocker, LAPS, LSA Protection, USB blocking, honeypots.</li>
+            <li>Hardened workstations to CIS Benchmark Level 1: BitLocker, AppLocker, LAPS, LSA Protection, USB blocking — CIS compliance went from 22% to 74%.</li>
             <li>Automated software deployment and configuration for every department — about 150 group policies.</li>
             <li>Rolled out centrally managed Kaspersky endpoint protection.</li>
-            <li>Deployed a fault-tolerant, load-balanced Wazuh SIEM cluster — 300+ agents, integrated with Suricata and DefectDojo.</li>
-            <li>Built Qalqan — an internal vulnerability triage and SOC workflow panel.</li>
+            <li>Deployed a fault-tolerant, load-balanced Wazuh SIEM cluster — 300+ agents.</li>
+            <li>Built Qalqan — an internal vulnerability triage and SOC workflow panel that replaced DefectDojo, which proved too heavy for our scale.</li>
             <li>Investigate incidents — compromised websites and servers, email account takeovers, phishing — and run security audits.</li>
           </ul>
         </div>
@@ -270,7 +270,7 @@
     <div class="grid-3">
       <div class="panel hoverable d-flex flex-column">
         <h3>Building a SOC on Wazuh</h3>
-        <p class="flex-grow-1">A fault-tolerant SIEM cluster for 300+ agents, HAProxy load balancing, Suricata and DefectDojo integration, and securing the SOC itself.</p>
+        <p class="flex-grow-1">A fault-tolerant SIEM cluster for 300+ agents, HAProxy load balancing, agent groups, securing the SOC itself and lessons from running it.</p>
         <a class="btn-accent align-self-start mt-3" href="{{ partial "main/post-url.html" "blog/soc-wazuh-s-nulya" }}">Read the case →</a>
       </div>
       <div class="panel hoverable d-flex flex-column">
@@ -302,7 +302,7 @@
     <h2 class="section-title">How I can help</h2>
 
     <div class="service-grid">
-      {{ range slice "Security audits of servers and websites" "Incident investigation and post-breach recovery" "SIEM / SOC rollout (Wazuh, Suricata)" "Linux, Windows and Active Directory hardening by CIS" "Linux server administration" "Web server and database tuning" "DDoS and bot protection" "Automation: Ansible, Bash, Python" }}
+      {{ range slice "Security audits of servers and websites" "Incident investigation and post-breach recovery" "SIEM / SOC rollout (Wazuh, Elastic Security)" "Linux, Windows and Active Directory hardening by CIS" "Linux server administration" "Web server and database tuning" "DDoS and bot protection" "Automation: Ansible, Bash, Python" }}
       <div class="service-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
         <span>{{ . }}</span>

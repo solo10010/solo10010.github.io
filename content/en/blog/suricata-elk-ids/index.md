@@ -163,3 +163,4 @@ Network alerts land in the same dashboard as host events and can be correlated: 
 - Kibana is for trends and dashboards, EveBox for reviewing alerts one at a time.
 - IDS interfaces belong behind a proxy with TLS and access restrictions.
 - The biggest value comes from pairing it with a SIEM, where network events are correlated with host events.
+- My conclusion after testing: for a company perimeter, a good NGFW is more practical — we tested products from almost every vendor, and the one I liked most was Palo Alto Networks. Suricata is great for labs, research and as an extra network sensor.

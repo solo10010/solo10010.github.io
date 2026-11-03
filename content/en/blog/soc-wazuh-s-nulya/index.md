@@ -1,6 +1,6 @@
 ---
 title: "Building a SOC on Wazuh from scratch: a fault-tolerant cluster for 300+ agents"
-description: "How I built a SOC on Wazuh at a hosting company: cluster architecture, agent load balancing with HAProxy, hardening, agent groups, Suricata and DefectDojo integrations, and fighting alert noise."
+description: "How I built a SOC on Wazuh at a hosting company: cluster architecture, agent load balancing with HAProxy, hardening, agent groups, vulnerability tracking, fighting alert noise and lessons from running it."
 lead: "Cluster architecture, agent load balancing, securing the SOC itself, integrations — and the main pain of any SIEM: alert noise. Lessons from a rollout at a hosting company."
 date: 2026-11-02T10:00:00+05:00
 lastmod: 2026-11-03T12:00:00+05:00
@@ -41,7 +41,7 @@ wazuh-lb ── HAProxy, leastconn
      ├── wazuh-node2    worker + indexer
      └── wazuh-node3    worker + indexer
 
-Users ──► edge-nginx (TLS + allow-list) ──► Wazuh dashboard, DefectDojo, OpenCVE
+Users ──► edge-nginx (TLS + allow-list) ──► Wazuh dashboard, triage panel, OpenCVE
 ```
 
 Key decisions:
@@ -125,7 +125,7 @@ A SIEM is a juicy target: it sees the entire infrastructure and has agents on hu
 
 - **A firewall on every node** (CSF in my case): inbound ports are closed, with exceptions only for the cluster's private subnet and corporate VPN addresses. Outbound traffic is limited to what is needed (DNS, NTP, HTTPS for updates).
 - **SSH with keys only**, password login disabled.
-- **Web interfaces are never exposed directly.** The Wazuh dashboard, DefectDojo and OpenCVE are published through a separate edge-nginx that terminates TLS and only admits allow-listed IPs. Backends listen on private addresses.
+- **Web interfaces are never exposed directly.** The Wazuh dashboard, the triage panel and OpenCVE are published through a separate edge-nginx that terminates TLS and only admits allow-listed IPs. Backends listen on private addresses.
 - **Password-protected agent enrollment.** Without it, anyone who knows the load balancer address can enroll "their own" agent and pollute your data:
 
 ```xml
@@ -157,15 +157,13 @@ Servers at a hosting company are very different: shared hosting, internal web ap
 
 After changing group configs, validate them with `verify-agent-conf` and spot-check the active configuration on agents. And always test: perform an action that should trigger an alert and make sure the alert actually shows up.
 
-## Integrations
+## Integrations and vulnerability tracking
 
-Wazuh is a great hub, but it does not cover everything on its own:
+Wazuh is a great hub, but it doesn't cover everything on its own. What I tried and where I ended up:
 
-- **Suricata (IDS/IPS)** — network attacks that never show up in host logs. The Wazuh agent reads Suricata's `eve.json`, so network alerts land in the same dashboard where they can be matched with host events.
-- **DefectDojo** — vulnerability management. Wazuh finds vulnerable software on agents, but tracking the work (who fixes what, what is risk-accepted, what is closed) is easier in DefectDojo. To move findings over I wrote [wazuh-to-dojo](https://github.com/solo10010/wazuh-to-dojo): it exports vulnerabilities from the indexer and imports them via the Generic Findings Import API on a schedule.
+- **Suricata (network IDS).** I set it up and tested it: the Wazuh agent reads `eve.json`, so network alerts land in the same dashboard as host events. I described the setup in a separate article on [Suricata + ELK](/en/blog/suricata-elk-network-ids/). But my conclusion after testing: for protecting a company perimeter, a good **NGFW** is more practical — it sees the traffic and blocks it right away, while a home-grown IDS stack needs constant attention. We tested NGFWs from practically every vendor on the market, and the one I liked most was **Palo Alto Networks**.
+- **DefectDojo** — vulnerability management. Wazuh finds vulnerable software on agents, but tracking the work (who fixes what, what is risk-accepted, what is closed) is easier in a dedicated system. To move findings over I wrote [wazuh-to-dojo](https://github.com/solo10010/wazuh-to-dojo). DefectDojo ran for a while, but for our scale it proved **too heavy**: importing hundreds of thousands of findings crashed it with OOM. In the end I replaced it with my own triage panel — more on that below.
 - **OpenCVE** — tracking new CVEs for the products actually used in the infrastructure.
-
-One warning about DefectDojo: importing hundreds of thousands of findings needs memory. It once crashed with OOM right in the middle of a bulk import — give it headroom and import in batches.
 
 ## The real pain: alert noise
 
@@ -185,16 +183,26 @@ Reading that by eye is pointless, and pushing everything into an incident manage
 
 The main takeaway: **a SIEM's value is defined not by how many events it collects but by the quality of what reaches a human.** Tuning noise is not a one-off task, it is ongoing work.
 
+## What running it taught me
+
+After a year in production I had a few complaints about Wazuh itself that are worth knowing upfront:
+
+- **A conflict with Imunify360.** On hosting servers that run Imunify360, the Wazuh agent conflicts with it. For a hosting company where Imunify360 is one of the main server protection tools, that's a serious problem.
+- **Stale vulnerabilities in the dashboard.** The vulnerability detection module sometimes doesn't clear a finding after a package update: the package is already updated, yet the vulnerability keeps hanging in the dashboard. For triage that means wasted work — every finding has to be re-checked.
+
+So I'm now considering a move to **Elastic Security**. The architectural principles in this article — load balancing, securing the SOC itself, source groups, fighting noise — don't depend on the product and carry over as is.
+
 ## What's next
 
-The next step is a dedicated triage panel. I am developing an internal tool that collects vulnerabilities from servers, enriches them with CVSS, EPSS and CISA KEV data, and filters out false positives when a vendor has already fixed the issue via a backport. Its goal is to become a single SOC workspace for both vulnerabilities and SIEM alerts.
+Vulnerability tracking has already moved to my own triage panel, **Qalqan**: it collects vulnerabilities from servers, enriches them with CVSS, EPSS and CISA KEV data, and filters out false positives when a vendor has already fixed the issue via a backport. The next step is automating triage and SOC incident handling with AI: with thousands of servers, manual vulnerability triage means hundreds of person-days, and a small team can't get through it without automation.
 
 ## Takeaways
 
 - A Wazuh cluster with a load balancer in front of the agents scales by adding nodes and survives the loss of one.
 - The SOC itself must be protected at least as well as the rest of the infrastructure: closed ports, VPN, TLS, a password for agent enrollment.
 - Agent groups let you keep different rules for different server types — and always verify that the events you need actually arrive.
-- Integrations with an IDS and a vulnerability management system turn Wazuh from a log collector into the center of security work.
+- Vulnerability tracking belongs outside the SIEM — and the tool has to handle your volume; when DefectDojo couldn't keep up, my own panel did.
+- Check that the SIEM agent is compatible with the rest of your server protection before a mass rollout.
 - The hardest part is not installing a SIEM but making it show incidents instead of noise.
 
 If you are building something similar and want to discuss the architecture, message me on [Telegram](https://t.me/solo10010).
