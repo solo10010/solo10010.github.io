@@ -1,0 +1,126 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The full testing cycle — from recon to report">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/><stop offset="1" stop-color="#0a1120"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1e293b" stroke-opacity="0.3" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="560" rx="20" fill="url(#bg)"/>
+  <rect width="1200" height="560" rx="20" fill="url(#grid)"/>
+  <rect x="0.5" y="0.5" width="1199" height="559" rx="19.5" fill="none" stroke="#1e293b" stroke-opacity="0.6"/>
+
+  <!-- title -->
+  <text x="600" y="54" text-anchor="middle" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="800" fill="#f1f5f9">The full testing cycle</text>
+  <text x="600" y="82" text-anchor="middle" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" fill="#94a3b8">From recon to report — one automated pipeline</text>
+
+  <!-- 7 stages: number badge on top, title on its own full-width line -->
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+    <!-- x positions: 20,187,354,521,688,855,1022 · width 158 · height 156 -->
+    <g transform="translate(20 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">1</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Recon</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">Gathering info</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">on the target: OSINT, DNS,</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">subdomains, leaks</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ asset map</text>
+    </g>
+    <g transform="translate(187 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">2</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Data collection</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">IPs, ports, services,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">technologies, email,</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">cloud resources</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ attack surface</text>
+    </g>
+    <g transform="translate(354 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">3</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Scanning</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">Nuclei, OpenVAS,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">OWASP ZAP, nikto —</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">auto vulnerability scan</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ findings list</text>
+    </g>
+    <g transform="translate(521 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">4</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Manual hunting</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">IDOR, XSS, SQLi,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">business logic, JS/API,</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">analysis with AI</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ more findings</text>
+    </g>
+    <g transform="translate(688 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">5</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Analysis</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">CVSS, priority,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">false positive removal,</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">exploit verification</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ confirmed</text>
+    </g>
+    <g transform="translate(855 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">6</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Exploitation</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">Gaining access,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">lateral movement,</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">privilege escalation</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ resource access</text>
+    </g>
+    <g transform="translate(1022 120)">
+      <rect width="158" height="156" rx="14" fill="#0f1830" stroke="#1e293b"/>
+      <circle cx="29" cy="30" r="13" fill="url(#g)"/><text x="29" y="35" text-anchor="middle" font-size="15" font-weight="800" fill="#06121f">7</text>
+      <text x="16" y="66" font-size="15" font-weight="700" fill="#e2e8f0">Report</text>
+      <text x="16" y="90" font-size="12" fill="#94a3b8">Asset map, PoC,</text>
+      <text x="16" y="107" font-size="12" fill="#94a3b8">risks, recommendations</text>
+      <text x="16" y="124" font-size="12" fill="#94a3b8">for remediation</text>
+      <text x="16" y="146" font-size="11" font-weight="700" fill="#38bdf8">→ clear report</text>
+    </g>
+    <!-- connectors between stages -->
+    <g stroke="#334155" stroke-width="2" fill="#334155">
+      <path d="M178 198 h9"/><path d="M345 198 h9"/><path d="M512 198 h9"/><path d="M679 198 h9"/><path d="M846 198 h9"/><path d="M1013 198 h9"/>
+      <path d="M184 193 l6 5 -6 5z"/><path d="M351 193 l6 5 -6 5z"/><path d="M518 193 l6 5 -6 5z"/><path d="M685 193 l6 5 -6 5z"/><path d="M852 193 l6 5 -6 5z"/><path d="M1019 193 l6 5 -6 5z"/>
+    </g>
+  </g>
+
+  <!-- feed into unified DB -->
+  <g stroke="#2563eb" stroke-opacity="0.5" stroke-width="1.5" fill="none" stroke-dasharray="4 4">
+    <path d="M99 278 V322"/><path d="M266 278 V322"/><path d="M433 278 V322"/><path d="M600 278 V322"/><path d="M767 278 V322"/><path d="M934 278 V322"/><path d="M1101 278 V322"/>
+  </g>
+
+  <!-- unified database bar -->
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+    <rect x="20" y="322" width="1160" height="96" rx="14" fill="#0d1526" stroke="url(#g)" stroke-opacity="0.45"/>
+    <text x="600" y="352" text-anchor="middle" font-size="15" font-weight="800" letter-spacing="1.5" fill="#38bdf8">SINGLE DATABASE</text>
+    <g font-size="12.5" fill="#cbd5e1" text-anchor="middle">
+      <text x="150" y="392">Domains</text>
+      <text x="300" y="392">IPs / subnets</text>
+      <text x="450" y="392">Ports · services</text>
+      <text x="600" y="392">Endpoints</text>
+      <text x="750" y="392">Technologies</text>
+      <text x="900" y="392">Vulnerabilities</text>
+      <text x="1050" y="392">Evidence</text>
+    </g>
+  </g>
+
+  <!-- benefits -->
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="600" y="462" text-anchor="middle" font-size="14" font-weight="800" letter-spacing="1" fill="#e2e8f0">WHAT THE RESEARCHER GETS</text>
+    <g font-size="13.5" fill="#94a3b8" text-anchor="middle">
+      <text x="170" y="506">Full visibility</text><text x="170" y="524">of the attack surface</text>
+      <text x="400" y="506">Time savings</text><text x="400" y="524">and automated routine</text>
+      <text x="630" y="506">Confirmed</text><text x="630" y="524">prioritized findings</text>
+      <text x="860" y="506">AI analysis where</text><text x="860" y="524">a human is needed</text>
+      <text x="1055" y="506">Clear reports</text><text x="1055" y="524">for the client</text>
+    </g>
+  </g>
+</svg>

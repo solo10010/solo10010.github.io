@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Server optimization: web server, database and performance gains">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101f"/>
+      <stop offset="1" stop-color="#14122b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#14d3b4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.55" r="0.5">
+      <stop stop-color="#f59e0b" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#1f2440" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  
+  <g fill="#141c33" stroke="#2c3657" stroke-width="2">
+    <rect x="110" y="140" width="300" height="80" rx="14"/>
+    <rect x="110" y="240" width="300" height="80" rx="14"/>
+    <rect x="110" y="340" width="300" height="80" rx="14"/>
+  </g>
+  <g fill="#2c3657">
+    <rect x="135" y="170" width="140" height="10" rx="5"/><rect x="135" y="190" width="100" height="8" rx="4"/>
+    <rect x="135" y="270" width="140" height="10" rx="5"/><rect x="135" y="290" width="100" height="8" rx="4"/>
+    <rect x="135" y="370" width="140" height="10" rx="5"/><rect x="135" y="390" width="100" height="8" rx="4"/>
+  </g>
+  <g fill="#14d3b4"><circle cx="370" cy="180" r="7"/><circle cx="345" cy="180" r="7"/><circle cx="370" cy="280" r="7"/></g>
+  <circle cx="345" cy="280" r="7" fill="#f59e0b"/>
+  <circle cx="370" cy="380" r="7" fill="#14d3b4"/>
+  <circle cx="345" cy="380" r="7" fill="#14d3b4"/>
+
+  
+  <g stroke="url(#accent)" stroke-width="4" fill="#111a2e">
+    <path d="M150 460 v70 c0 18 50 32 110 32 s110 -14 110 -32 v-70"/>
+    <ellipse cx="260" cy="460" rx="110" ry="32"/>
+  </g>
+  <path d="M150 495 c0 18 50 32 110 32 s110 -14 110 -32" stroke="#2c3657" stroke-width="3"/>
+
+  
+  <g transform="translate(800 330)">
+    <path d="M-210 0 A210 210 0 0 1 210 0" stroke="#22283f" stroke-width="34" stroke-linecap="round"/>
+    <path d="M-210 0 A210 210 0 0 1 148 -149" stroke="url(#accent)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M0 0 L132 -132" stroke="#e2e8f0" stroke-width="10" stroke-linecap="round"/>
+    <circle r="22" fill="#e2e8f0"/>
+    <circle r="10" fill="#07101f"/>
+    <g fill="#94a3b8" font-family="'JetBrains Mono', Consolas, monospace" font-size="22">
+      <text x="-230" y="45">0</text>
+      <text x="200" y="45">max</text>
+    </g>
+  </g>
+
+  
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-size="24" fill="#94a3b8">
+    <text x="610" y="430">nginx · apache · mysql</text>
+    <text x="610" y="470">redis · opcache · <tspan fill="#14d3b4">tuned</tspan></text>
+  </g>
+
+  <text x="1130" y="80" text-anchor="end" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#e2e8f0">Server <tspan fill="url(#accent)">tuning</tspan></text>
+  <text x="110" y="100" font-family="'JetBrains Mono', Consolas, monospace" font-size="24" fill="#94a3b8">$ uptime <tspan fill="#14d3b4">load average: 0.42</tspan></text>
+</svg>
