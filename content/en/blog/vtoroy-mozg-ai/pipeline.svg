@@ -1,0 +1,36 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inbox processing pipeline">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1120"/><stop offset="1" stop-color="#121a2e"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14d3b4"/></marker>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif" text-anchor="middle">
+    <g>
+      <rect x="25" y="90" width="165" height="120" rx="14" fill="#2a1f12" stroke="#f59e0b" stroke-width="2"/>
+      <text x="107" y="135" font-size="34" fill="#fde68a">1</text><text x="107" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Inbox</text><text x="107" y="192" font-size="13" fill="#94a3b8">bot, clipper, by hand</text>
+    </g>
+    <g>
+      <rect x="220" y="90" width="165" height="120" rx="14" fill="#0d2240" stroke="#3b82f6" stroke-width="2"/>
+      <text x="302" y="135" font-size="34" fill="#93c5fd">2</text><text x="302" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Type and topic</text><text x="302" y="192" font-size="13" fill="#94a3b8">the agent reads the note</text>
+    </g>
+    <g>
+      <rect x="415" y="90" width="165" height="120" rx="14" fill="#0d2240" stroke="#3b82f6" stroke-width="2"/>
+      <text x="497" y="135" font-size="34" fill="#93c5fd">3</text><text x="497" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Template and tags</text><text x="497" y="192" font-size="13" fill="#94a3b8">cluster · source</text>
+    </g>
+    <g>
+      <rect x="610" y="90" width="165" height="120" rx="14" fill="#0d2240" stroke="#3b82f6" stroke-width="2"/>
+      <text x="692" y="135" font-size="34" fill="#93c5fd">4</text><text x="692" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Duplicate check</text><text x="692" y="192" font-size="13" fill="#94a3b8">extend, don’t duplicate</text>
+    </g>
+    <g>
+      <rect x="805" y="90" width="165" height="120" rx="14" fill="#0d2a33" stroke="#14d3b4" stroke-width="2"/>
+      <text x="887" y="135" font-size="34" fill="#99f6e4">5</text><text x="887" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Section + map</text><text x="887" y="192" font-size="13" fill="#94a3b8">move and link</text>
+    </g>
+    <g>
+      <rect x="1000" y="90" width="175" height="120" rx="14" fill="#1d1533" stroke="#8b5cf6" stroke-width="2"/>
+      <text x="1087" y="135" font-size="34" fill="#c4b5fd">6</text><text x="1087" y="170" font-size="16" font-weight="700" fill="#e2e8f0">Review</text><text x="1087" y="192" font-size="13" fill="#94a3b8">git diff → commit</text>
+    </g>
+  </g>
+  <g stroke="#14d3b4" stroke-width="3" marker-end="url(#a)"><path d="M190 150 H 214"/><path d="M385 150 H 409"/><path d="M580 150 H 604"/><path d="M775 150 H 799"/><path d="M970 150 H 994"/></g>
+  <text x="600" y="58" text-anchor="middle" font-family="'JetBrains Mono',Consolas,monospace" font-size="16" fill="#94a3b8">/normalize-notes — one command instead of manual sorting</text>
+  <text x="600" y="260" text-anchor="middle" font-family="'JetBrains Mono',Consolas,monospace" font-size="15" fill="#64748b">every agent edit shows in the diff and can be rolled back</text>
+</svg>

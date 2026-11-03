@@ -1,0 +1,28 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A second brain with AI">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop stop-color="#07101f"/><stop offset="1" stop-color="#151030"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop stop-color="#8b5cf6" stop-opacity="0.35"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#1b1f38"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <circle cx="330" cy="330" r="270" fill="url(#glow)"/>
+  
+  <g stroke-width="3" fill="none">
+    <path d="M320 150 C 220 140 150 200 160 270 C 110 300 120 380 180 400 C 180 470 260 510 320 480 Z" stroke="#a78bfa"/>
+    <path d="M340 150 C 440 140 510 200 500 270 C 550 300 540 380 480 400 C 480 470 400 510 340 480 Z" stroke="#14d3b4"/>
+  </g>
+  <g stroke="#a78bfa" stroke-opacity="0.6" stroke-width="2"><path d="M220 230L280 280L230 350L290 410M280 280L310 220M230 350L190 330"/></g>
+  <g stroke="#14d3b4" stroke-opacity="0.6" stroke-width="2"><path d="M440 230L380 280L430 350L370 410M380 280L350 220M430 350L470 330"/></g>
+  <g fill="#a78bfa"><circle cx="220" cy="230" r="8"/><circle cx="280" cy="280" r="8"/><circle cx="230" cy="350" r="8"/><circle cx="290" cy="410" r="8"/><circle cx="310" cy="220" r="6"/><circle cx="190" cy="330" r="6"/></g>
+  <g fill="#14d3b4"><circle cx="440" cy="230" r="8"/><circle cx="380" cy="280" r="8"/><circle cx="430" cy="350" r="8"/><circle cx="370" cy="410" r="8"/><circle cx="350" cy="220" r="6"/><circle cx="470" cy="330" r="6"/></g>
+  <g font-family="'Inter','Segoe UI',Arial,sans-serif" font-weight="800">
+    <text x="1130" y="110" text-anchor="end" font-size="54" fill="#e2e8f0">Second brain</text>
+    <text x="1130" y="165" text-anchor="end" font-size="34" font-weight="600" fill="#14d3b4">agent + NotebookLM + Obsidian</text>
+  </g>
+  <g font-family="'JetBrains Mono',Consolas,monospace" font-size="22">
+    <rect x="680" y="250" width="450" height="56" rx="12" fill="#12233a"/><text x="705" y="286" fill="#7dd3fc">sources  <tspan fill="#cbd5e1">→ NotebookLM</tspan></text>
+    <rect x="680" y="320" width="450" height="56" rx="12" fill="#0d2a33"/><text x="705" y="356" fill="#99f6e4">work     <tspan fill="#cbd5e1">→ AI agent</tspan></text>
+    <rect x="680" y="390" width="450" height="56" rx="12" fill="#1d1533"/><text x="705" y="426" fill="#c4b5fd">knowledge<tspan fill="#cbd5e1"> → Obsidian</tspan></text>
+  </g>
+  <text x="680" y="530" font-family="'JetBrains Mono',Consolas,monospace" font-size="19" fill="#64748b">memory · skills · MCP · git</text>
+</svg>
