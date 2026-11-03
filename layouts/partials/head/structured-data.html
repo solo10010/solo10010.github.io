@@ -1,198 +1,88 @@
-{{ $baseURL := "/" | absURL -}}
+{{- /*
+  Структурированные данные schema.org (JSON-LD). Собираются как словари и выводятся через jsonify,
+  поэтому JSON всегда валиден. Для статей блога добавляется BlogPosting; у переводов — ссылка на оригинал.
+*/ -}}
+{{- $home := site.Home.Permalink -}}
+{{- $en := eq site.Language.Lang "en" -}}
+{{- $iso := "2006-01-02T15:04:05-07:00" -}}
+{{- $personID := printf "%s#person" ("/" | absURL) -}}
+{{- $websiteID := printf "%s#website" $home -}}
 
-{{ $dot := . -}}
-{{ $dot.Scratch.Set "path" "" -}}
-{{ $dot.Scratch.Set "breadcrumb" slice -}}
+{{- $sameAs := slice -}}
+{{- range slice site.Params.schemaLinkedIn site.Params.schemaGitHub "https://t.me/solo10010" -}}
+  {{- with . }}{{ $sameAs = $sameAs | append . }}{{ end -}}
+{{- end -}}
 
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
-{{ $.Scratch.Add "path" .Site.BaseURL -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" "Anton Solomatin"
+  "alternateName" "Антон Соломатин"
+  "url" ("/" | absURL)
+  "image" ("images/avatar.jpg" | absURL)
+  "jobTitle" (cond $en "Information Security Specialist" "Специалист по информационной безопасности")
+  "knowsAbout" (slice "Information security" "SOC" "SIEM" "Wazuh" "Active Directory" "CIS Benchmark" "Bug bounty" "Incident response" "Linux administration")
+  "sameAs" $sameAs
+-}}
 
-{{ $.Scratch.Add "breadcrumb" (slice (dict "url" .Site.BaseURL "name" "home" "position" 1 )) -}}
-  {{ range $index, $element := split $url "/" -}}
-    {{ $dot.Scratch.Add "path" $element -}}
-    {{ $.Scratch.Add "path" "/" -}}
-    {{ if ne $element "" -}}
-    {{ $.Scratch.Add "breadcrumb" (slice (dict "url" ($.Scratch.Get "path") "name" . "position" (add $index 2))) -}}
-  {{ end -}}
-{{ end -}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $websiteID
+  "url" $home
+  "name" site.Params.title
+  "description" site.Params.description
+  "inLanguage" site.LanguageCode
+  "publisher" (dict "@id" $personID)
+-}}
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      {{ if eq .Site.Params.schemaType "Organization" -}}
-        "@type": "Organization",
-        "@id": {{ print $baseURL "#/schema/organization/1" }},
-      {{ else -}}
-        "@type": "Person",
-        "@id": {{ print $baseURL "#/schema/person/1" }},
-      {{ end -}}
-      "name": "{{ .Site.Params.schemaName }}",
-      "url": {{ print $baseURL }},
-      {{ $sameAs := slice -}}
-      {{ range slice .Site.Params.schemaTwitter .Site.Params.schemaLinkedIn .Site.Params.schemaGitHub -}}
-        {{ with . }}{{ $sameAs = $sameAs | append . }}{{ end -}}
-      {{ end -}}
-      "sameAs": {{ $sameAs }},
-      {{ if eq .Site.Params.schemaType "Organization" -}}
-        "logo": {
-          "@type": "ImageObject",
-          "@id": {{ print $baseURL "#/schema/image/1"}},
-          "url": {{ print $baseURL .Site.Params.schemaLogo }},
-          "width": {{ .Site.Params.schemaLogoWidth }},
-          "height": {{ .Site.Params.schemaLogoHeight }},
-          "caption": "{{ .Site.Params.schemaName }}"
-        },
-        "image": {
-          "@id": {{ print $baseURL "#/schema/image/1" }}
-        }
-      {{ else -}}
-        "image": {
-          "@type": "ImageObject",
-          "@id": {{ print $baseURL "#/schema/image/1"}},
-          "url": {{ print $baseURL .Site.Params.schemaImage }},
-          "width": {{ .Site.Params.schemaImageWidth }},
-          "height": {{ .Site.Params.schemaImageHeight }},
-          "caption": "{{ .Site.Params.schemaName }}"
-        }
-      {{ end -}}
-    },
-    {
-      "@type": "WebSite",
-      "@id": {{ print $baseURL "#/schema/website/1" }},
-      "url": {{ print $baseURL }},
-      "name": "{{ .Site.Params.title }}",
-      "description": "{{ .Site.Params.description }}",
-      {{ if eq .Site.Params.schemaType "Organization" -}}
-        "publisher": {
-          "@id": {{ print $baseURL "#/schema/organization/1" }}
-        }
-      {{ else -}}
-        "publisher": {
-          "@id": {{ print $baseURL "#/schema/person/1" }}
-        }
-      {{ end -}}
-    },
-    {
-      {{ if and (ne .Kind "taxonomy") (ne .Kind "term") -}}
-        "@type": "WebPage",
-      {{ else -}}
-        "@type": "CollectionPage",
-      {{ end -}}
-      "@id": {{ .Permalink }},
-      "url": {{ .Permalink }},
-      "name": "{{ .Title }}",
-      "description": "{{ .Description }}",
-      "isPartOf": {
-        "@id": {{ print $baseURL "#/schema/website/1" }}
-      },
-      {{ if eq .Site.Params.schemaType "Organization" -}}
-        "about": {
-          "@id": {{ print $baseURL "#/schema/organization/1" }}
-        },
-      {{ else -}}
-        "about": {
-          "@id": {{ print $baseURL "#/schema/person/1" }}
-        },
-      {{ end -}}
-      "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05CET" }}",
-      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05CET" }}",
-      "breadcrumb": {
-        "@id": {{ print .Permalink "#/schema/breadcrumb/1" }}
-      },
-      "primaryImageOfPage": {
-        "@id": {{ print .Permalink "#/schema/image/2" }}
-      },
-      "inLanguage": "{{ .Site.Params.schemaLocale }}",
-      "potentialAction": [{
-        "@type": "ReadAction", "target": [{{ .Permalink }}]
-      }]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": {{ print .Permalink "#/schema/breadcrumb/1" }},
-      "name": "Breadcrumbs",
-      "itemListElement": [{{ $list := $.Scratch.Get "breadcrumb" }}{{ $len := (len $list) }}{{ range $index, $element := $list }}{{ if ne .position 1 }},{{ end }}{
-        "@type": "ListItem",
-        "position": {{ .position }},
-        "item": {
-          {{ if ne (add $index 1) $len -}}
-          "@type": "WebPage",
-          "@id": {{ .url }},
-          "url": {{ .url }},
-          "name": "{{ .name | humanize | title }}"
-          {{ else -}}
-          "@id": {{ .url }}
-          {{ end -}}
-        }
-        }{{ end }}]
-    },
+{{- /* Хлебные крошки: главная → раздел → страница */ -}}
+{{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" (cond $en "Home" "Главная") "item" $home) -}}
+{{- if not .IsHome -}}
+  {{- with .Parent -}}{{- if not .IsHome -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+  {{- end -}}{{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) -}}
+{{- end -}}
+{{- $breadcrumb := dict "@type" "BreadcrumbList" "@id" (printf "%s#breadcrumb" .Permalink) "itemListElement" $crumbs -}}
 
-    {{ if and (eq .Kind "page") (or (eq .Section "blog") (eq .Section "docs") (eq .Section "tutorial") (eq .Section "showcase")) -}}
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Article",
-          "@id": {{ print $baseURL "#/schema/article/1" }},
-          "headline": "{{ .Title }}",
-          "description": "{{ .Description }}",
-          "isPartOf": {
-            "@id": {{ .Permalink }}
-          },
-          "mainEntityOfPage": {
-            "@id": {{ .Permalink }}
-          },
-          "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05CET" }}",
-          "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05CET" }}",
-          "author": {
-            "@id": {{ print $baseURL "#/schema/person/2" }}
-          },
-          {{ if eq .Site.Params.schemaType "Organization" -}}
-            "publisher": {
-              "@id": {{ print $baseURL "#/schema/organization/1" }}
-            },
-          {{ else -}}
-            "publisher": {
-              "@id": {{ print $baseURL "#/schema/person/1" }}
-            },
-          {{ end -}}
-          "image": {
-            "@id": {{ print .Permalink "#/schema/image/2" }}
-          }
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": {{ print $baseURL "#/schema/person/2" }},
-          "name": {{ .Site.Params.schemaAuthor }},
-          {{ $authorSameAs := slice -}}
-          {{ range slice .Site.Params.schemaAuthorTwitter .Site.Params.schemaAuthorLinkedIn .Site.Params.schemaAuthorGitHub -}}
-            {{ with . }}{{ $authorSameAs = $authorSameAs | append . }}{{ end -}}
-          {{ end -}}
-          "sameAs": {{ $authorSameAs }}
-        }
-      ]
-    },
-    {{ end -}}
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ImageObject",
-          "@id": {{ print .Permalink "#/schema/image/2" }},
-          "url": {{ $.Scratch.Get "primaryImage" }},
-          "contentUrl": {{ $.Scratch.Get "primaryImage" }},
-          "caption": "{{ .Title }}"
-        }
-      ]
-    }
+{{- $description := .Description | default site.Params.description -}}
+{{- $webpage := dict
+  "@type" (cond .IsPage "WebPage" "CollectionPage")
+  "@id" .Permalink
+  "url" .Permalink
+  "name" .Title
+  "description" $description
+  "inLanguage" site.LanguageCode
+  "isPartOf" (dict "@id" $websiteID)
+  "breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink))
+  "about" (dict "@id" $personID)
+-}}
+{{- if .IsHome }}{{ $webpage = merge $webpage (dict "@type" "ProfilePage" "mainEntity" (dict "@id" $personID)) }}{{ end -}}
 
-  ]
-}
-</script>
+{{- $graph := slice $person $website $webpage $breadcrumb -}}
+
+{{- if and .IsPage (eq .Section "blog") -}}
+  {{- $post := dict
+    "@type" "BlogPosting"
+    "@id" (printf "%s#article" .Permalink)
+    "headline" .Title
+    "description" $description
+    "image" (partial "head/share-image.html" .)
+    "datePublished" (.PublishDate.Format $iso)
+    "dateModified" (.Lastmod.Format $iso)
+    "author" (dict "@id" $personID)
+    "publisher" (dict "@id" $personID)
+    "mainEntityOfPage" (dict "@id" .Permalink)
+    "isPartOf" (dict "@id" $websiteID)
+    "inLanguage" site.LanguageCode
+    "wordCount" .WordCount
+  -}}
+  {{- if ne .Lang "ru" -}}
+    {{- range where .Translations "Lang" "ru" -}}
+      {{- $post = merge $post (dict "translationOfWork" (dict "@type" "BlogPosting" "@id" (printf "%s#article" .Permalink) "url" .Permalink "inLanguage" "ru-RU")) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $graph = $graph | append $post -}}
+{{- end -}}
+
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
